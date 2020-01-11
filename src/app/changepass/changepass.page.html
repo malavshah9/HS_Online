@@ -1,0 +1,44 @@
+<ion-content>
+  <div style="background-color: #008000!important;height:100%;width:100%;text-align: center;vertical-align:middle;">
+    <BR>
+    <h2 style="color: yellow;">HONEST</h2>
+
+  
+  <br>
+  
+    
+    <h3>&nbsp;Reset Password</h3>
+   
+<br>
+      
+         
+        <ion-item color="#008000">
+          <ion-input [clearInput]="true" style="font-size:17px;" placeholder=" Old Password" type="password" [(ngModel)]="password"
+            [required]="true"></ion-input>
+        </ion-item>
+        
+        <ion-item color="#008000">
+          <ion-input [clearInput]="true" style="font-size:17px;" placeholder="New Password" type="password" [(ngModel)]="password"
+            [required]="true"></ion-input>
+        </ion-item>
+        
+        <ion-item color="#008000">
+          <ion-input [clearInput]="true" style="font-size:17px;" placeholder="Confirm Password" type="password" [(ngModel)]="password"
+            [required]="true"></ion-input>
+        </ion-item>
+       <br>
+        <ion-button expand="block" shape="round"  color="danger" style="color:rgb(255, 38, 0);height:30px;" (click)="onClick()">
+          Change&nbsp;&nbsp;
+          <ion-icon name="Send"></ion-icon>
+        </ion-button>
+        <ion-button  expand="block" shape="round"  color="danger" style="color:rgb(255, 38, 0);height:30px;" (click)="onCancel()">
+          Cancel&nbsp;&nbsp;
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-button>
+        
+  
+    
+</div>
+</ion-content>
+
+
