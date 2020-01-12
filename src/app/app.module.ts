@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { UserDbService } from './user-db.service';
-
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +23,7 @@ import { UserDbService } from './user-db.service';
     
   ],
   providers: [
+    ScreenOrientation,
     StatusBar,
     SplashScreen,
     UserDbService,

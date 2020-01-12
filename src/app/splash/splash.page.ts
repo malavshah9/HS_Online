@@ -15,10 +15,9 @@ export class SplashPage implements OnInit {
   constructor(public modalCtrl:ModalController,public splashscreen:SplashScreen,public route:Router) { }
 
   ngOnInit() {
-    this.splashscreen.hide();
-
+    // this.splashscreen.hide();
     timer(5000).subscribe(()=>{
-      console.log("aayu");
+      // console.log("aayu");
       this.route.navigateByUrl('/home');
     });
   }
