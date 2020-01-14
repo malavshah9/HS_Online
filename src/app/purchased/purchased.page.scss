@@ -1,4 +1,4 @@
-ion-grid{
+/* ion-grid{
     ion-card{
         width:50%;
         // height: 100%;
@@ -10,4 +10,22 @@ ion-grid{
     }
     margin-left: -20px;
     // width: 900px;
+} */
+
+ion-row {
+  ion-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    ion-card-header{
+        margin-top: -10px;
+        margin-bottom: -5px;
+    }
+    ion-card-content{
+        /* margin-top: -15px; */
+        /* padding: -1px !important; */ 
+    }
+    
+  }
 }
+
