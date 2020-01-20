@@ -56,11 +56,15 @@ export class AppComponent {
      public route:Router
   ) {
     this.initializeApp();
+    this.splashScreen.show();
   }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      // this.splashScreen.hide();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 5000);
     });
   }
 }

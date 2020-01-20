@@ -612,12 +612,16 @@ var AppComponent = /** @class */ (function () {
         this.statusBar = statusBar;
         this.route = route;
         this.initializeApp();
+        this.splashScreen.show();
     }
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
             _this.statusBar.styleDefault();
-            _this.splashScreen.hide();
+            // this.splashScreen.hide();
+            setTimeout(function () {
+                _this.splashScreen.hide();
+            }, 5000);
         });
     };
     AppComponent.ctorParameters = function () { return [

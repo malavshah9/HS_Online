@@ -603,11 +603,15 @@ let AppComponent = class AppComponent {
         this.statusBar = statusBar;
         this.route = route;
         this.initializeApp();
+        this.splashScreen.show();
     }
     initializeApp() {
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
-            this.splashScreen.hide();
+            // this.splashScreen.hide();
+            setTimeout(() => {
+                this.splashScreen.hide();
+            }, 5000);
         });
     }
 };

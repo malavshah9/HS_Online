@@ -64,6 +64,7 @@ span{
   background-color: yellow;
   color: black;
   border-radius: 20px;
+  float: right;
   // background-size: auto;
 }
 ion-card{
@@ -71,7 +72,7 @@ ion-card{
   
 }
 .center-class{
-  display: flex !important;
+  // display: flex !important;
 justify-content: center !important;
 align-items: center !important;
 height: 100%;

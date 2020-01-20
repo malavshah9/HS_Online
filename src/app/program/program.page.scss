@@ -1,16 +1,37 @@
 .bottomRow
 {
-  margin-top: -50px;
+  margin-top: -35px;
 }
 .bottomRow2
 {
-  margin-bottom: -5px;
+  // margin-bottom: -5px;
+  // float:left;
+  margin-left: 10px;
 }
 img{
   border-radius: 10px;
+  background-color: #008000;
 }
 .special-bottom-button{
   position: relative;
-  bottom:   -55px;
-  left: 5%;
+  bottom:   -70px;
+  // left: 5%;
+  height:30px;
+  // margin-left: -10px;
+  // float:bottom;
+}
+.container {  
+  margin-left:10px;
+  font-size: 12px;
+  display: grid;  
+  grid-template-columns: 110px 125px 145px 215px 120px;  
+  margin-bottom: -20px;
+  // grid-template-rows: 50px 50px;  
+}
+.special-span{
+  margin-right: 40%;
+}
+.special-span2{
+  margin-left: 65%;
+  // margin-top: -20px;
 }
