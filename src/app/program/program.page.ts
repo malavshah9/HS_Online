@@ -22,7 +22,7 @@ export class ProgramPage implements OnInit {
   }
   ionViewWillLeave(){
     // this.statusBar.show();
-    this.statusBar.styleDefault();
+    // this.statusBar.styleDefault();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
   onLogout(){

@@ -607,8 +607,9 @@ let AppComponent = class AppComponent {
     }
     initializeApp() {
         this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
+            // this.statusBar.styleDefault();
             // this.splashScreen.hide();
+            this.statusBar.hide();
             setTimeout(() => {
                 this.splashScreen.hide();
             }, 5000);

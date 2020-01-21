@@ -617,8 +617,9 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
-            _this.statusBar.styleDefault();
+            // this.statusBar.styleDefault();
             // this.splashScreen.hide();
+            _this.statusBar.hide();
             setTimeout(function () {
                 _this.splashScreen.hide();
             }, 5000);

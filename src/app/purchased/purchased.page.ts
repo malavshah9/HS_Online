@@ -19,7 +19,7 @@ export class PurchasedPage implements OnInit {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   ionViewWillLeave(){
-    this.statusBar.styleDefault();
+    // this.statusBar.styleDefault();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
   onExit(){
