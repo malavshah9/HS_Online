@@ -22,20 +22,27 @@
           
           <!-- <ion-col col-2></ion-col>  -->
           <ion-col>   
+            <form [formGroup]="loginForm">
             <h3>&nbsp;Log In</h3>
                  <ion-item color="#008000">
-                  <ion-input  style="font-size:17px; color:white;" placeholder="Username" type="text" [(ngModel)]="name" [required]="true"></ion-input>
+                  <ion-input  style="font-size:17px; color:white;" [clearInput]="true" formControlName="username" id="username" placeholder="Username" type="text" [required]="true"></ion-input>
+                  <div *ngIf="loginForm.get('username').required">
+                    User Name is required.
+                  </div>
                 </ion-item>
                 <br>
                 <ion-item color="#008000" >
-                  <ion-input  style="font-size:17px; color:white;" [clearInput]="true"  placeholder="Password" type="password" [(ngModel)]="password"
-                    [required]="true"></ion-input>
+                  <ion-input  style="font-size:17px; color:white;" [clearInput]="true" formControlName="password" id="password" placeholder="Password" type="password" [required]="true"></ion-input>
+                  <div *ngIf="loginForm.get('password').required">
+                    Password is required.
+                  </div>
                 </ion-item>
                <br>
-                <ion-button class="special-ion-button" expand="block" color="danger" style="color:rgb(255, 38, 0);height:30px;" (click)="onClick()">
+                <ion-button class="special-ion-button" expand="block" color="danger" type="submit" style="color:rgb(255, 38, 0);height:30px;" (click)="onClick()">
                   Log In&nbsp;&nbsp;
                   <ion-icon name="Send"></ion-icon>
                 </ion-button>
+              </form>
               </ion-col>    
           <!-- <ion-col col-3></ion-col> -->
           </ion-row>
