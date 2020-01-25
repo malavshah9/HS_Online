@@ -26,19 +26,21 @@
             <h3>&nbsp;Log In</h3>
                  <ion-item color="#008000">
                   <ion-input  style="font-size:17px; color:white;" [clearInput]="true" formControlName="username" id="username" placeholder="Username" type="text" [required]="true"></ion-input>
-                  <div *ngIf="loginForm.get('username').required">
-                    User Name is required.
+                  <div class="error" *ngIf="!loginForm.get('username').valid &&
+                  (loginForm.get('username').dirty || loginForm.get('username').touched)">  
+                  User Name is required.
                   </div>
                 </ion-item>
                 <br>
                 <ion-item color="#008000" >
                   <ion-input  style="font-size:17px; color:white;" [clearInput]="true" formControlName="password" id="password" placeholder="Password" type="password" [required]="true"></ion-input>
-                  <div *ngIf="loginForm.get('password').required">
+                  <div class="error" *ngIf="!loginForm.get('password').valid &&
+                  (loginForm.get('password').dirty || loginForm.get('password').touched)">
                     Password is required.
                   </div>
                 </ion-item>
                <br>
-                <ion-button class="special-ion-button" expand="block" color="danger" type="submit" style="color:rgb(255, 38, 0);height:30px;" (click)="onClick()">
+                <ion-button class="special-ion-button" [disabled]="!loginForm.valid" expand="block" color="danger" type="submit" style="color:rgb(255, 38, 0);height:30px;" (click)="onClick()">
                   Log In&nbsp;&nbsp;
                   <ion-icon name="Send"></ion-icon>
                 </ion-button>

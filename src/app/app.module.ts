@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserDbService } from './user-db.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    
   ],
   providers: [
     ScreenOrientation,
