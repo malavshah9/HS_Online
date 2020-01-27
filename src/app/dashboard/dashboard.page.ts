@@ -7,10 +7,15 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
-
-  constructor(public route: Router) { }
+  userName:String;
+  constructor(public route: Router) { 
+    this.userName=localStorage.getItem('UserName');
+  }
 
   ngOnInit() {
+  }
+  ionViewDidEnter(){
+    this.userName=localStorage.getItem('UserName');
   }
   onPurchased()
 {
@@ -27,6 +32,7 @@ onChange()
 }
 onLogout()
 {
+  localStorage.clear();
   this.route.navigateByUrl('');
 }
 

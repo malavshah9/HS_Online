@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n    <h4 style=\"color:white;\" class=\"bottomRow2\">12:30 PM &nbsp;&nbsp;11:03&nbsp;12-01-2020  &nbsp;1:18:57\r\n      <span  style=\"margin-right: 10px;\">&nbsp;ID : Parth&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;BALANCE : 0 &nbsp;&nbsp;</span></h4>\r\n      <ion-grid style=\"height: 55%; width:100%;clear: both; margin-top: -10%\">\r\n      <ion-row>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/1.jpeg\"  width=\"95%\" height=\"75%\" />\r\n          <ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/2.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/3.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/4.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/5.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row class=\"bottomRow\">\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/6.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/7.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/8.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/9.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/10.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n    <div class=\"container\">  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"tertiary\" style=\"color:purple;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"exit\"></ion-icon>Exit\r\n      </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"danger\" style=\"color:rgb(1.755, 38, 0);\" (click)=\"onpro()\">\r\n        <ion-icon name=\"nuclear\"></ion-icon>Clear\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"dark\"  style=\"color:lightskyblue;\" (click)=\"onChange()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"primary\" style=\"color:yellow;\" (click)=\"onPurchased()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Double Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"warning\" style=\"color:black;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>Submit \r\n        </ion-button></div>  \r\n    </div>\r\n  </div>\r\n"
+module.exports = "  <div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n    <h4 style=\"color:white;\" class=\"bottomRow2\">{{draw_hour}}:{{draw_minute<=9?draw_minute+'0' : draw_minute}} {{am_or_pm}} &nbsp;&nbsp;{{remaining_minute}}:03&nbsp;{{current_date}}  &nbsp;{{current_hour}}:{{current_minute}}:{{current_second}}\r\n      <span  style=\"margin-right: 10px;\">&nbsp;ID : {{userName}}&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;BALANCE : 0 &nbsp;&nbsp;</span></h4>\r\n      <ion-grid style=\"height: 55%; width:100%;clear: both; margin-top: -10%\">\r\n      <ion-row>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/1.jpeg\"  width=\"95%\" height=\"75%\" />\r\n          <ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/2.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/3.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/4.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/5.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row class=\"bottomRow\">\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/6.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/7.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/8.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/9.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/10.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n    <div class=\"container\">  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"tertiary\" style=\"color:purple;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"exit\"></ion-icon>Exit\r\n      </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"danger\" style=\"color:rgb(1.755, 38, 0);\" (click)=\"onpro()\">\r\n        <ion-icon name=\"nuclear\"></ion-icon>Clear\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"dark\"  style=\"color:lightskyblue;\" (click)=\"onChange()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"primary\" style=\"color:yellow;\" (click)=\"onPurchased()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Double Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"warning\" style=\"color:black;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>Submit \r\n        </ion-button></div>  \r\n    </div>\r\n  </div>\r\n"
 
 /***/ }),
 
@@ -94,14 +94,104 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var ProgramPage = /** @class */ (function () {
+    // draw_hour:number=0;
+    // draw_minute:number=0;
+    // am_or_pm:string="";
+    // current_date:string="";
+    // current_hour:number=0;
+    // current_minute:number=0;
+    // current_second:number=0;
+    // remaining_minute:number=0;
+    // remaining_second:number=0;
+    // dateInterval:number=0;
     function ProgramPage(route, statusBar, screenOrientation) {
         this.route = route;
         this.statusBar = statusBar;
         this.screenOrientation = screenOrientation;
+        this.userName = localStorage.getItem('UserName');
     }
     ProgramPage.prototype.ngOnInit = function () {
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+        // this.setDrawTimer();
+        // this.setCurrentDate();
+        // this.setCurrentTime();
+        // setInterval(()=>{
+        //   this.setCurrentTime();
+        // },1000);
+        // setInterval(()=>{
+        //   this.setDrawTimer();
+        // },this.remaining_minute*1000);
+        // setInterval(()=>{
+        //   this.setCurrentDate();
+        // },this.dateInterval)
     };
+    // setDrawTimer(){
+    //   let today=new Date();
+    //   let minute=today.getMinutes();
+    //   if(minute>=45 && minute<=59){
+    //     this.draw_hour=this.addHours(today,1);
+    //   }
+    //   else{
+    //     this.draw_hour=today.getHours();
+    //   }
+    //   this.am_or_pm=this.draw_hour>=12?"PM":"AM";
+    //   let number_hour=+this.draw_hour;
+    //   number_hour=number_hour%12;
+    //   number_hour=number_hour?number_hour:12;
+    //   // this.draw_hour=number_hour<=9?'0'+number_hour.toString():number_hour.toString();
+    //   console.log(" this.draw_hour ",this.draw_hour);
+    //   let currentMinutes=today.getMinutes();
+    //   if(currentMinutes>=0 && currentMinutes<=14){
+    //     this.draw_minute=15;
+    //   }
+    //   else if(currentMinutes>=15 && currentMinutes<=29){
+    //     this.draw_minute=30;
+    //   }
+    //   else if(currentMinutes>=30 && currentMinutes<=44){
+    //     this.draw_minute=45;
+    //   }
+    //   else{
+    //     this.draw_minute=0;
+    //   }
+    // }
+    // setCurrentTime(){
+    //   let date = new Date();
+    //   let hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+    //   let minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+    //   let seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+    //   hours=hours%12;
+    //   hours=hours?hours:12;
+    //   // this.current_hour=hours<=9?'0'+hours.toString():hours.toString();
+    //   // this.current_minute=minutes.toString();
+    //   // this.current_second=seconds.toString();
+    //   let number_draw_minute=+this.draw_minute;
+    //   let remain_minute=number_draw_minute-minutes;
+    //   this.remaining_minute=remain_minute;
+    //   // this.remaining_second="";
+    // }
+    // setCurrentDate(){
+    //   let today = new Date(); 
+    //   let dd = today.getDate(); 
+    //   let mm = today.getMonth() + 1; 
+    //   let yyyy = today.getFullYear(); 
+    //       if (dd < 10) { 
+    //           dd = '0' + dd; 
+    //       } 
+    //       if (mm < 10) { 
+    //           mm = '0' + mm; 
+    //       }
+    //   this.current_date='  '+dd + '-' + mm + '-' + yyyy;
+    //   let nextDay:Date=new Date(today.getDate()+1);
+    //   nextDay.setHours(0,0,0,0);
+    //   // this.dateInterval=(new Date(nextDay-new Date()).getHours()*60)+(new Date(nextDay-new Date()).getMinutes());
+    //   console.log("dateInterval ",this.dateInterval);
+    // }
+    // addHours(date:Date,hour){
+    //   let anotherDay=date.setTime(date.getTime()+(hour*60*60*100));
+    //   let dateAnother:Date=new Date(anotherDay);
+    //   console.log(" anotherDay ",anotherDay);
+    //   return dateAnother.getHours().toString();
+    // }
     ProgramPage.prototype.ionViewWillEnter = function () {
         this.statusBar.hide();
         // this.statusBar.overlaysWebView(true);

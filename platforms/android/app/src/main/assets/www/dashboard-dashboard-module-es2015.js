@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div style=\"background-color: #008000!important;height:100%;width:100%;text-align: center;\">\r\n    <ion-grid>\r\n      <ion-row justify-content-center align-items-center style='height: 100%; margin-top: 10%;'>\r\n        <ion-col>\r\n          <h3 style=\"color: white;\">Welcome : Parth</h3>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row justify-content-center align-items-center style='height: 100%; margin-top: 40%;'>\r\n      <!-- <ion-col col-2></ion-col>  -->\r\n      <ion-col> \r\n    \r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"danger\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onpro()\">\r\n    <ion-icon name=\"albums\"></ion-icon>&nbsp;Program\r\n  \r\n  </ion-button>\r\n <br>\r\n  <ion-button class=\"special-ion-button\" expand='block'  color=\"dark\"  style=\"color:lightskyblue;height:30px;\" (click)=\"onChange()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>&nbsp;Change Password\r\n    \r\n  </ion-button>\r\n<br>\r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"primary\" style=\"color:yellow;height:30px;\" (click)=\"onPurchased()\">\r\n    <ion-icon name=\"filing\"></ion-icon>&nbsp;Purchased History \r\n   \r\n  </ion-button>\r\n<br>\r\n<ion-button class=\"special-ion-button\" expand='block'  color=\"warning\" style=\"color:black;height:30px;\" (click)=\"onPurchased()\">\r\n  <ion-icon name=\"filing\"></ion-icon>&nbsp; Last Draw \r\n   \r\n </ion-button>\r\n<br>\r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"tertiary\" style=\"color:purple;height:30px;\" (click)=\"onLogout()\">\r\n    <ion-icon name=\"exit\"></ion-icon>&nbsp;  Log Out\r\n    \r\n  </ion-button>\r\n</ion-col>    \r\n<!-- <ion-col col-3></ion-col> -->\r\n</ion-row>\r\n</ion-grid>\r\n </div>\r\n\r\n\r\n"
+module.exports = "  <div style=\"background-color: #008000!important;height:100%;width:100%;text-align: center;\">\r\n    <ion-grid>\r\n      <ion-row justify-content-center align-items-center style='height: 100%; margin-top: 10%;'>\r\n        <ion-col>\r\n          <h3 style=\"color: white;\">Welcome : {{userName}}</h3>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row justify-content-center align-items-center style='height: 100%; margin-top: 40%;'>\r\n      <!-- <ion-col col-2></ion-col>  -->\r\n      <ion-col> \r\n    \r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"danger\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onpro()\">\r\n    <ion-icon name=\"albums\"></ion-icon>&nbsp;Program\r\n  \r\n  </ion-button>\r\n <br>\r\n  <ion-button class=\"special-ion-button\" expand='block'  color=\"dark\"  style=\"color:lightskyblue;height:30px;\" (click)=\"onChange()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>&nbsp;Change Password\r\n    \r\n  </ion-button>\r\n<br>\r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"primary\" style=\"color:yellow;height:30px;\" (click)=\"onPurchased()\">\r\n    <ion-icon name=\"filing\"></ion-icon>&nbsp;Purchased History \r\n   \r\n  </ion-button>\r\n<br>\r\n<ion-button class=\"special-ion-button\" expand='block'  color=\"warning\" style=\"color:black;height:30px;\" (click)=\"onPurchased()\">\r\n  <ion-icon name=\"filing\"></ion-icon>&nbsp; Last Draw \r\n   \r\n </ion-button>\r\n<br>\r\n  <ion-button class=\"special-ion-button\" expand='block'   color=\"tertiary\" style=\"color:purple;height:30px;\" (click)=\"onLogout()\">\r\n    <ion-icon name=\"exit\"></ion-icon>&nbsp;  Log Out\r\n    \r\n  </ion-button>\r\n</ion-col>    \r\n<!-- <ion-col col-3></ion-col> -->\r\n</ion-row>\r\n</ion-grid>\r\n </div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -89,8 +89,12 @@ __webpack_require__.r(__webpack_exports__);
 let DashboardPage = class DashboardPage {
     constructor(route) {
         this.route = route;
+        this.userName = localStorage.getItem('UserName');
     }
     ngOnInit() {
+    }
+    ionViewDidEnter() {
+        this.userName = localStorage.getItem('UserName');
     }
     onPurchased() {
         this.route.navigateByUrl('/purchased');
@@ -102,6 +106,7 @@ let DashboardPage = class DashboardPage {
         this.route.navigateByUrl('/changepass');
     }
     onLogout() {
+        localStorage.clear();
         this.route.navigateByUrl('');
     }
 };

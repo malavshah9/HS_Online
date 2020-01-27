@@ -24,9 +24,11 @@ export class HomePage {
     });
    }
   onClick() {
+    // this.route.navigateByUrl('/dashboard');
     this.user=new User(this.loginForm.get('username').value,this.loginForm.get('password').value);
     this.useDb.loginUser(this.user).subscribe(async (data:any)=>{
       let t1:HTMLIonToastElement;
+      console.log(data);
       if(data.result) {
         this.route.navigateByUrl('/dashboard');
         t1 = await this.toast.create({
@@ -36,6 +38,8 @@ export class HomePage {
           closeButtonText: 'Okay',
           color: 'success'
         });
+        localStorage.setItem('UserId',data.UserId);
+        localStorage.setItem('UserName',data.UserName);
       }
       else {
         t1 = await this.toast.create({

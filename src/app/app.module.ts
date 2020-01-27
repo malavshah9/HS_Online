@@ -9,7 +9,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { UserDbService } from './user-db.service';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,7 +25,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ScreenOrientation,
     StatusBar,
     SplashScreen,
-    UserDbService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

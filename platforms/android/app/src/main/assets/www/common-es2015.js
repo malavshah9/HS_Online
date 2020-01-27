@@ -774,6 +774,62 @@ const findCheckedOption = (el, tagName) => {
 
 
 
+/***/ }),
+
+/***/ "./src/app/services/user-db.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/user-db.service.ts ***!
+  \*********************************************/
+/*! exports provided: UserDbService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserDbService", function() { return UserDbService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let UserDbService = class UserDbService {
+    constructor(httpClient) {
+        this.httpClient = httpClient;
+        this.urllogin = "https://honestonline.in/api/index.php/login";
+        // private urllogin: string = "http://localhost/HS_Online_Backend/index.php/login";
+        this.urlHistory = "https://honestonline.in/api/index.php/history";
+        this.urlChangePass = "https://honestonline.in/api/index.php/user/";
+    }
+    loginUser(user) {
+        const body = JSON.stringify(user);
+        return this.httpClient.post(this.urllogin, body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
+        });
+    }
+    getHistory() {
+        return this.httpClient.get(this.urlHistory, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
+        });
+    }
+    changePassword(pass, userId) {
+        const body = JSON.stringify(pass);
+        return this.httpClient.put(this.urlChangePass + userId, body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
+        });
+    }
+};
+UserDbService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+UserDbService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], UserDbService);
+
+
+
 /***/ })
 
 }]);

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div class=\"center-class\" style=\" background-color:#008000 !important; height: 100%; width: 100%;\">\r\n    \r\n    <!-- <h2 style=\"color: yellow;\">HONEST</h2>  \r\n    <h3>&nbsp;Log In to Your Account</h3>\r\n         <ion-item color=\"#008000\">\r\n          <ion-input  style=\"font-size:17px; color:white;\" placeholder=\"Email Id\" type=\"text\" [(ngModel)]=\"name\" [required]=\"true\"></ion-input>\r\n        </ion-item>\r\n        <br>\r\n        <ion-item color=\"#008000\" >\r\n          <ion-input  style=\"font-size:17px; color:white;\" [clearInput]=\"true\"  placeholder=\"Password\" type=\"password\" [(ngModel)]=\"password\"\r\n            [required]=\"true\"></ion-input>\r\n        </ion-item>\r\n       <br>\r\n        <ion-button expand=\"block\" color=\"danger\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onClick()\">\r\n          Log In&nbsp;&nbsp;\r\n          <ion-icon name=\"Send\"></ion-icon>\r\n        </ion-button> -->\r\n        <ion-grid>\r\n          <ion-row justify-content-center align-items-center><img src=\"../../assets/icon/icon.png\" height=\"30%\" width=\"30%\" style=\"margin-top: 25%;\" /></ion-row>\r\n          <ion-row justify-content-center align-items-center style='text-align: center;'><ion-col><span style=\"color: yellow; font-size: 30px; text-align: center; float: none; background-color: #008000;\">HONEST</span> <br></ion-col></ion-row>\r\n          <ion-row justify-content-center align-items-center style='text-align: center;'>\r\n          \r\n          <!-- <ion-col col-2></ion-col>  -->\r\n          <ion-col>   \r\n            <h3>&nbsp;Log In</h3>\r\n                 <ion-item color=\"#008000\">\r\n                  <ion-input  style=\"font-size:17px; color:white;\" placeholder=\"Username\" type=\"text\" [(ngModel)]=\"name\" [required]=\"true\"></ion-input>\r\n                </ion-item>\r\n                <br>\r\n                <ion-item color=\"#008000\" >\r\n                  <ion-input  style=\"font-size:17px; color:white;\" [clearInput]=\"true\"  placeholder=\"Password\" type=\"password\" [(ngModel)]=\"password\"\r\n                    [required]=\"true\"></ion-input>\r\n                </ion-item>\r\n               <br>\r\n                <ion-button class=\"special-ion-button\" expand=\"block\" color=\"danger\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onClick()\">\r\n                  Log In&nbsp;&nbsp;\r\n                  <ion-icon name=\"Send\"></ion-icon>\r\n                </ion-button>\r\n              </ion-col>    \r\n          <!-- <ion-col col-3></ion-col> -->\r\n          </ion-row>\r\n          </ion-grid>\r\n</div>"
+module.exports = "  <div class=\"center-class\" style=\" background-color:#008000 !important; height: 100%; width: 100%;\">\r\n    \r\n    <!-- <h2 style=\"color: yellow;\">HONEST</h2>  \r\n    <h3>&nbsp;Log In to Your Account</h3>\r\n         <ion-item color=\"#008000\">\r\n          <ion-input  style=\"font-size:17px; color:white;\" placeholder=\"Email Id\" type=\"text\" [(ngModel)]=\"name\" [required]=\"true\"></ion-input>\r\n        </ion-item>\r\n        <br>\r\n        <ion-item color=\"#008000\" >\r\n          <ion-input  style=\"font-size:17px; color:white;\" [clearInput]=\"true\"  placeholder=\"Password\" type=\"password\" [(ngModel)]=\"password\"\r\n            [required]=\"true\"></ion-input>\r\n        </ion-item>\r\n       <br>\r\n        <ion-button expand=\"block\" color=\"danger\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onClick()\">\r\n          Log In&nbsp;&nbsp;\r\n          <ion-icon name=\"Send\"></ion-icon>\r\n        </ion-button> -->\r\n        <ion-grid>\r\n          <ion-row justify-content-center align-items-center><img src=\"../../assets/icon/icon.png\" height=\"30%\" width=\"30%\" style=\"margin-top: 25%;\" /></ion-row>\r\n          <ion-row justify-content-center align-items-center style='text-align: center;'><ion-col><span style=\"color: yellow; font-size: 30px; text-align: center; float: none; background-color: #008000;\">HONEST</span> <br></ion-col></ion-row>\r\n          <ion-row justify-content-center align-items-center style='text-align: center;'>\r\n          \r\n          <!-- <ion-col col-2></ion-col>  -->\r\n          <ion-col>   \r\n            <form [formGroup]=\"loginForm\">\r\n            <h3>&nbsp;Log In</h3>\r\n                 <ion-item color=\"#008000\">\r\n                  <ion-input  style=\"font-size:17px; color:white;\" [clearInput]=\"true\" formControlName=\"username\" id=\"username\" placeholder=\"Username\" type=\"text\" [required]=\"true\"></ion-input>\r\n                  <div class=\"error\" *ngIf=\"!loginForm.get('username').valid &&\r\n                  (loginForm.get('username').dirty || loginForm.get('username').touched)\">  \r\n                  User Name is required.\r\n                  </div>\r\n                </ion-item>\r\n                <br>\r\n                <ion-item color=\"#008000\" >\r\n                  <ion-input  style=\"font-size:17px; color:white;\" [clearInput]=\"true\" formControlName=\"password\" id=\"password\" placeholder=\"Password\" type=\"password\" [required]=\"true\"></ion-input>\r\n                  <div class=\"error\" *ngIf=\"!loginForm.get('password').valid &&\r\n                  (loginForm.get('password').dirty || loginForm.get('password').touched)\">\r\n                    Password is required.\r\n                  </div>\r\n                </ion-item>\r\n               <br>\r\n               <!-- [disabled]=\"!loginForm.valid\" -->\r\n                <ion-button class=\"special-ion-button\" [disabled]=\"!loginForm.valid\"  expand=\"block\" color=\"danger\" type=\"submit\" style=\"color:rgb(255, 38, 0);height:30px;\" (click)=\"onClick()\">\r\n                  Log In&nbsp;&nbsp;\r\n                  <ion-icon name=\"Send\"></ion-icon>\r\n                </ion-button>\r\n              </form>\r\n              </ion-col>    \r\n          <!-- <ion-col col-3></ion-col> -->\r\n          </ion-row>\r\n          </ion-grid>\r\n</div>"
 
 /***/ }),
 
@@ -41,6 +41,8 @@ HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild([
@@ -82,19 +84,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user-db.service */ "./src/app/services/user-db.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _shared_User_class__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/User_class */ "./src/app/shared/User_class.ts");
+
+
+
+
 
 
 
 let HomePage = class HomePage {
-    constructor(route) {
+    constructor(route, useDb, toast, formBuilder) {
         this.route = route;
+        this.useDb = useDb;
+        this.toast = toast;
+        this.formBuilder = formBuilder;
+        this.loginForm = this.formBuilder.group({
+            'username': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
+            ])),
+            'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
+            ]))
+        });
     }
     onClick() {
-        this.route.navigateByUrl('/dashboard');
+        // this.route.navigateByUrl('/dashboard');
+        this.user = new _shared_User_class__WEBPACK_IMPORTED_MODULE_6__["User"](this.loginForm.get('username').value, this.loginForm.get('password').value);
+        this.useDb.loginUser(this.user).subscribe((data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            let t1;
+            console.log(data);
+            if (data.result) {
+                this.route.navigateByUrl('/dashboard');
+                t1 = yield this.toast.create({
+                    message: "Successfull Login!",
+                    duration: 1000,
+                    showCloseButton: true,
+                    closeButtonText: 'Okay',
+                    color: 'success'
+                });
+                localStorage.setItem('UserId', data.UserId);
+                localStorage.setItem('UserName', data.UserName);
+            }
+            else {
+                t1 = yield this.toast.create({
+                    message: "Invalid User Name or Password!",
+                    duration: 1000,
+                    showCloseButton: true,
+                    closeButtonText: 'Okay',
+                    color: 'success'
+                });
+            }
+            t1.present();
+        }), err => {
+            console.log(err);
+        });
     }
 };
 HomePage.ctorParameters = () => [
-    { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+    { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__["UserDbService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
 ];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -102,9 +155,33 @@ HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.page.html"),
         styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__["UserDbService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
 ], HomePage);
 
+
+
+/***/ }),
+
+/***/ "./src/app/shared/User_class.ts":
+/*!**************************************!*\
+  !*** ./src/app/shared/User_class.ts ***!
+  \**************************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+class User {
+    constructor(UserName, UserPassword) {
+        this.UserName = UserName;
+        this.UserPassword = UserPassword;
+    }
+}
+User.ctorParameters = () => [
+    { type: String },
+    { type: String }
+];
 
 
 /***/ })

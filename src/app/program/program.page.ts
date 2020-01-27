@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['./program.page.scss'],
 })
 export class ProgramPage implements OnInit {
+  userName:String;
   // draw_hour:number=0;
   // draw_minute:number=0;
   // am_or_pm:string="";
@@ -18,7 +19,9 @@ export class ProgramPage implements OnInit {
   // remaining_minute:number=0;
   // remaining_second:number=0;
   // dateInterval:number=0;
-  constructor(public route: Router,private statusBar: StatusBar,private screenOrientation: ScreenOrientation) { }
+  constructor(public route: Router,private statusBar: StatusBar,private screenOrientation: ScreenOrientation) { 
+    this.userName=localStorage.getItem('UserName');
+  }
 
   ngOnInit() {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);

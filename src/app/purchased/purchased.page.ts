@@ -14,18 +14,24 @@ export class PurchasedPage implements OnInit {
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { }
 
   ngOnInit() {
-    this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
-      this.histories=data;
-    });
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   ionViewWillEnter(){
+    this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
+      console.log(" data ",data);
+      this.histories=data;
+    });
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   ionViewWillLeave(){
-    // this.statusBar.styleDefault();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+  }
+  doRefresh(event:any){
+    setTimeout(()=>{
+      this.ionViewWillEnter();
+      event.target.complete();
+    },1000);
   }
   onExit(){
     this.route.navigateByUrl('/dashboard');

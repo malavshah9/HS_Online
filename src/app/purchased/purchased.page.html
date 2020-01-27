@@ -1,4 +1,11 @@
 <ion-content >
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" 
+    pullingText="Pull to refresh" 
+    pullFactor="1.2"
+    refreshingText="Refreshing Content...">
+    </ion-refresher-content>
+  </ion-refresher>
   <div style="background-color: #008000; text-align: center;">
     <!-- <span style="margin-left: 30%;">
       &nbsp;&nbsp;ID : Parth&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp;BALANCE
@@ -8,132 +15,65 @@
     </ion-button>
     <!-- <div style="margin-right: -10px;"> -->
     <ion-grid class="grid" style="margin-left: 10px; margin-right: 10px;">
-      <ion-row >
-        <ion-col *ngFor="let item of histories">
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>{{item.DrawDate}}</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">{{item.DrawTime}} </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/1.jpeg" style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/2.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/3.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/4.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-
-        <ion-col >
-          <ion-card style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/5.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-        </ion-col>
-      </ion-row>
-      <ion-row style="margin-top: -15px;">
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/6.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/7.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/8.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/9.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-        <ion-col >
-          <ion-card  style="background-color: white; border-radius: 10px; width:130px;">
-            <!-- <ion-card-header> -->
-              <ion-card-subtitle>02-Jan</ion-card-subtitle>
-              <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle>
-            <!-- </ion-card-header> -->
-            <!-- <ion-card-content> -->
-              <img src="assets/icon/10.jpeg"  style="height: 140px;" />
-            <!-- </ion-card-content> -->
-          </ion-card>
-
-        </ion-col>
-      </ion-row>
+      <div *ngFor="let item of histories;let i=index;">
+        <ion-row *ngIf="i%5===0"  style="margin-top: -15px;">
+          <ion-col>
+            <ion-card  *ngIf="i<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
+                <ion-card-subtitle>{{histories[i].DrawDate}}</ion-card-subtitle>
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i].DrawTime}} </ion-card-subtitle>
+                <img src="assets/icon/{{histories[i].YantraImage}}" style="height: 140px;" />
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card  *ngIf="i+1<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
+                <ion-card-subtitle>{{histories[i+1].DrawDate}}</ion-card-subtitle>
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+1].DrawTime}}</ion-card-subtitle> 
+                <img src="assets/icon/{{histories[i+1].YantraImage}}" style="height: 140px;" />
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card  *ngIf="i+2<histories.length"  style="background-color: white; border-radius: 10px; width:130px;">
+                <ion-card-subtitle>{{histories[i+2].DrawDate}}</ion-card-subtitle>
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+2].DrawTime}} </ion-card-subtitle>
+                <img src="assets/icon/{{histories[i+2].YantraImage}}" style="height: 140px;" />
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card *ngIf="i+3<histories.length"  style="background-color: white; border-radius: 10px; width:130px;">
+                <ion-card-subtitle>{{histories[i+3].DrawDate}}</ion-card-subtitle>
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+3].DrawTime}} </ion-card-subtitle>
+                <img src="assets/icon/{{histories[i+3].YantraImage}}" style="height: 140px;" />
+            </ion-card>
+          </ion-col>
+          <ion-col>
+            <ion-card *ngIf="i+4<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
+                <ion-card-subtitle>{{histories[i+4].DrawDate}}</ion-card-subtitle>
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+4].DrawTime}} </ion-card-subtitle>
+                <img src="assets/icon/{{histories[i+4].YantraImage}}" style="height: 140px;" />
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
-    <!-- </div> -->
   </div>
-</ion-content>
+</ion-content>  
+  <!-- <ion-row *ngFor="let item of histories;let i=index;">  -->
+        <!-- <ion-col> -->
+          <!-- <ion-card  style="background-color: white; border-radius: 10px; width:130px;"> -->
+            <!-- <ion-card-header> -->
+               <!-- <ion-card-subtitle>{{item.DrawDate}}</ion-card-subtitle> -->
+              <!-- <ion-card-subtitle style="margin-top: -1px;">{{item.DrawTime}} </ion-card-subtitle> -->
+            <!-- </ion-card-header> -->
+            <!-- <ion-card-content> -->
+              <!-- <img src="assets/icon/1.jpeg" style="height: 140px;" /> -->
+            <!-- </ion-card-content> -->
+          <!-- </ion-card> -->
+        <!-- </ion-col>      -->
+      <!-- </ion-row> -->
+      
+    
+    <!-- </div> -->
+  
 
 
 
@@ -143,7 +83,53 @@
 
 
 
+<!-- <ion-col > -->
+  <!-- <ion-card  style="background-color: white; border-radius: 10px; width:130px;"> -->
+    <!-- <ion-card-header> -->
+      <!-- <ion-card-subtitle>02-Jan</ion-card-subtitle> -->
+      <!-- <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle> -->
+    <!-- </ion-card-header> -->
+    <!-- <ion-card-content> -->
+      <!-- <img src="assets/icon/2.jpeg"  style="height: 140px;" /> -->
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
+<!-- </ion-col> -->
+<!-- <ion-col > -->
+  <!-- <ion-card  style="background-color: white; border-radius: 10px; width:130px;"> -->
+    <!-- <ion-card-header> -->
+      <!-- <ion-card-subtitle>02-Jan</ion-card-subtitle> -->
+      <!-- <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle> -->
+    <!-- </ion-card-header> -->
+    <!-- <ion-card-content> -->
+      <!-- <img src="assets/icon/3.jpeg"  style="height: 140px;" /> -->
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
 
+<!-- </ion-col> -->
+<!-- <ion-col > -->
+  <!-- <ion-card  style="background-color: white; border-radius: 10px; width:130px;"> -->
+    <!-- <ion-card-header> -->
+      <!-- <ion-card-subtitle>02-Jan</ion-card-subtitle> -->
+      <!-- <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle> -->
+    <!-- </ion-card-header> -->
+    <!-- <ion-card-content> -->
+      <!-- <img src="assets/icon/4.jpeg"  style="height: 140px;" /> -->
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
+
+<!-- </ion-col> -->
+
+<!-- <ion-col > -->
+  <!-- <ion-card style="background-color: white; border-radius: 10px; width:130px;"> -->
+    <!-- <ion-card-header> -->
+      <!--  <ion-card-subtitle>02-Jan</ion-card-subtitle> -->
+      <!--  <ion-card-subtitle style="margin-top: -1px;">07:30 PM </ion-card-subtitle> -->
+    <!-- </ion-card-header> -->
+    <!-- <ion-card-content> -->
+      <!-- <img src="assets/icon/5.jpeg"  style="height: 140px;" /> -->
+    <!-- </ion-card-content> -->
+  <!-- </ion-card> -->
+<!-- </ion-col> -->
 
 
 
