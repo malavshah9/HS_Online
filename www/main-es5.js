@@ -19,6 +19,7 @@ var map = {
 	],
 	"./program/program.module": [
 		"./src/app/program/program.module.ts",
+		"common",
 		"program-program-module"
 	],
 	"./purchased/purchased.module": [

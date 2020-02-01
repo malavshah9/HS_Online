@@ -798,6 +798,7 @@ let UserDbService = class UserDbService {
         this.urllogin = "https://honestonline.in/api/index.php/login";
         // private urllogin: string = "http://localhost/HS_Online_Backend/index.php/login";
         this.urlHistory = "https://honestonline.in/api/index.php/history";
+        this.urlBalance = "https://honestonline.in/api/index.php/balance/";
         this.urlChangePass = "https://honestonline.in/api/index.php/user/";
     }
     loginUser(user) {
@@ -816,6 +817,9 @@ let UserDbService = class UserDbService {
         return this.httpClient.put(this.urlChangePass + userId, body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
         });
+    }
+    getBalance(uid) {
+        return this.httpClient.get(this.urlChangePass + uid);
     }
 };
 UserDbService.ctorParameters = () => [

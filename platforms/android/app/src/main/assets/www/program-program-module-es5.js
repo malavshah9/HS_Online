@@ -88,6 +88,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/user-db.service */ "./src/app/services/user-db.service.ts");
+
 
 
 
@@ -104,11 +106,19 @@ var ProgramPage = /** @class */ (function () {
     // remaining_minute:number=0;
     // remaining_second:number=0;
     // dateInterval:number=0;
-    function ProgramPage(route, statusBar, screenOrientation) {
+    function ProgramPage(route, statusBar, screenOrientation, userDb) {
+        var _this = this;
         this.route = route;
         this.statusBar = statusBar;
         this.screenOrientation = screenOrientation;
+        this.userDb = userDb;
+        this.userBalance = "0";
         this.userName = localStorage.getItem('UserName');
+        this.userDb.getBalance(localStorage.getItem('UserId')).subscribe(function (data) {
+            if (data.result) {
+                _this.userBalance = data.UserBalance;
+            }
+        });
     }
     ProgramPage.prototype.ngOnInit = function () {
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -209,7 +219,8 @@ var ProgramPage = /** @class */ (function () {
     ProgramPage.ctorParameters = function () { return [
         { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
         { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
-        { type: _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"] }
+        { type: _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"] },
+        { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"] }
     ]; };
     ProgramPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -217,7 +228,7 @@ var ProgramPage = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./program.page.html */ "./node_modules/raw-loader/index.js!./src/app/program/program.page.html"),
             styles: [__webpack_require__(/*! ./program.page.scss */ "./src/app/program/program.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"], _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"]])
     ], ProgramPage);
     return ProgramPage;
 }());

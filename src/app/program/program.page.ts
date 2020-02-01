@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { UserDbService } from '../services/user-db.service';
 @Component({
   selector: 'app-program',
   templateUrl: './program.page.html',
@@ -9,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class ProgramPage implements OnInit {
   userName:String;
+  userBalance:String="0";
   // draw_hour:number=0;
   // draw_minute:number=0;
   // am_or_pm:string="";
@@ -19,8 +21,13 @@ export class ProgramPage implements OnInit {
   // remaining_minute:number=0;
   // remaining_second:number=0;
   // dateInterval:number=0;
-  constructor(public route: Router,private statusBar: StatusBar,private screenOrientation: ScreenOrientation) { 
+  constructor(public route: Router,private statusBar: StatusBar,private screenOrientation: ScreenOrientation,private userDb:UserDbService) { 
     this.userName=localStorage.getItem('UserName');
+    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data:any)=>{
+      if(data.result){
+        this.userBalance=data.UserBalance;
+      }
+    });
   }
 
   ngOnInit() {

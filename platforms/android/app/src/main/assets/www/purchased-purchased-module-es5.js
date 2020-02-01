@@ -103,14 +103,13 @@ var PurchasedPage = /** @class */ (function () {
         this.userDb = userDb;
     }
     PurchasedPage.prototype.ngOnInit = function () {
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    };
-    PurchasedPage.prototype.ionViewWillEnter = function () {
         var _this = this;
+        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.userDb.getHistory().subscribe(function (data) {
-            console.log(" data ", data);
             _this.histories = data;
         });
+    };
+    PurchasedPage.prototype.ionViewWillEnter = function () {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     };
@@ -120,7 +119,7 @@ var PurchasedPage = /** @class */ (function () {
     PurchasedPage.prototype.doRefresh = function (event) {
         var _this = this;
         setTimeout(function () {
-            _this.ionViewWillEnter();
+            _this.ngOnInit();
             event.target.complete();
         }, 1000);
     };

@@ -15,12 +15,11 @@ export class PurchasedPage implements OnInit {
 
   ngOnInit() {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
-  ionViewWillEnter(){
     this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
-      console.log(" data ",data);
       this.histories=data;
     });
+  }
+  ionViewWillEnter(){
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
@@ -29,7 +28,7 @@ export class PurchasedPage implements OnInit {
   }
   doRefresh(event:any){
     setTimeout(()=>{
-      this.ionViewWillEnter();
+      this.ngOnInit();
       event.target.complete();
     },1000);
   }

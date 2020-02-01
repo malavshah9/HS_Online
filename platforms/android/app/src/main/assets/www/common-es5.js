@@ -544,6 +544,7 @@ var UserDbService = /** @class */ (function () {
         this.urllogin = "https://honestonline.in/api/index.php/login";
         // private urllogin: string = "http://localhost/HS_Online_Backend/index.php/login";
         this.urlHistory = "https://honestonline.in/api/index.php/history";
+        this.urlBalance = "https://honestonline.in/api/index.php/balance/";
         this.urlChangePass = "https://honestonline.in/api/index.php/user/";
     }
     UserDbService.prototype.loginUser = function (user) {
@@ -562,6 +563,9 @@ var UserDbService = /** @class */ (function () {
         return this.httpClient.put(this.urlChangePass + userId, body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
         });
+    };
+    UserDbService.prototype.getBalance = function (uid) {
+        return this.httpClient.get(this.urlChangePass + uid);
     };
     UserDbService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

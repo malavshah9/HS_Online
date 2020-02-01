@@ -10,6 +10,7 @@ export class UserDbService {
   private urllogin: string = "https://honestonline.in/api/index.php/login";
   // private urllogin: string = "http://localhost/HS_Online_Backend/index.php/login";
   private urlHistory: string = "https://honestonline.in/api/index.php/history";
+  private urlBalance: string="https://honestonline.in/api/index.php/balance/";
   private urlChangePass: string= "https://honestonline.in/api/index.php/user/";
   constructor(private httpClient:HttpClient) {}
 
@@ -29,6 +30,9 @@ export class UserDbService {
     return this.httpClient.put(this.urlChangePass+userId, body, {
       headers: new HttpHeaders().set("Content-type", "application/json")
     });
+  }
+  getBalance(uid){
+    return this.httpClient.get(this.urlChangePass+uid);
   }
 
 }

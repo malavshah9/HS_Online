@@ -101,12 +101,11 @@ let PurchasedPage = class PurchasedPage {
     }
     ngOnInit() {
         // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    }
-    ionViewWillEnter() {
         this.userDb.getHistory().subscribe((data) => {
-            console.log(" data ", data);
             this.histories = data;
         });
+    }
+    ionViewWillEnter() {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
@@ -115,7 +114,7 @@ let PurchasedPage = class PurchasedPage {
     }
     doRefresh(event) {
         setTimeout(() => {
-            this.ionViewWillEnter();
+            this.ngOnInit();
             event.target.complete();
         }, 1000);
     }
