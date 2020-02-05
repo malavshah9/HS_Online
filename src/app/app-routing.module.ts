@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'purchased', loadChildren: './purchased/purchased.module#PurchasedPageModule' },
   { path: 'program', loadChildren: './program/program.module#ProgramPageModule' },
   { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
-  { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' }
+  { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' },  { path: 'double-jackpot', loadChildren: './double-jackpot/double-jackpot.module#DoubleJackpotPageModule' }
+
 
 ];
 
