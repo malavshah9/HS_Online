@@ -1,3 +1,4 @@
+import { async } from '@angular/core/testing';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
@@ -171,9 +172,15 @@ export class ProgramPage implements OnInit {
         Number(localStorage.getItem('UserId')),
         'Normal'
       )).subscribe(
-        (data: any) => {
+        async (data: any) => {
           console.log(data);
-
+          if (data.result) {
+            const toast = await this.toastController.create({
+              message: 'Batting successfully!!',
+              duration: 2000
+            });
+            toast.present();
+          }
         },
         (err) => {
           console.log(err);
@@ -201,11 +208,10 @@ export class ProgramPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {
-            console.log('Confirm Cancel: blah');
           }
         }, {
           text: 'Okay',
-          handler: (data) => {
+          handler: async (data) => {
             const ticket = data.ticket;
             this.txt1 = ticket;
             this.txt2 = ticket;
@@ -217,37 +223,47 @@ export class ProgramPage implements OnInit {
             this.txt8 = ticket;
             this.txt9 = ticket;
             this.txt0 = ticket;
+
+            await this.programDb.submitDraw(
+              new DrawType(
+                Number(this.txt1),
+                Number(this.txt2),
+                Number(this.txt3),
+                Number(this.txt4),
+                Number(this.txt5),
+                Number(this.txt6),
+                Number(this.txt7),
+                Number(this.txt8),
+                Number(this.txt9),
+                Number(this.txt0),
+                Number(localStorage.getItem('UserId')),
+                'Jackpot'
+              )).subscribe(
+                async (val: any) => {
+                  console.log(val);
+                  if (val.result) {
+                    const toast = await this.toastController.create({
+                      message: 'Batting successfully!!',
+                      duration: 2000
+                    });
+                    toast.present();
+                  }
+
+                },
+                (err) => {
+                  console.log(err);
+                },
+                () => {
+
+                }
+              );
           }
         }
       ]
     });
 
     await alert.present();
-    // this.programDb.submitDraw(
-    //   new DrawType(
-    //     this.txt1,
-    //     this.txt2,
-    //     this.txt3,
-    //     this.txt4,
-    //     this.txt5,
-    //     this.txt6,
-    //     this.txt7,
-    //     this.txt8,
-    //     this.txt9,
-    //     this.txt0,
-    //     localStorage.getItem('UserId'),
-    //     'Jackpot'
-    //   )).subscribe(
-    //     (data: any) => {
-    //       console.log(data);
-    //     },
-    //     (err) => {
-    //       console.log(err);
-    //     },
-    //     () => {
 
-    //     }
-    //   );
 
   }
 }

@@ -1,533 +1,61 @@
 <div style="background-color: #008000; width: 100%; height: 100%;">
   <ion-grid>
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">11</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">12</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">13</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">14</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">15</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">16</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">17</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">18</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">19</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">10</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
+    <form [formGroup]="doubleJackpotForm">
+    <div *ngFor="let item of doubleJackpotForm.controls.jackpots.controls;let i=index;">
+      <ion-row *ngIf="i%10===0" align-items-center>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i}}" >
+            </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+1]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+2]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+3]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+4]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+5]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+6]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+7]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+8]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
+        <ion-col>
+          <label class="font-bold m-0" style="color: white;">{{myIndex[i+9]}}</label>
+          <ion-input maxlength="5" class="yantratext" type="number">
+          </ion-input>
+        </ion-col>
 
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">21</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">22</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">23</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">24</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">25</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">26</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">27</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">28</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">29</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">20</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">31</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">32</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">33</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">34</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">35</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">36</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">37</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">38</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">39</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">30</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">41</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">42</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">43</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">44</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">45</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">46</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">47</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">48</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">49</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">40</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">51</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">52</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">53</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">54</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">55</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">56</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">57</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">58</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">59</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">50</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">61</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">62</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">63</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">64</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">65</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">66</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">67</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">68</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">69</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">60</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">11</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">12</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">13</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">14</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">15</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">16</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">17</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">18</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">19</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">20</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">11</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">12</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">13</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">14</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">15</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">16</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">17</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">18</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">19</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">20</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">11</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">12</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">13</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">14</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">15</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">16</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">17</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">18</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">19</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">20</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
-
-    <ion-row align-items-center>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">11</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">12</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">13</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">14</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">15</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">16</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">17</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">18</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">19</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-      <ion-col align-self-center>
-        <label class="font-bold m-0" style="color: white;">20</label>
-        <ion-input maxlength="5" class="yantratext" type="number">
-        </ion-input>
-      </ion-col>
-    </ion-row>
+      </ion-row>
+    </div>
+  </form>
   </ion-grid>
 </div>
