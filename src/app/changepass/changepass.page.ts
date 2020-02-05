@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
 import { UserDbService } from '../services/user-db.service';
 import { ToastController } from '@ionic/angular';
-import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { Password } from '../shared/Password_class';
 
 @Component({
@@ -29,9 +29,7 @@ export class ChangepassPage implements OnInit {
   ionViewDidEnter(){
     this.userName=localStorage.getItem('UserName');
   }
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
   async onClick(){
     let newPassword=this.changeForm.get('newPassword').value;
     let confirmNewPassword=this.changeForm.get('confirmNewPassword').value;
