@@ -9,10 +9,8 @@ import { Router } from '@angular/router';
 })
 
 export class DoubleJackpotPage implements OnInit {
-  jackPotControls: FormArray[] = [];
   myIndex: String[] = [];
-  doubleJackpotForm: FormGroup;
-  myControls:FormControl[]=[];
+  angForm: FormGroup;
   constructor(    private fb: FormBuilder ,public route: Router   ) {
     for (let i = 11; i <= 100; i++){
       if (i % 10 === 0) {
@@ -25,27 +23,32 @@ export class DoubleJackpotPage implements OnInit {
     for (let i = 1; i <= 9; i++){
       this.myIndex.push("0" + i);
     }
-   
     this.myIndex.push("00");
-    
-    this.doubleJackpotForm = new FormGroup({
-      jackpots:new FormArray([])
+    this.angForm = new FormGroup({
+      names: new FormArray([])
     });
-  }
-  get addDynamicElement() {
-    return this.doubleJackpotForm.get('jackpots') as FormArray
+    for(let i=0;i<100;i++){
+      this.doubleJackpot();
+    }
   }
   onExit(){
     this.route.navigateByUrl('/program');
   }
-  addItems(){
-    this.addDynamicElement.push(this.fb.control(''))
+  get names(): FormArray {
+    return this.angForm.get('names') as FormArray;
+  }
+  doubleJackpot() { 
+    this.names.push(new FormControl('')); 
+  }
+  onSubmit(){
+    for (let i = 0; i <this.names.length; i++) {
+      console.log(this.names.at(i).value);
+    }
   }
   ngOnInit() {
-    for(let i=0;i<100;i++){
-      this.addItems();
-    }
-    console.log(this.doubleJackpotForm);
+    
+    console.log(this.angForm);
+    console.log(this.angForm.controls.names);
   }
 
 }

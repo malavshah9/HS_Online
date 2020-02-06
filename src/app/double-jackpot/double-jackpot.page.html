@@ -1,8 +1,10 @@
 <ion-content>
 <div style="background-color: #008000; width: 100%; height: 100%;">
   <ion-grid>
-    <form [formGroup]="doubleJackpotForm">
-    <div *ngFor="let item of doubleJackpotForm.controls.jackpots.controls;let i=index;">
+    
+    <form [formGroup] = "angForm" (ngSubmit)="onSubmit()">
+      <div formArrayName="names">
+    <div *ngFor="let name of names.controls; index as i" >
       <ion-row *ngIf="i%10===0" align-items-center>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i]}}</label>
@@ -11,53 +13,54 @@
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+1]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+1}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+2]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+2}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+3]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+3}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+4]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+4}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+5]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+5}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+6]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+6}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+7]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+7}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+8]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+8}}">
           </ion-input>
         </ion-col>
         <ion-col>
           <label class="font-bold m-0" style="color: white;">{{myIndex[i+9]}}</label>
-          <ion-input maxlength="5" class="yantratext" type="number">
+          <ion-input maxlength="5" class="yantratext" type="number" formControlName="{{i+9}}">
           </ion-input>
         </ion-col>
 
       </ion-row>
     </div>
-  </form>
+    </div>
+  
   <ion-row>
     <ion-col>
   <ion-button class="special-bottom-button" shape="round" color="warning" style="color:black;" (click)="onSubmit()">
@@ -67,6 +70,7 @@
     <ion-icon name="checkbox-outline"></ion-icon>Exit
   </ion-button>
 </ion-col></ion-row>
-  </ion-grid>
+</form>  
+</ion-grid>
 </div>
 </ion-content>

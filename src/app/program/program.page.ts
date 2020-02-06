@@ -171,7 +171,15 @@ export class ProgramPage implements OnInit {
       )).subscribe(
         (data: any) => {
           if(data.result){
-            battingAlert.message="Batting Successfully!!!"
+            battingAlert.message="Batting Successfully!!!";
+            this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+              if (data.result) {
+                this.userBalance = data.UserBalance;
+              }
+            });
+          }
+          else if(data.reason==405){
+            battingAlert.message="Low Balance!!!"
           }
           else{
             battingAlert.message="Batting Unsuccessfully!!!"
@@ -185,6 +193,7 @@ export class ProgramPage implements OnInit {
 
         }
       );
+      this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 
 
@@ -239,7 +248,7 @@ export class ProgramPage implements OnInit {
                   console.log(val);
                   if (val.result) {
                     const toast = await this.toastController.create({
-                      message: 'Batting successfully!!',
+                      message: 'Batting Successfully!!',
                       duration: 2000
                     });
                     toast.present();
@@ -260,6 +269,6 @@ export class ProgramPage implements OnInit {
 
     await alert.present();
 
-
+    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 }
