@@ -116,8 +116,7 @@ let ChangepassPage = class ChangepassPage {
     ionViewDidEnter() {
         this.userName = localStorage.getItem('UserName');
     }
-    ngOnInit() {
-    }
+    ngOnInit() { }
     onClick() {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let newPassword = this.changeForm.get('newPassword').value;

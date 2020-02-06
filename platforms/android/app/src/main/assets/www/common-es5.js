@@ -565,7 +565,7 @@ var UserDbService = /** @class */ (function () {
         });
     };
     UserDbService.prototype.getBalance = function (uid) {
-        return this.httpClient.get(this.urlChangePass + uid);
+        return this.httpClient.get(this.urlBalance + uid);
     };
     UserDbService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

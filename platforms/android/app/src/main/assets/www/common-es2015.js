@@ -819,7 +819,7 @@ let UserDbService = class UserDbService {
         });
     }
     getBalance(uid) {
-        return this.httpClient.get(this.urlChangePass + uid);
+        return this.httpClient.get(this.urlBalance + uid);
     }
 };
 UserDbService.ctorParameters = () => [

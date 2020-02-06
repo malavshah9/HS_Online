@@ -17,6 +17,10 @@ var map = {
 		"./src/app/dashboard/dashboard.module.ts",
 		"dashboard-dashboard-module"
 	],
+	"./double-jackpot/double-jackpot.module": [
+		"./src/app/double-jackpot/double-jackpot.module.ts",
+		"double-jackpot-double-jackpot-module"
+	],
 	"./program/program.module": [
 		"./src/app/program/program.module.ts",
 		"common",
@@ -509,7 +513,8 @@ const routes = [
     { path: 'purchased', loadChildren: './purchased/purchased.module#PurchasedPageModule' },
     { path: 'program', loadChildren: './program/program.module#ProgramPageModule' },
     { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
-    { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' }
+    { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' },
+    { path: 'double-jackpot', loadChildren: './double-jackpot/double-jackpot.module#DoubleJackpotPageModule' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

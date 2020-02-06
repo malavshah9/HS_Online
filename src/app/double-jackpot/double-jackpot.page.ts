@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-double-jackpot',
@@ -11,11 +12,8 @@ export class DoubleJackpotPage implements OnInit {
   jackPotControls: FormArray[] = [];
   myIndex: String[] = [];
   doubleJackpotForm: FormGroup;
-  constructor() {
-    // for (var i = 1; i < 11; i++) { // Creating 10 objects
-    //   window["txt" + i] = new FormControl();
-    // }
-    // console.log(txt9);
+  myControls:FormControl[]=[];
+  constructor(    private fb: FormBuilder ,public route: Router   ) {
     for (let i = 11; i <= 100; i++){
       if (i % 10 === 0) {
         this.myIndex.push((i - 10) + "")
@@ -27,18 +25,27 @@ export class DoubleJackpotPage implements OnInit {
     for (let i = 1; i <= 9; i++){
       this.myIndex.push("0" + i);
     }
+   
     this.myIndex.push("00");
-    for (let i = 0; i < 100; i++) {
-      //eval('dynamic' + i = 'new FormControl()');
-      this.jackPotControls.push(new FormControl());
-    }
+    
     this.doubleJackpotForm = new FormGroup({
-      jackpots: new FormArray(this.jackPotControls)
+      jackpots:new FormArray([])
     });
   }
-
+  get addDynamicElement() {
+    return this.doubleJackpotForm.get('jackpots') as FormArray
+  }
+  onExit(){
+    this.route.navigateByUrl('/program');
+  }
+  addItems(){
+    this.addDynamicElement.push(this.fb.control(''))
+  }
   ngOnInit() {
-    console.log(this.jackPotControls);
+    for(let i=0;i<100;i++){
+      this.addItems();
+    }
+    console.log(this.doubleJackpotForm);
   }
 
 }

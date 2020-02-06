@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "  <div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n    <h4 style=\"color:white;\" class=\"bottomRow2\">{{draw_hour}}:{{draw_minute}} {{am_or_pm}} &nbsp;&nbsp;{{remaining_minute}}:{{remaining_second}}&nbsp;&nbsp;&nbsp;{{current_date}}&nbsp;&nbsp;  &nbsp;{{current_hour}}:{{current_minute}}:{{current_second}}\r\n      <span  style=\"margin-right: 10px;\">&nbsp;ID : {{userName}}&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;BALANCE : 0 &nbsp;&nbsp;</span></h4>\r\n      <ion-grid style=\"height: 55%; width:100%;clear: both; margin-top: -10%\">\r\n      <ion-row>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/1.jpeg\"  width=\"95%\" height=\"75%\" />\r\n          <ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/2.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/3.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/4.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/5.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n      <ion-row class=\"bottomRow\">\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/6.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/7.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/8.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/9.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n        <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n          <img src=\"assets/icon/10.jpeg\"  width=\"95%\" height=\"75%\" />\r\n<ion-input  style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\" type=\"number\"></ion-input>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n    <div class=\"container\">  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"tertiary\" style=\"color:purple;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"exit\"></ion-icon>Exit\r\n      </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"danger\" style=\"color:rgb(1.755, 38, 0);\" (click)=\"onpro()\">\r\n        <ion-icon name=\"nuclear\"></ion-icon>Clear\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\" color=\"dark\"  style=\"color:lightskyblue;\" (click)=\"onChange()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"primary\" style=\"color:yellow;\" (click)=\"onPurchased()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Double Jackpot\r\n        </ion-button></div>  \r\n      <div><ion-button class=\"special-bottom-button\" shape=\"round\"  color=\"warning\" style=\"color:black;\" (click)=\"onLogout()\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>Submit \r\n        </ion-button></div>  \r\n    </div>\r\n  </div>\r\n"
+module.exports = "<div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n  <h4 style=\"color:white;\" class=\"bottomRow2\">{{draw_hour}}:{{draw_minute}} {{am_or_pm}} &nbsp;&nbsp;{{remaining_minute}}:{{remaining_second}}&nbsp;&nbsp;&nbsp;{{current_date}}&nbsp;&nbsp;  &nbsp;{{current_hour}}:{{current_minute}}:{{current_second}}\r\n    <span  style=\"margin-right: 10px;\">&nbsp;ID : {{userName}}&nbsp;&nbsp;</span>&nbsp;<span>&nbsp;&nbsp;BALANCE : 0 &nbsp;&nbsp;</span></h4>\r\n    <ion-grid style=\"height: 55%; width:100%;clear: both; margin-top: -10%\">\r\n    <ion-row>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/1.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt1\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/2.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt2\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/3.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt3\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/4.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt4\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/5.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt5\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-row class=\"bottomRow\">\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/6.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt6\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/7.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt7\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/Tara.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt8\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/9.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt9\"></ion-input>\r\n      </ion-col>\r\n      <ion-col style=\"text-align: center;\" full no-margin no-padding>\r\n        <img src=\"assets/icon/10.jpeg\" width=\"95%\" height=\"75%\" />\r\n        <ion-input\r\n          style=\"background-color: black; margin-left: 30%; width:40%; height:20px; border-radius: 30px; color: white;\"\r\n          type=\"number\" [(ngModel)]=\"txt0\"></ion-input>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n  <div class=\"container\">\r\n    <div>\r\n      <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"tertiary\" style=\"color:purple;\"\r\n        (click)=\"onLogout()\">\r\n        <ion-icon name=\"exit\"></ion-icon>Exit\r\n      </ion-button>\r\n    </div>\r\n    <div>\r\n      <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"danger\" style=\"color:rgb(1.755, 38, 0);\"\r\n        (click)=\"onpro()\">\r\n        <ion-icon name=\"nuclear\"></ion-icon>Clear\r\n      </ion-button>\r\n    </div>\r\n    <div>\r\n      <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"dark\" style=\"color:lightskyblue;\"\r\n        (click)=\"onJackpot()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Jackpot\r\n      </ion-button>\r\n    </div>\r\n    <div>\r\n      <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"primary\" style=\"color:yellow;\"\r\n        (click)=\"onDoubleJackpot()\">\r\n        <ion-icon name=\"filing\"></ion-icon>Double Jackpot\r\n      </ion-button>\r\n    </div>\r\n    <div>\r\n      <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"warning\" style=\"color:black;\" (click)=\"onSubmit()\">\r\n        <ion-icon name=\"checkbox-outline\"></ion-icon>Submit\r\n      </ion-button>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -86,6 +86,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/user-db.service */ "./src/app/services/user-db.service.ts");
+/* harmony import */ var _services_program_db_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/program-db.service */ "./src/app/services/program-db.service.ts");
+/* harmony import */ var _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/draw_type_class */ "./src/app/shared/draw_type_class.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
 
 
 
@@ -93,12 +99,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProgramPage = class ProgramPage {
-    // dateInterval:number=0;
-    constructor(route, statusBar, screenOrientation, userDb) {
+    constructor(route, statusBar, screenOrientation, userDb, programDb, alertController, toastController) {
         this.route = route;
         this.statusBar = statusBar;
         this.screenOrientation = screenOrientation;
         this.userDb = userDb;
+        this.programDb = programDb;
+        this.alertController = alertController;
+        this.toastController = toastController;
         this.userBalance = "0";
         this.draw_hour = "0";
         this.draw_minute = "0";
@@ -190,23 +198,6 @@ let ProgramPage = class ProgramPage {
         this.current_second = date.getSeconds() < 10 ? "0" + date.getSeconds().toString() : date.getSeconds().toString();
         this.current_time = date.getTime();
     }
-    // setCurrentDate(){
-    //   let today = new Date(); 
-    //   let dd = today.getDate(); 
-    //   let mm = today.getMonth() + 1; 
-    //   let yyyy = today.getFullYear(); 
-    //       if (dd < 10) { 
-    //           dd = '0' + dd; 
-    //       } 
-    //       if (mm < 10) { 
-    //           mm = '0' + mm; 
-    //       }
-    //   this.current_date='  '+dd + '-' + mm + '-' + yyyy;
-    //   let nextDay:Date=new Date(today.getDate()+1);
-    //   nextDay.setHours(0,0,0,0);
-    //   // this.dateInterval=(new Date(nextDay-new Date()).getHours()*60)+(new Date(nextDay-new Date()).getMinutes());
-    //   console.log("dateInterval ",this.dateInterval);
-    // }
     addHours(date, hour) {
         let anotherDay = date.setTime(date.getTime() + (hour * 60 * 60 * 100));
         let dateAnother = new Date(anotherDay);
@@ -214,24 +205,97 @@ let ProgramPage = class ProgramPage {
     }
     ionViewWillEnter() {
         this.statusBar.hide();
-        // this.statusBar.overlaysWebView(true);
-        // this.statusBar.backgroundColorByHexString("#008000");
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
     ionViewWillLeave() {
-        // this.statusBar.show();
-        // this.statusBar.styleDefault();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
     onLogout() {
         this.route.navigateByUrl('/dashboard');
+    }
+    onDoubleJackpot() {
+        this.route.navigateByUrl('/double-jackpot');
+    }
+    onSubmit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const battingAlert = yield this.alertController.create({
+                buttons: ['OK']
+            });
+            this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Normal')).subscribe((data) => {
+                if (data.result) {
+                    battingAlert.message = "Batting Successfully!!!";
+                }
+                else {
+                    battingAlert.message = "Batting Unsuccessfully!!!";
+                }
+                battingAlert.present();
+            }, (err) => {
+                console.log(err);
+            }, () => {
+            });
+        });
+    }
+    onJackpot() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const alert = yield this.alertController.create({
+                header: 'Please enter ticket',
+                inputs: [
+                    {
+                        name: 'ticket',
+                        type: 'number',
+                        placeholder: 'Please enter ticket'
+                    }
+                ],
+                buttons: [
+                    {
+                        text: 'Cancel',
+                        role: 'cancel',
+                        cssClass: 'secondary',
+                        handler: () => {
+                        }
+                    }, {
+                        text: 'Okay',
+                        handler: (data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                            const ticket = data.ticket;
+                            this.txt1 = ticket;
+                            this.txt2 = ticket;
+                            this.txt3 = ticket;
+                            this.txt4 = ticket;
+                            this.txt5 = ticket;
+                            this.txt6 = ticket;
+                            this.txt7 = ticket;
+                            this.txt8 = ticket;
+                            this.txt9 = ticket;
+                            this.txt0 = ticket;
+                            yield this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Jackpot')).subscribe((val) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+                                console.log(val);
+                                if (val.result) {
+                                    const toast = yield this.toastController.create({
+                                        message: 'Batting successfully!!',
+                                        duration: 2000
+                                    });
+                                    toast.present();
+                                }
+                            }), (err) => {
+                                console.log(err);
+                            }, () => {
+                            });
+                        })
+                    }
+                ]
+            });
+            yield alert.present();
+        });
     }
 };
 ProgramPage.ctorParameters = () => [
     { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
     { type: _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"] },
-    { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"] }
+    { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"] },
+    { type: _services_program_db_service__WEBPACK_IMPORTED_MODULE_6__["ProgramDbService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"] }
 ];
 ProgramPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -239,9 +303,104 @@ ProgramPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: __webpack_require__(/*! raw-loader!./program.page.html */ "./node_modules/raw-loader/index.js!./src/app/program/program.page.html"),
         styles: [__webpack_require__(/*! ./program.page.scss */ "./src/app/program/program.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"], _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"], _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
+        _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_3__["ScreenOrientation"],
+        _services_user_db_service__WEBPACK_IMPORTED_MODULE_5__["UserDbService"],
+        _services_program_db_service__WEBPACK_IMPORTED_MODULE_6__["ProgramDbService"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["AlertController"],
+        _ionic_angular__WEBPACK_IMPORTED_MODULE_8__["ToastController"]])
 ], ProgramPage);
 
+
+
+/***/ }),
+
+/***/ "./src/app/services/program-db.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/program-db.service.ts ***!
+  \************************************************/
+/*! exports provided: ProgramDbService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramDbService", function() { return ProgramDbService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let ProgramDbService = class ProgramDbService {
+    constructor(http) {
+        this.http = http;
+        this.programUlr = "https://honestonline.in/api/index.php/program";
+        this.doubleJackpotUrl = 'https://honestonline.in/api/index.php/doublejackpot';
+    }
+    submitDraw(drawType) {
+        console.log(drawType);
+        const body = JSON.stringify(drawType);
+        console.log(body);
+        return this.http.post(this.programUlr, body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json')
+        });
+    }
+};
+ProgramDbService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+ProgramDbService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+], ProgramDbService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/draw_type_class.ts":
+/*!*******************************************!*\
+  !*** ./src/app/shared/draw_type_class.ts ***!
+  \*******************************************/
+/*! exports provided: DrawType */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DrawType", function() { return DrawType; });
+class DrawType {
+    constructor(txt1, txt2, txt3, txt4, txt5, txt6, txt7, txt8, txt9, txt0, UserId, dt) {
+        this.txt1 = txt1;
+        this.txt2 = txt2;
+        this.txt3 = txt3;
+        this.txt4 = txt4;
+        this.txt5 = txt5;
+        this.txt6 = txt6;
+        this.txt7 = txt7;
+        this.txt8 = txt8;
+        this.txt9 = txt9;
+        this.txt0 = txt0;
+        this.UserId = UserId;
+        this.dt = dt;
+    }
+}
+DrawType.ctorParameters = () => [
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: Number },
+    { type: String }
+];
 
 
 /***/ })

@@ -119,8 +119,7 @@ var ChangepassPage = /** @class */ (function () {
     ChangepassPage.prototype.ionViewDidEnter = function () {
         this.userName = localStorage.getItem('UserName');
     };
-    ChangepassPage.prototype.ngOnInit = function () {
-    };
+    ChangepassPage.prototype.ngOnInit = function () { };
     ChangepassPage.prototype.onClick = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var newPassword, confirmNewPassword, t1, pasword, userId;
