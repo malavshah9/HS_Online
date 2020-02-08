@@ -19,7 +19,13 @@ var map = {
 	],
 	"./double-jackpot/double-jackpot.module": [
 		"./src/app/double-jackpot/double-jackpot.module.ts",
+		"common",
 		"double-jackpot-double-jackpot-module"
+	],
+	"./history/history.module": [
+		"./src/app/history/history.module.ts",
+		"common",
+		"history-history-module"
 	],
 	"./program/program.module": [
 		"./src/app/program/program.module.ts",
@@ -511,6 +517,7 @@ const routes = [
         loadChildren: () => Promise.all(/*! import() | home-home-module */[__webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomePageModule)
     },
     { path: 'purchased', loadChildren: './purchased/purchased.module#PurchasedPageModule' },
+    { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
     { path: 'program', loadChildren: './program/program.module#ProgramPageModule' },
     { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
     { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' },

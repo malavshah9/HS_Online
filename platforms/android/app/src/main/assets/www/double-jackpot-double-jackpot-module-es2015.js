@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n<div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n  <ion-grid>\r\n    <form [formGroup]=\"doubleJackpotForm\">\r\n    <div *ngFor=\"let item of doubleJackpotForm.controls.jackpots.controls;let i=index;\">\r\n      <ion-row *ngIf=\"i%10===0\" align-items-center>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i}}\">\r\n            </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+1]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+2]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+3]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+4]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+5]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+6]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+7]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+8]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+9]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\">\r\n          </ion-input>\r\n        </ion-col>\r\n\r\n      </ion-row>\r\n    </div>\r\n  </form>\r\n  <ion-row>\r\n    <ion-col>\r\n  <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"warning\" style=\"color:black;\" (click)=\"onSubmit()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>Submit\r\n  </ion-button>\r\n  <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"warning\" style=\"color:black;\" (click)=\"onExit()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>Exit\r\n  </ion-button>\r\n</ion-col></ion-row>\r\n  </ion-grid>\r\n</div>\r\n</ion-content>\r\n"
+module.exports = "<ion-content>\r\n<div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n  <ion-grid>\r\n    \r\n    <form [formGroup] = \"angForm\" (ngSubmit)=\"onSubmit()\">\r\n      <div formArrayName=\"names\">\r\n    <div *ngFor=\"let name of names.controls; index as i\" >\r\n      <ion-row *ngIf=\"i%10===0\" align-items-center>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i}}\">\r\n            </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+1]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+1}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+2]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+2}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+3]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+3}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+4]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+4}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+5]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+5}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+6]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+6}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+7]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+7}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+8]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+8}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n        <ion-col>\r\n          <label class=\"font-bold m-0\" style=\"color: white;\">{{myIndex[i+9]}}</label>\r\n          <ion-input maxlength=\"5\" class=\"yantratext\" type=\"number\" formControlName=\"{{i+9}}\">\r\n          </ion-input>\r\n        </ion-col>\r\n\r\n      </ion-row>\r\n    </div>\r\n    </div>\r\n  \r\n  <ion-row>\r\n    <ion-col>\r\n  <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"warning\" style=\"color:black;\" (click)=\"onSubmit()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>Submit\r\n  </ion-button>\r\n  <ion-button class=\"special-bottom-button\" shape=\"round\" color=\"warning\" style=\"color:black;\" (click)=\"onExit()\">\r\n    <ion-icon name=\"checkbox-outline\"></ion-icon>Exit\r\n  </ion-button>\r\n</ion-col></ion-row>\r\n</form>  \r\n</ion-grid>\r\n</div>\r\n</ion-content>\r\n"
 
 /***/ }),
 
@@ -82,20 +82,27 @@ module.exports = ".yantratext {\n  background: #111 !important;\n  border: 1px s
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DoubleJackpotPage", function() { return DoubleJackpotPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_program_db_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../services/program-db.service */ "./src/app/services/program-db.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/screen-orientation/ngx */ "./node_modules/@ionic-native/screen-orientation/ngx/index.js");
+
+
+
 
 
 
 
 let DoubleJackpotPage = class DoubleJackpotPage {
-    constructor(fb, route) {
+    constructor(fb, screenOrientation, alertController, route, programDb) {
         this.fb = fb;
+        this.screenOrientation = screenOrientation;
+        this.alertController = alertController;
         this.route = route;
-        this.jackPotControls = [];
+        this.programDb = programDb;
         this.myIndex = [];
-        this.myControls = [];
         for (let i = 11; i <= 100; i++) {
             if (i % 10 === 0) {
                 this.myIndex.push((i - 10) + "");
@@ -108,37 +115,82 @@ let DoubleJackpotPage = class DoubleJackpotPage {
             this.myIndex.push("0" + i);
         }
         this.myIndex.push("00");
-        this.doubleJackpotForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            jackpots: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormArray"]([])
+        this.angForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
+            names: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormArray"]([])
         });
-    }
-    get addDynamicElement() {
-        return this.doubleJackpotForm.get('jackpots');
+        for (let i = 0; i < 100; i++) {
+            this.doubleJackpot();
+        }
     }
     onExit() {
         this.route.navigateByUrl('/program');
     }
-    addItems() {
-        this.addDynamicElement.push(this.fb.control(''));
+    get names() {
+        return this.angForm.get('names');
+    }
+    doubleJackpot() {
+        this.names.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](''));
+    }
+    onSubmit() {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
+            const battingAlert = yield this.alertController.create({
+                buttons: ['OK'],
+                message: "Enter Proper Ticket Quantity!"
+            });
+            let myObj = {};
+            let hasValue = false;
+            for (let i = 0; i < this.names.length; i++) {
+                // console.log(this.names.at(i).value);
+                if (this.names.at(i).value) {
+                    let txt = "txt" + this.myIndex[i];
+                    myObj[txt] = this.names.at(i).value;
+                    hasValue = true;
+                }
+            }
+            if (hasValue) {
+                myObj["UserId"] = localStorage.getItem('UserId');
+                console.log(myObj);
+                this.programDb.submitDoubleJackpot(myObj).subscribe((data) => {
+                    if (data.result) {
+                        battingAlert.message = "Batting Successfully!!!";
+                    }
+                    else if (data.reason == 405) {
+                        battingAlert.message = "Low Balance!!!";
+                    }
+                    else {
+                        battingAlert.message = "Batting Unsuccessfully!!!";
+                    }
+                    battingAlert.present();
+                }, (err) => {
+                    console.log(err);
+                }, () => {
+                });
+                this.angForm.reset();
+            }
+            else {
+                battingAlert.present();
+            }
+        });
     }
     ngOnInit() {
-        for (let i = 0; i < 100; i++) {
-            this.addItems();
-        }
-        console.log(this.doubleJackpotForm);
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
 };
 DoubleJackpotPage.ctorParameters = () => [
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
+    { type: _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_6__["ScreenOrientation"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _services_program_db_service__WEBPACK_IMPORTED_MODULE_1__["ProgramDbService"] }
 ];
 DoubleJackpotPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-double-jackpot',
         template: __webpack_require__(/*! raw-loader!./double-jackpot.page.html */ "./node_modules/raw-loader/index.js!./src/app/double-jackpot/double-jackpot.page.html"),
         styles: [__webpack_require__(/*! ./double-jackpot.page.scss */ "./src/app/double-jackpot/double-jackpot.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"], _ionic_native_screen_orientation_ngx__WEBPACK_IMPORTED_MODULE_6__["ScreenOrientation"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        _services_program_db_service__WEBPACK_IMPORTED_MODULE_1__["ProgramDbService"]])
 ], DoubleJackpotPage);
 
 

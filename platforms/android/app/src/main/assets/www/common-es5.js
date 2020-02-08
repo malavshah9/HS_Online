@@ -522,6 +522,57 @@ var findCheckedOption = function (el, tagName) {
 
 /***/ }),
 
+/***/ "./src/app/services/program-db.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/program-db.service.ts ***!
+  \************************************************/
+/*! exports provided: ProgramDbService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProgramDbService", function() { return ProgramDbService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var ProgramDbService = /** @class */ (function () {
+    function ProgramDbService(http) {
+        this.http = http;
+        this.programUlr = "https://honestonline.in/api/index.php/program";
+        this.doubleJackpotUrl = 'https://honestonline.in/api/index.php/doublejackpot';
+    }
+    ProgramDbService.prototype.submitDraw = function (drawType) {
+        var body = JSON.stringify(drawType);
+        return this.http.post(this.programUlr, body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json')
+        });
+    };
+    ProgramDbService.prototype.submitDoubleJackpot = function (obj) {
+        var body = JSON.stringify(obj);
+        console.log(" json dj ", body);
+        return this.http.post(this.doubleJackpotUrl, body, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json')
+        });
+    };
+    ProgramDbService.ctorParameters = function () { return [
+        { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    ]; };
+    ProgramDbService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], ProgramDbService);
+    return ProgramDbService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/user-db.service.ts":
 /*!*********************************************!*\
   !*** ./src/app/services/user-db.service.ts ***!

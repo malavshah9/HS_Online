@@ -13,14 +13,17 @@ export class ProgramDbService {
   constructor(private http: HttpClient) { }
 
   submitDraw(drawType: DrawType) {
-    console.log(drawType);
-
     const body = JSON.stringify(drawType);
-    console.log(body);
     return this.http.post(this.programUlr, body, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });
   }
-
+  submitDoubleJackpot(obj:any){
+    const body = JSON.stringify(obj);
+    console.log(" json dj ",body);
+    return this.http.post(this.doubleJackpotUrl, body, {
+      headers: new HttpHeaders().set('Content-Type', 'application/json')
+    });
+  }
 
 }

@@ -12,6 +12,7 @@ export class UserDbService {
   private urlHistory: string = "https://honestonline.in/api/index.php/history";
   private urlBalance: string = "https://honestonline.in/api/index.php/balance/";
   private urlChangePass: string = "https://honestonline.in/api/index.php/user/";
+  private urlPurchasedHistory:string="https://honestonline.in/api/index.php/user/";
   constructor(private httpClient: HttpClient) { }
 
   loginUser(user: User) {
@@ -33,6 +34,9 @@ export class UserDbService {
   }
   getBalance(uid) {
     return this.httpClient.get(this.urlBalance + uid);
+  }
+  getPurchasedHistory(uid){
+    return this.httpClient.get(this.urlPurchasedHistory + uid);
   }
 
 }

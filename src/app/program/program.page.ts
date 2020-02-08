@@ -62,6 +62,13 @@ export class ProgramPage implements OnInit {
     },1000);
    
   }
+  ionViewDidLoad(){
+    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+      if (data.result) {
+        this.userBalance = data.UserBalance;
+      }
+    });
+  }
   setTime(){
     this.setDrawTimer();
     this.setCurrentTime();

@@ -30,6 +30,11 @@ onChange()
 {
   this.route.navigateByUrl('/changepass');
 }
+onHistory()
+{
+  // this.route.navigateByUrl('/purchased');
+  this.route.navigateByUrl('/history');
+}
 onLogout()
 {
   localStorage.clear();
