@@ -552,7 +552,6 @@ var ProgramDbService = /** @class */ (function () {
     };
     ProgramDbService.prototype.submitDoubleJackpot = function (obj) {
         var body = JSON.stringify(obj);
-        console.log(" json dj ", body);
         return this.http.post(this.doubleJackpotUrl, body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json')
         });
@@ -597,6 +596,7 @@ var UserDbService = /** @class */ (function () {
         this.urlHistory = "https://honestonline.in/api/index.php/history";
         this.urlBalance = "https://honestonline.in/api/index.php/balance/";
         this.urlChangePass = "https://honestonline.in/api/index.php/user/";
+        this.urlPurchasedHistory = "https://honestonline.in/api/index.php/user/";
     }
     UserDbService.prototype.loginUser = function (user) {
         var body = JSON.stringify(user);
@@ -616,7 +616,11 @@ var UserDbService = /** @class */ (function () {
         });
     };
     UserDbService.prototype.getBalance = function (uid) {
+        console.log(uid);
         return this.httpClient.get(this.urlBalance + uid);
+    };
+    UserDbService.prototype.getPurchasedHistory = function (uid) {
+        return this.httpClient.get(this.urlPurchasedHistory + uid);
     };
     UserDbService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

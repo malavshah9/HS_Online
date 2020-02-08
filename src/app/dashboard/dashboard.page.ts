@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +9,14 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class DashboardPage implements OnInit {
   userName:String;
-  constructor(public route: Router) { 
+  constructor(public route: Router,private screenOrientation: ScreenOrientation) { 
     this.userName=localStorage.getItem('UserName');
   }
 
   ngOnInit() {
   }
   ionViewDidEnter(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     this.userName=localStorage.getItem('UserName');
   }
   onPurchased()

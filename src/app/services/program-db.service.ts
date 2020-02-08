@@ -20,7 +20,6 @@ export class ProgramDbService {
   }
   submitDoubleJackpot(obj:any){
     const body = JSON.stringify(obj);
-    console.log(" json dj ",body);
     return this.http.post(this.doubleJackpotUrl, body, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });

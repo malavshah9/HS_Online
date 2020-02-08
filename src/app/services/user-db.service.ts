@@ -33,6 +33,7 @@ export class UserDbService {
     });
   }
   getBalance(uid) {
+    console.log(uid);
     return this.httpClient.get(this.urlBalance + uid);
   }
   getPurchasedHistory(uid){

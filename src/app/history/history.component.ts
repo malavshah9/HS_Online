@@ -12,7 +12,8 @@ import { PurchasedHistory } from '../shared/purchased_class';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { 
+  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) {
+    this.loadData(); 
     
   }
   histories:PurchasedHistory[]=[];
@@ -24,17 +25,17 @@ export class HistoryComponent implements OnInit {
   }
   ionViewWillEnter(){
     this.statusBar.hide();
-    this.loadData();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  }
+  ionViewDidLoad(){
+    this.loadData();
   }
   loadData(){
     this.histories=[];
     this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe((data:PurchasedHistory[])=>{
       this.histories=data;
-    },(e)=>{},()=>{});
+    },(e)=>{},()=>{
+      console.log(this.histories);
+    });
   }
-  ionViewWillLeave(){
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-  }
-
 }

@@ -12,7 +12,7 @@ export class PurchasedHistory{
         public Meditation?,
         public CouponTotalAmount?,
         public TotalYantra?,
-        public DrawDate?,
+        public DrawDate?:Date,
         public DrawTime?
     ){
 

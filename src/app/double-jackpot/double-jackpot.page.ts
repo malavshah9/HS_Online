@@ -87,6 +87,9 @@ export class DoubleJackpotPage implements OnInit {
       battingAlert.present();
     }
   }
+  ionViewWillEnter(){
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  }
   ngOnInit() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }

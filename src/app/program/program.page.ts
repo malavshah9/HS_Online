@@ -14,7 +14,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class ProgramPage implements OnInit {
   userName:String;
-  userBalance:String="0";
+  userBalance:String;
   draw_hour:string="0";
   draw_minute:string="0";
   am_or_pm:string="";
@@ -52,6 +52,14 @@ export class ProgramPage implements OnInit {
       if (data.result) {
         this.userBalance = data.UserBalance;
       }
+      console.log(data);
+    });
+  }
+  ionViewDidLoad(){
+    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+      if (data.result) {
+        this.userBalance = data.UserBalance;
+      }
     });
   }
 
@@ -61,13 +69,6 @@ export class ProgramPage implements OnInit {
       this.setTime();
     },1000);
    
-  }
-  ionViewDidLoad(){
-    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-      if (data.result) {
-        this.userBalance = data.UserBalance;
-      }
-    });
   }
   setTime(){
     this.setDrawTimer();
@@ -147,9 +148,6 @@ export class ProgramPage implements OnInit {
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
-  ionViewWillLeave() {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-  }
   onLogout() {
     this.route.navigateByUrl('/dashboard');
   }
@@ -160,7 +158,6 @@ export class ProgramPage implements OnInit {
     const battingAlert = await this.alertController.create({
       buttons: ['OK']
     });
-
     this.programDb.submitDraw(
       new DrawType(
         Number(this.txt1),
@@ -179,11 +176,7 @@ export class ProgramPage implements OnInit {
         (data: any) => {
           if(data.result){
             battingAlert.message="Batting Successfully!!!";
-            this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-              if (data.result) {
-                this.userBalance = data.UserBalance;
-              }
-            });
+            
           }
           else if(data.reason==405){
             battingAlert.message="Low Balance!!!"
@@ -197,7 +190,11 @@ export class ProgramPage implements OnInit {
           console.log(err);
         },
         () => {
-
+          this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+            if (data.result) {
+              this.userBalance = data.UserBalance;
+            }
+          });
         }
       );
       this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
@@ -236,7 +233,10 @@ export class ProgramPage implements OnInit {
             this.txt9 = ticket;
             this.txt0 = ticket;
 
-            await this.programDb.submitDraw(
+            const battingAlert = await this.alertController.create({
+              buttons: ['OK']
+            });
+            this.programDb.submitDraw(
               new DrawType(
                 Number(this.txt1),
                 Number(this.txt2),
@@ -251,31 +251,32 @@ export class ProgramPage implements OnInit {
                 Number(localStorage.getItem('UserId')),
                 'Jackpot'
               )).subscribe(
-                async (val: any) => {
-                  console.log(val);
-                  if (val.result) {
-                    const toast = await this.toastController.create({
-                      message: 'Batting Successfully!!',
-                      duration: 2000
-                    });
-                    toast.present();
+                (data: any) => {
+                  if(data.result){
+                    battingAlert.message="Batting Successfully!!!";
                   }
-
+                  else if(data.reason==405){
+                    battingAlert.message="Low Balance!!!"
+                  }
+                  else{
+                    battingAlert.message="Batting Unsuccessfully!!!"
+                  }
+                  battingAlert.present();
                 },
                 (err) => {
                   console.log(err);
                 },
                 () => {
-
+                  this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+                    if (data.result) {
+                      this.userBalance = data.UserBalance;
+                    }
+                  });
                 }
               );
-          }
-        }
-      ]
+              this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+  }
+}]
     });
-
-    await alert.present();
-
-    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 }

@@ -1,54 +1,82 @@
-<div style="background-color: #008000; width: 100%; height: 100%;">
+<ion-content color="honest">
   <ion-button shape="round" color="tertiary" style="color:purple;height:30px; margin-left: 80%;" (click)="onExit()">
     <ion-icon name="exit"></ion-icon>Exit
   </ion-button>
-  <ion-card style="background-color: white;color: black;">
+  <ion-card *ngFor="let item of histories" style="background-color: white;color: black;">
     <ion-card-content>
       <ion-grid>
         <ion-row>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Shree</ion-label>
             <div>
-              <ion-label>(1)</ion-label>
+              <ion-label>{{item.Shree?item.Shree:" "}}</ion-label>
             </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label> Vashikaran</ion-label>
+            <div>
+              <ion-label>{{item.Shree?item.Vashikaran:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Sudarashan</ion-label>
+            <ion-label>Sudarshan</ion-label>
+            <div>
+              <ion-label>{{item.Shree?item.Sudarshan:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Vastu</ion-label>
+            <div>
+              <ion-label>{{item.Vastu?item.Vastu:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Planet</ion-label>
+            <div>
+              <ion-label>{{item.Planet?item.Planet:" "}}</ion-label>
+            </div>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Love</ion-label>
+            <div>
+              <ion-label>{{item.Love?item.Love:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Tara</ion-label>
+            <div>
+              <ion-label>{{item.Tara?item.Tara:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Grah</ion-label>
+            <div>
+              <ion-label>{{item.Grah?item.Grah:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Matsya</ion-label>
+            <div>
+              <ion-label>{{item.Matsya?item.Matsya:" "}}</ion-label>
+            </div>
           </ion-col>
           <ion-col class="ion-margin" style="align-items: center; text-align: center;">
             <ion-label>Meditation</ion-label>
+            <div>
+              <ion-label>{{item.Meditation?item.Meditation:" "}}</ion-label>
+            </div>
           </ion-col>
         </ion-row>
       </ion-grid>
       <div class="display">
-        Total Yantra:<br>
-        Total Amount:<br>
-        Date:<br>
-        Draw Time:<br>
+        Total Yantra&nbsp;:&nbsp;{{item.TotalYantra}}<br>
+        Total Amount&nbsp;:&nbsp;{{item.CouponTotalAmount}}<br>
+        Date&nbsp;:&nbsp;{{item.DrawDate | date:'d-M-yy'}}<br>
+        Draw Time&nbsp;:&nbsp;{{item.DrawTime}}<br>
+        <!-- Winning Yantra:{{}}<br> -->
       </div>
     </ion-card-content>
   </ion-card>
-</div>
+</ion-content>

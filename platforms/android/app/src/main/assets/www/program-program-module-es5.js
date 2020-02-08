@@ -111,7 +111,6 @@ var ProgramPage = /** @class */ (function () {
         this.programDb = programDb;
         this.alertController = alertController;
         this.toastController = toastController;
-        this.userBalance = "0";
         this.draw_hour = "0";
         this.draw_minute = "0";
         this.am_or_pm = "";
@@ -126,15 +125,9 @@ var ProgramPage = /** @class */ (function () {
             if (data.result) {
                 _this.userBalance = data.UserBalance;
             }
+            console.log(data);
         });
     }
-    ProgramPage.prototype.ngOnInit = function () {
-        var _this = this;
-        this.setTime();
-        setInterval(function () {
-            _this.setTime();
-        }, 1000);
-    };
     ProgramPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.userDb.getBalance(localStorage.getItem('UserId')).subscribe(function (data) {
@@ -142,6 +135,13 @@ var ProgramPage = /** @class */ (function () {
                 _this.userBalance = data.UserBalance;
             }
         });
+    };
+    ProgramPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.setTime();
+        setInterval(function () {
+            _this.setTime();
+        }, 1000);
     };
     ProgramPage.prototype.setTime = function () {
         this.setDrawTimer();
@@ -220,9 +220,6 @@ var ProgramPage = /** @class */ (function () {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     };
-    ProgramPage.prototype.ionViewWillLeave = function () {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    };
     ProgramPage.prototype.onLogout = function () {
         this.route.navigateByUrl('/dashboard');
     };
@@ -243,11 +240,6 @@ var ProgramPage = /** @class */ (function () {
                         this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Normal')).subscribe(function (data) {
                             if (data.result) {
                                 battingAlert.message = "Batting Successfully!!!";
-                                _this.userDb.getBalance(localStorage.getItem('UserId')).subscribe(function (data) {
-                                    if (data.result) {
-                                        _this.userBalance = data.UserBalance;
-                                    }
-                                });
                             }
                             else if (data.reason == 405) {
                                 battingAlert.message = "Low Balance!!!";
@@ -259,6 +251,11 @@ var ProgramPage = /** @class */ (function () {
                         }, function (err) {
                             console.log(err);
                         }, function () {
+                            _this.userDb.getBalance(localStorage.getItem('UserId')).subscribe(function (data) {
+                                if (data.result) {
+                                    _this.userBalance = data.UserBalance;
+                                }
+                            });
                         });
                         this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
                         return [2 /*return*/];
@@ -291,7 +288,7 @@ var ProgramPage = /** @class */ (function () {
                                 }, {
                                     text: 'Okay',
                                     handler: function (data) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                                        var ticket;
+                                        var ticket, battingAlert;
                                         var _this = this;
                                         return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                                             switch (_a.label) {
@@ -307,30 +304,32 @@ var ProgramPage = /** @class */ (function () {
                                                     this.txt8 = ticket;
                                                     this.txt9 = ticket;
                                                     this.txt0 = ticket;
-                                                    return [4 /*yield*/, this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Jackpot')).subscribe(function (val) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                                                            var toast;
-                                                            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                                                                switch (_a.label) {
-                                                                    case 0:
-                                                                        console.log(val);
-                                                                        if (!val.result) return [3 /*break*/, 2];
-                                                                        return [4 /*yield*/, this.toastController.create({
-                                                                                message: 'Batting Successfully!!',
-                                                                                duration: 2000
-                                                                            })];
-                                                                    case 1:
-                                                                        toast = _a.sent();
-                                                                        toast.present();
-                                                                        _a.label = 2;
-                                                                    case 2: return [2 /*return*/];
-                                                                }
-                                                            });
-                                                        }); }, function (err) {
-                                                            console.log(err);
-                                                        }, function () {
+                                                    return [4 /*yield*/, this.alertController.create({
+                                                            buttons: ['OK']
                                                         })];
                                                 case 1:
-                                                    _a.sent();
+                                                    battingAlert = _a.sent();
+                                                    this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Jackpot')).subscribe(function (data) {
+                                                        if (data.result) {
+                                                            battingAlert.message = "Batting Successfully!!!";
+                                                        }
+                                                        else if (data.reason == 405) {
+                                                            battingAlert.message = "Low Balance!!!";
+                                                        }
+                                                        else {
+                                                            battingAlert.message = "Batting Unsuccessfully!!!";
+                                                        }
+                                                        battingAlert.present();
+                                                    }, function (err) {
+                                                        console.log(err);
+                                                    }, function () {
+                                                        _this.userDb.getBalance(localStorage.getItem('UserId')).subscribe(function (data) {
+                                                            if (data.result) {
+                                                                _this.userBalance = data.UserBalance;
+                                                            }
+                                                        });
+                                                    });
+                                                    this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
                                                     return [2 /*return*/];
                                             }
                                         });
@@ -340,10 +339,6 @@ var ProgramPage = /** @class */ (function () {
                         })];
                     case 1:
                         alert = _a.sent();
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
                         return [2 /*return*/];
                 }
             });

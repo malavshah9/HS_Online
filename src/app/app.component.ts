@@ -11,43 +11,6 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-  // public appPages = [
-  //   {
-  //     title: 'Home',
-  //     url: '/home',
-  //     icon: 'home'
-  //   },
-  //   {
-  //     title: 'Our Products',
-  //     url: '/list',
-  //     icon: 'list'
-  //   },
-  //   {
-  //     title: 'Cart',
-  //     url: '/cart',
-  //     icon: 'cart'
-  //   },
-  //   {
-  //     title: 'My Profile',
-  //     url: '/profile',
-  //     icon: 'contact'
-  //   },
-  //   {
-  //     title: 'Contact Us',
-  //     url: '/contact',
-  //     icon: 'call'
-  //   },
-  //   {
-  //     title: 'Login',
-  //     url: '/login',
-  //     icon: 'person-add'
-  //   },
-  //   {
-  //     title: 'Logout',
-  //     url: '',
-  //     icon: 'log-out'
-  //   }
-  // ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -55,8 +18,8 @@ export class AppComponent {
     // public modalCtrl: ModalController,
      public route:Router
   ) {
-    this.initializeApp();
     this.splashScreen.show();
+    this.initializeApp();
   }
   initializeApp() {
     this.platform.ready().then(() => {

@@ -806,7 +806,6 @@ let ProgramDbService = class ProgramDbService {
     }
     submitDoubleJackpot(obj) {
         const body = JSON.stringify(obj);
-        console.log(" json dj ", body);
         return this.http.post(this.doubleJackpotUrl, body, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json')
         });
@@ -850,6 +849,7 @@ let UserDbService = class UserDbService {
         this.urlHistory = "https://honestonline.in/api/index.php/history";
         this.urlBalance = "https://honestonline.in/api/index.php/balance/";
         this.urlChangePass = "https://honestonline.in/api/index.php/user/";
+        this.urlPurchasedHistory = "https://honestonline.in/api/index.php/user/";
     }
     loginUser(user) {
         const body = JSON.stringify(user);
@@ -869,7 +869,11 @@ let UserDbService = class UserDbService {
         });
     }
     getBalance(uid) {
+        console.log(uid);
         return this.httpClient.get(this.urlBalance + uid);
+    }
+    getPurchasedHistory(uid) {
+        return this.httpClient.get(this.urlPurchasedHistory + uid);
     }
 };
 UserDbService.ctorParameters = () => [

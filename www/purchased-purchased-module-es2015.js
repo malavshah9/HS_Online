@@ -100,7 +100,7 @@ let PurchasedPage = class PurchasedPage {
         this.userDb = userDb;
     }
     ngOnInit() {
-        // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.userDb.getHistory().subscribe((data) => {
             this.histories = data;
         });
@@ -108,9 +108,6 @@ let PurchasedPage = class PurchasedPage {
     ionViewWillEnter() {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-    }
-    ionViewWillLeave() {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
     doRefresh(event) {
         setTimeout(() => {

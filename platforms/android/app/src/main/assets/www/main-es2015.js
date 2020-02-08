@@ -573,43 +573,6 @@ __webpack_require__.r(__webpack_exports__);
 // import { SplashPage } from './splash/splash.page';
 
 let AppComponent = class AppComponent {
-    // public appPages = [
-    //   {
-    //     title: 'Home',
-    //     url: '/home',
-    //     icon: 'home'
-    //   },
-    //   {
-    //     title: 'Our Products',
-    //     url: '/list',
-    //     icon: 'list'
-    //   },
-    //   {
-    //     title: 'Cart',
-    //     url: '/cart',
-    //     icon: 'cart'
-    //   },
-    //   {
-    //     title: 'My Profile',
-    //     url: '/profile',
-    //     icon: 'contact'
-    //   },
-    //   {
-    //     title: 'Contact Us',
-    //     url: '/contact',
-    //     icon: 'call'
-    //   },
-    //   {
-    //     title: 'Login',
-    //     url: '/login',
-    //     icon: 'person-add'
-    //   },
-    //   {
-    //     title: 'Logout',
-    //     url: '',
-    //     icon: 'log-out'
-    //   }
-    // ];
     constructor(platform, splashScreen, statusBar, 
     // public modalCtrl: ModalController,
     route) {
@@ -617,8 +580,8 @@ let AppComponent = class AppComponent {
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
         this.route = route;
-        this.initializeApp();
         this.splashScreen.show();
+        this.initializeApp();
     }
     initializeApp() {
         this.platform.ready().then(() => {

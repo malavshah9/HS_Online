@@ -107,7 +107,6 @@ let ProgramPage = class ProgramPage {
         this.programDb = programDb;
         this.alertController = alertController;
         this.toastController = toastController;
-        this.userBalance = "0";
         this.draw_hour = "0";
         this.draw_minute = "0";
         this.am_or_pm = "";
@@ -122,13 +121,8 @@ let ProgramPage = class ProgramPage {
             if (data.result) {
                 this.userBalance = data.UserBalance;
             }
+            console.log(data);
         });
-    }
-    ngOnInit() {
-        this.setTime();
-        setInterval(() => {
-            this.setTime();
-        }, 1000);
     }
     ionViewDidLoad() {
         this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data) => {
@@ -136,6 +130,12 @@ let ProgramPage = class ProgramPage {
                 this.userBalance = data.UserBalance;
             }
         });
+    }
+    ngOnInit() {
+        this.setTime();
+        setInterval(() => {
+            this.setTime();
+        }, 1000);
     }
     setTime() {
         this.setDrawTimer();
@@ -214,9 +214,6 @@ let ProgramPage = class ProgramPage {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
-    ionViewWillLeave() {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
-    }
     onLogout() {
         this.route.navigateByUrl('/dashboard');
     }
@@ -231,11 +228,6 @@ let ProgramPage = class ProgramPage {
             this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Normal')).subscribe((data) => {
                 if (data.result) {
                     battingAlert.message = "Batting Successfully!!!";
-                    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data) => {
-                        if (data.result) {
-                            this.userBalance = data.UserBalance;
-                        }
-                    });
                 }
                 else if (data.reason == 405) {
                     battingAlert.message = "Low Balance!!!";
@@ -247,6 +239,11 @@ let ProgramPage = class ProgramPage {
             }, (err) => {
                 console.log(err);
             }, () => {
+                this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data) => {
+                    if (data.result) {
+                        this.userBalance = data.UserBalance;
+                    }
+                });
             });
             this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
         });
@@ -283,25 +280,34 @@ let ProgramPage = class ProgramPage {
                             this.txt8 = ticket;
                             this.txt9 = ticket;
                             this.txt0 = ticket;
-                            yield this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Jackpot')).subscribe((val) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
-                                console.log(val);
-                                if (val.result) {
-                                    const toast = yield this.toastController.create({
-                                        message: 'Batting Successfully!!',
-                                        duration: 2000
-                                    });
-                                    toast.present();
+                            const battingAlert = yield this.alertController.create({
+                                buttons: ['OK']
+                            });
+                            this.programDb.submitDraw(new _shared_draw_type_class__WEBPACK_IMPORTED_MODULE_7__["DrawType"](Number(this.txt1), Number(this.txt2), Number(this.txt3), Number(this.txt4), Number(this.txt5), Number(this.txt6), Number(this.txt7), Number(this.txt8), Number(this.txt9), Number(this.txt0), Number(localStorage.getItem('UserId')), 'Jackpot')).subscribe((data) => {
+                                if (data.result) {
+                                    battingAlert.message = "Batting Successfully!!!";
                                 }
-                            }), (err) => {
+                                else if (data.reason == 405) {
+                                    battingAlert.message = "Low Balance!!!";
+                                }
+                                else {
+                                    battingAlert.message = "Batting Unsuccessfully!!!";
+                                }
+                                battingAlert.present();
+                            }, (err) => {
                                 console.log(err);
                             }, () => {
+                                this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data) => {
+                                    if (data.result) {
+                                        this.userBalance = data.UserBalance;
+                                    }
+                                });
                             });
+                            this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
                         })
                     }
                 ]
             });
-            yield alert.present();
-            this.txt0 = this.txt1 = this.txt2 = this.txt3 = this.txt4 = this.txt5 = this.txt6 = this.txt7 = this.txt8 = this.txt9 = null;
         });
     }
 };

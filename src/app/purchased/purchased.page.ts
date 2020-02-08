@@ -14,7 +14,7 @@ export class PurchasedPage implements OnInit {
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { }
 
   ngOnInit() {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
       this.histories=data;
     });
@@ -22,9 +22,6 @@ export class PurchasedPage implements OnInit {
   ionViewWillEnter(){
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
-  ionViewWillLeave(){
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
   doRefresh(event:any){
     setTimeout(()=>{

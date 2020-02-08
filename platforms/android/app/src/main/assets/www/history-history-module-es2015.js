@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"background-color: #008000; width: 100%; height: 100%;\">\r\n  <ion-button shape=\"round\" color=\"tertiary\" style=\"color:purple;height:30px; margin-left: 80%;\" (click)=\"onExit()\">\r\n    <ion-icon name=\"exit\"></ion-icon>Exit\r\n  </ion-button>\r\n  <ion-card style=\"color:white;\">\r\n    <ion-card-content>\r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col>\r\n            Shree\r\n          </ion-col>\r\n          <ion-col>\r\n            Vashikaran\r\n          </ion-col>\r\n          <ion-col>\r\n            Sudarashan\r\n          </ion-col>\r\n          <ion-col>\r\n            Vastu\r\n          </ion-col>\r\n          <ion-col>\r\n            Planet\r\n          </ion-col>\r\n         </ion-row>\r\n        <ion-row>\r\n          <ion-col>\r\n            Love\r\n          </ion-col>\r\n          <ion-col>\r\n            Tara\r\n          </ion-col>\r\n          <ion-col>\r\n            Grah\r\n          </ion-col>\r\n          <ion-col>\r\n            Matsya\r\n          </ion-col>\r\n          <ion-col>\r\n            Meditation\r\n          </ion-col>\r\n         </ion-row>\r\n         </ion-grid>\r\n         <div>\r\n           Total Yantra:<br>\r\n           Total Amount:<br>\r\n           Date:<br>\r\n           Draw Time:<br>\r\n         </div>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</div>"
+module.exports = "<ion-content color=\"honest\">\r\n  <ion-button shape=\"round\" color=\"tertiary\" style=\"color:purple;height:30px; margin-left: 80%;\" (click)=\"onExit()\">\r\n    <ion-icon name=\"exit\"></ion-icon>Exit\r\n  </ion-button>\r\n  <ion-card *ngFor=\"let item of histories\" style=\"background-color: white;color: black;\">\r\n    <ion-card-content>\r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Shree</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Shree?item.Shree:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label> Vashikaran</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Shree?item.Vashikaran:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Sudarshan</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Shree?item.Sudarshan:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Vastu</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Vastu?item.Vastu:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Planet</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Planet?item.Planet:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n        </ion-row>\r\n        <ion-row>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Love</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Love?item.Love:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Tara</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Tara?item.Tara:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Grah</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Grah?item.Grah:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Matsya</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Matsya?item.Matsya:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n          <ion-col class=\"ion-margin\" style=\"align-items: center; text-align: center;\">\r\n            <ion-label>Meditation</ion-label>\r\n            <div>\r\n              <ion-label>{{item.Meditation?item.Meditation:\" \"}}</ion-label>\r\n            </div>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n      <div class=\"display\">\r\n        Total Yantra&nbsp;:&nbsp;{{item.TotalYantra}}<br>\r\n        Total Amount&nbsp;:&nbsp;{{item.CouponTotalAmount}}<br>\r\n        Date&nbsp;:&nbsp;{{item.DrawDate | date:'d-M-yy'}}<br>\r\n        Draw Time&nbsp;:&nbsp;{{item.DrawTime}}<br>\r\n        <!-- Winning Yantra:{{}}<br> -->\r\n      </div>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>"
 
 /***/ }),
 
@@ -18,7 +18,7 @@ module.exports = "<div style=\"background-color: #008000; width: 100%; height: 1
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hpc3RvcnkvaGlzdG9yeS5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = "ion-col {\n  border: 0px solid #efeaea !important;\n  background-color: #efeaea;\n  border-radius: 10px !important;\n}\n\n.ion-label {\n  text-align: center !important;\n}\n\n.ion-margin {\n  margin-top: 3px !important;\n  margin-bottom: 3px !important;\n  margin-left: 3px !important;\n  margin-right: 3px !important;\n}\n\n.display {\n  background-color: lightgray;\n  width: 30%;\n  border-radius: 10px;\n  padding-left: 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaGlzdG9yeS9EOlxcU0ZcXElvbmljXFxIUy9zcmNcXGFwcFxcaGlzdG9yeVxcaGlzdG9yeS5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaGlzdG9yeS9oaXN0b3J5LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBRUUsb0NBQUE7RUFDQSx5QkFBQTtFQUVBLDhCQUFBO0FDREY7O0FESUE7RUFDRSw2QkFBQTtBQ0RGOztBRElBO0VBQ0UsMEJBQUE7RUFDQSw2QkFBQTtFQUNBLDJCQUFBO0VBQ0EsNEJBQUE7QUNERjs7QURJQTtFQUNFLDJCQUFBO0VBQ0EsVUFBQTtFQUNBLG1CQUFBO0VBQ0Esa0JBQUE7QUNERiIsImZpbGUiOiJzcmMvYXBwL2hpc3RvcnkvaGlzdG9yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi1jb2wge1xyXG4gIC8vYm9yZGVyOiAzcHggc29saWQgIzk4OWFhMiAhaW1wb3J0YW50O1xyXG4gIGJvcmRlcjogMHB4IHNvbGlkICNlZmVhZWEgIWltcG9ydGFudDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWZlYWVhO1xyXG4gIC8vYm94LXNoYWRvdzogNXB4IDVweCA1cHggIzg4OCAhaW1wb3J0YW50O1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmlvbi1sYWJlbCB7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5pb24tbWFyZ2luIHtcclxuICBtYXJnaW4tdG9wOiAzcHggIWltcG9ydGFudDtcclxuICBtYXJnaW4tYm90dG9tOiAzcHggIWltcG9ydGFudDtcclxuICBtYXJnaW4tbGVmdDogM3B4ICFpbXBvcnRhbnQ7XHJcbiAgbWFyZ2luLXJpZ2h0OiAzcHggIWltcG9ydGFudDtcclxufVxyXG5cclxuLmRpc3BsYXkge1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGxpZ2h0Z3JheTtcclxuICB3aWR0aDogMzAlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xyXG59XHJcbiIsImlvbi1jb2wge1xuICBib3JkZXI6IDBweCBzb2xpZCAjZWZlYWVhICFpbXBvcnRhbnQ7XG4gIGJhY2tncm91bmQtY29sb3I6ICNlZmVhZWE7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHggIWltcG9ydGFudDtcbn1cblxuLmlvbi1sYWJlbCB7XG4gIHRleHQtYWxpZ246IGNlbnRlciAhaW1wb3J0YW50O1xufVxuXG4uaW9uLW1hcmdpbiB7XG4gIG1hcmdpbi10b3A6IDNweCAhaW1wb3J0YW50O1xuICBtYXJnaW4tYm90dG9tOiAzcHggIWltcG9ydGFudDtcbiAgbWFyZ2luLWxlZnQ6IDNweCAhaW1wb3J0YW50O1xuICBtYXJnaW4tcmlnaHQ6IDNweCAhaW1wb3J0YW50O1xufVxuXG4uZGlzcGxheSB7XG4gIGJhY2tncm91bmQtY29sb3I6IGxpZ2h0Z3JheTtcbiAgd2lkdGg6IDMwJTtcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbiAgcGFkZGluZy1sZWZ0OiAxMHB4O1xufSJdfQ== */"
 
 /***/ }),
 
@@ -50,6 +50,8 @@ let HistoryComponent = class HistoryComponent {
         this.screenOrientation = screenOrientation;
         this.statusBar = statusBar;
         this.userDb = userDb;
+        this.histories = [];
+        this.loadData();
     }
     ngOnInit() {
     }
@@ -60,8 +62,16 @@ let HistoryComponent = class HistoryComponent {
         this.statusBar.hide();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
-    ionViewWillLeave() {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    ionViewDidLoad() {
+        this.loadData();
+    }
+    loadData() {
+        this.histories = [];
+        this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe((data) => {
+            this.histories = data;
+        }, (e) => { }, () => {
+            console.log(this.histories);
+        });
     }
 };
 HistoryComponent.ctorParameters = () => [
