@@ -27,6 +27,7 @@ export class ProgramPage implements OnInit {
   draw_time;
   remaining_minute:string="";
   remaining_second:string="";
+  batting_type:string="Normal";
 
   txt1: number;
   txt2: number;
@@ -54,6 +55,7 @@ export class ProgramPage implements OnInit {
     this.userName = localStorage.getItem('UserName');
   }
 
+ 
   ngOnInit() {
     this.setTime();
     setInterval(()=>{
@@ -145,6 +147,7 @@ export class ProgramPage implements OnInit {
   ionViewWillEnter(){
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.batting_type="Normal";
   }
   onLogout() {
     this.route.navigateByUrl('/dashboard');
@@ -218,7 +221,7 @@ export class ProgramPage implements OnInit {
           Number(this.txt9),
           Number(this.txt0),
           Number(localStorage.getItem('UserId')),
-          'Normal'
+          this.batting_type
         )).subscribe(
           (data: any) => {
             if(data.result){
@@ -238,7 +241,8 @@ export class ProgramPage implements OnInit {
             console.log(err);
           },
           () => {
-           
+            this.batting_type="Normal";
+            
           }
         );
     }
@@ -283,46 +287,8 @@ export class ProgramPage implements OnInit {
               this.txt9 = ticket;
               this.txt0 = ticket;
               
+              this.batting_type="Jackpot";
               
-              this.programDb.submitDraw(
-              new DrawType(
-                Number(this.txt1),
-                Number(this.txt2),
-                Number(this.txt3),
-                Number(this.txt4),
-                Number(this.txt5),
-                Number(this.txt6),
-                Number(this.txt7),
-                Number(this.txt8),
-                Number(this.txt9),
-                Number(this.txt0),
-                Number(localStorage.getItem('UserId')),
-                'Jackpot'
-              )).subscribe(
-                (data: any) => {
-                  if(data.result){
-                    battingAlert.message="Batting Successfully!!!";
-                  }
-                  else if(data.reason==405){
-                    battingAlert.message="Low Balance!!!"
-                  }
-                  else{
-                    battingAlert.message="Batting Unsuccessfully!!!"
-                  }
-                  battingAlert.present();
-                  this.getBalance();
-                },
-                (err) => {
-                  console.log(err);
-                },
-                () => {
-                  this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-                    if (data.result) {
-                      this.userBalance = data.UserBalance;
-                    }
-                  });
-                }
-              );
             }
             else{
               battingAlert.message="Enter Proper Ticket Quantity!";
