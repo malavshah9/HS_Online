@@ -35,7 +35,12 @@ export class HistoryComponent implements OnInit {
     this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe((data:PurchasedHistory[])=>{
       this.histories=data;
     },(e)=>{},()=>{
-      console.log(this.histories);
     });
+  }
+  doRefresh(event:any){
+    setTimeout(()=>{
+      this.loadData();
+      event.target.complete();
+    },1000);
   }
 }

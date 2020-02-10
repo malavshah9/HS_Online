@@ -7,6 +7,7 @@ import { UserDbService } from '../services/user-db.service';
 import { ProgramDbService } from '../services/program-db.service';
 import { DrawType } from '../shared/draw_type_class';
 import { AlertController, ToastController } from '@ionic/angular';
+import { isNull } from 'util';
 @Component({
   selector: 'app-program',
   templateUrl: './program.page.html',
@@ -48,27 +49,26 @@ export class ProgramPage implements OnInit {
     private toastController: ToastController
   ) {
     this.userName = localStorage.getItem('UserName');
-    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-      if (data.result) {
-        this.userBalance = data.UserBalance;
-      }
-      console.log(data);
-    });
+    this.getBalance();
   }
   ionViewDidLoad(){
-    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-      if (data.result) {
-        this.userBalance = data.UserBalance;
-      }
-    });
+    this.getBalance();
   }
 
   ngOnInit() {
     this.setTime();
     setInterval(()=>{
       this.setTime();
+      this.getBalance();
     },1000);
    
+  }
+  getBalance(){
+    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+      if (data.result) {
+        this.userBalance = data.UserBalance;
+      }
+    });
   }
   setTime(){
     this.setDrawTimer();
@@ -85,7 +85,7 @@ export class ProgramPage implements OnInit {
     this.current_date=date+"-"+month+"-"+year;
   }
   setDifferenceTime(){
-    let delta:any = Math.abs(this.draw_time - this.current_time) / 1000;
+    let delta:any = Math.abs(+new Date(this.draw_time) - (+new Date(this.current_time)) )/ 1000;
     let days = Math.floor(delta / 86400);
     delta -= days * 86400;
     let hours = Math.floor(delta / 3600) % 24;
@@ -154,54 +154,105 @@ export class ProgramPage implements OnInit {
   onDoubleJackpot() {
     this.route.navigateByUrl('/double-jackpot');
   }
+  checkNullAndZero(){
+    let result:Boolean=false;
+    if(!isNull(this.txt1) && this.txt1!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt2) && this.txt2!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt3) && this.txt3!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt4) && this.txt4!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt5) && this.txt5!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt6) && this.txt6!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt7) && this.txt7!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt8) && this.txt8!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt9) && this.txt9!=0){
+      result=true;
+      return result;
+    }
+    if(!isNull(this.txt0) && this.txt0!=0){
+      result=true;
+      return result;
+    }
+    return result;
+  }
   async onSubmit() {
     const battingAlert = await this.alertController.create({
       buttons: ['OK']
     });
-    this.programDb.submitDraw(
-      new DrawType(
-        Number(this.txt1),
-        Number(this.txt2),
-        Number(this.txt3),
-        Number(this.txt4),
-        Number(this.txt5),
-        Number(this.txt6),
-        Number(this.txt7),
-        Number(this.txt8),
-        Number(this.txt9),
-        Number(this.txt0),
-        Number(localStorage.getItem('UserId')),
-        'Normal'
-      )).subscribe(
-        (data: any) => {
-          if(data.result){
-            battingAlert.message="Batting Successfully!!!";
-            
-          }
-          else if(data.reason==405){
-            battingAlert.message="Low Balance!!!"
-          }
-          else{
-            battingAlert.message="Batting Unsuccessfully!!!"
-          }
-          battingAlert.present();
-        },
-        (err) => {
-          console.log(err);
-        },
-        () => {
-          this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-            if (data.result) {
-              this.userBalance = data.UserBalance;
+    if(!this.checkNullAndZero()){
+      battingAlert.message="Enter Proper Ticket Quantity!";
+      battingAlert.present();
+    }
+    else{
+      this.programDb.submitDraw(
+        new DrawType(
+          Number(this.txt1),
+          Number(this.txt2),
+          Number(this.txt3),
+          Number(this.txt4),
+          Number(this.txt5),
+          Number(this.txt6),
+          Number(this.txt7),
+          Number(this.txt8),
+          Number(this.txt9),
+          Number(this.txt0),
+          Number(localStorage.getItem('UserId')),
+          'Normal'
+        )).subscribe(
+          (data: any) => {
+            if(data.result){
+              battingAlert.message="Batting Successfully!!!";
+              
             }
-          });
-        }
-      );
-      this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+            else if(data.reason==405){
+              battingAlert.message="Low Balance!!!"
+            }
+            else{
+              battingAlert.message="Batting Unsuccessfully!!!"
+            }
+            battingAlert.present();
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {
+            this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
+              if (data.result) {
+                this.userBalance = data.UserBalance;
+              }
+            });
+          }
+        );
+    }
+    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 
 
   async onJackpot() {
+    
     const alert = await this.alertController.create({
       header: 'Please enter ticket',
       inputs: [
@@ -222,21 +273,23 @@ export class ProgramPage implements OnInit {
           text: 'Okay',
           handler: async (data) => {
             const ticket = data.ticket;
-            this.txt1 = ticket;
-            this.txt2 = ticket;
-            this.txt3 = ticket;
-            this.txt4 = ticket;
-            this.txt5 = ticket;
-            this.txt6 = ticket;
-            this.txt7 = ticket;
-            this.txt8 = ticket;
-            this.txt9 = ticket;
-            this.txt0 = ticket;
-
             const battingAlert = await this.alertController.create({
               buttons: ['OK']
             });
-            this.programDb.submitDraw(
+            if(!isNull(ticket) && ticket!=0){
+              this.txt1 = ticket;
+              this.txt2 = ticket;
+              this.txt3 = ticket;
+              this.txt4 = ticket;
+              this.txt5 = ticket;
+              this.txt6 = ticket;
+              this.txt7 = ticket;
+              this.txt8 = ticket;
+              this.txt9 = ticket;
+              this.txt0 = ticket;
+              
+              
+              this.programDb.submitDraw(
               new DrawType(
                 Number(this.txt1),
                 Number(this.txt2),
@@ -274,9 +327,19 @@ export class ProgramPage implements OnInit {
                   });
                 }
               );
-              this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+            }
+            else{
+              battingAlert.message="Enter Proper Ticket Quantity!";
+              battingAlert.present();
+            }
+
+            this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 }]
     });
+    alert.present();
+  }
+  onClear(){
+    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
 }

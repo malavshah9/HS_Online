@@ -616,7 +616,6 @@ var UserDbService = /** @class */ (function () {
         });
     };
     UserDbService.prototype.getBalance = function (uid) {
-        console.log(uid);
         return this.httpClient.get(this.urlBalance + uid);
     };
     UserDbService.prototype.getPurchasedHistory = function (uid) {

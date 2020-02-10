@@ -1,4 +1,11 @@
 <ion-content color="honest">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" 
+    pullingText="Pull to refresh" 
+    pullFactor="1.2"
+    refreshingText="Refreshing Content...">
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-button shape="round" color="tertiary" style="color:purple;height:30px; margin-left: 80%;" (click)="onExit()">
     <ion-icon name="exit"></ion-icon>Exit
   </ion-button>
