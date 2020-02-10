@@ -14,13 +14,15 @@ export class PurchasedPage implements OnInit {
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { }
 
   ngOnInit() {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  }
+  loadData(){
     this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
       this.histories=data;
     });
   }
   ionViewWillEnter(){
     this.statusBar.hide();
+    this.loadData();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   doRefresh(event:any){

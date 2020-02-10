@@ -7,7 +7,7 @@ import { UserDbService } from '../services/user-db.service';
 import { ProgramDbService } from '../services/program-db.service';
 import { DrawType } from '../shared/draw_type_class';
 import { AlertController, ToastController } from '@ionic/angular';
-import { isNull } from 'util';
+import { isNull, isUndefined } from 'util';
 @Component({
   selector: 'app-program',
   templateUrl: './program.page.html',
@@ -48,11 +48,10 @@ export class ProgramPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController
   ) {
-    this.userName = localStorage.getItem('UserName');
-    this.getBalance();
   }
   ionViewDidLoad(){
     this.getBalance();
+    this.userName = localStorage.getItem('UserName');
   }
 
   ngOnInit() {
@@ -61,7 +60,6 @@ export class ProgramPage implements OnInit {
       this.setTime();
       this.getBalance();
     },1000);
-   
   }
   getBalance(){
     this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
@@ -156,43 +154,43 @@ export class ProgramPage implements OnInit {
   }
   checkNullAndZero(){
     let result:Boolean=false;
-    if(!isNull(this.txt1) && this.txt1!=0){
+    if(!isNull(this.txt1) && this.txt1!=0 && isUndefined(this.txt1)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt2) && this.txt2!=0){
+    if(!isNull(this.txt2) && this.txt2!=0 && isUndefined(this.txt2)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt3) && this.txt3!=0){
+    if(!isNull(this.txt3) && this.txt3!=0 && isUndefined(this.txt3)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt4) && this.txt4!=0){
+    if(!isNull(this.txt4) && this.txt4!=0 && isUndefined(this.txt4)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt5) && this.txt5!=0){
+    if(!isNull(this.txt5) && this.txt5!=0 && isUndefined(this.txt5)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt6) && this.txt6!=0){
+    if(!isNull(this.txt6) && this.txt6!=0 && isUndefined(this.txt6)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt7) && this.txt7!=0){
+    if(!isNull(this.txt7) && this.txt7!=0 && isUndefined(this.txt7)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt8) && this.txt8!=0){
+    if(!isNull(this.txt8) && this.txt8!=0 && isUndefined(this.txt8)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt9) && this.txt9!=0){
+    if(!isNull(this.txt9) && this.txt9!=0 && isUndefined(this.txt9)){
       result=true;
       return result;
     }
-    if(!isNull(this.txt0) && this.txt0!=0){
+    if(!isNull(this.txt0) && this.txt0!=0 && isUndefined(this.txt0)){
       result=true;
       return result;
     }
@@ -234,20 +232,17 @@ export class ProgramPage implements OnInit {
               battingAlert.message="Batting Unsuccessfully!!!"
             }
             battingAlert.present();
+            this.getBalance();
           },
           (err) => {
             console.log(err);
           },
           () => {
-            this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-              if (data.result) {
-                this.userBalance = data.UserBalance;
-              }
-            });
+           
           }
         );
     }
-    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+    this.onClear();
   }
 
 
@@ -315,6 +310,7 @@ export class ProgramPage implements OnInit {
                     battingAlert.message="Batting Unsuccessfully!!!"
                   }
                   battingAlert.present();
+                  this.getBalance();
                 },
                 (err) => {
                   console.log(err);
@@ -333,7 +329,7 @@ export class ProgramPage implements OnInit {
               battingAlert.present();
             }
 
-            this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+            this.onClear();
   }
 }]
     });
