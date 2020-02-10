@@ -40,7 +40,8 @@ onHistory()
 onLogout()
 {
   localStorage.clear();
-  this.route.navigateByUrl('');
+  //navigator['app'].exitApp();
+  this.route.navigateByUrl('/login');
 }
 
 
