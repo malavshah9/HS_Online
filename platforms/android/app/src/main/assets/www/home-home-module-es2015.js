@@ -82,12 +82,15 @@ module.exports = ".welcome-card img {\n  max-height: 35vh;\n  overflow: hidden;\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/user-db.service */ "./src/app/services/user-db.service.ts");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _shared_User_class__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../shared/User_class */ "./src/app/shared/User_class.ts");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _services_user_db_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/user-db.service */ "./src/app/services/user-db.service.ts");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _shared_User_class__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../shared/User_class */ "./src/app/shared/User_class.ts");
+
 
 
 
@@ -102,22 +105,24 @@ let HomePage = class HomePage {
         this.toast = toast;
         this.formBuilder = formBuilder;
         this.loginForm = this.formBuilder.group({
-            'username': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
+            'username': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required
             ])),
-            'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].compose([
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
+            'password': new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].compose([
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required
             ]))
         });
+        if (!Object(util__WEBPACK_IMPORTED_MODULE_1__["isNull"])(localStorage.getItem("UserId"))) {
+            this.route.navigateByUrl('/dashboard');
+        }
     }
     onClick() {
         // this.route.navigateByUrl('/dashboard');
-        this.user = new _shared_User_class__WEBPACK_IMPORTED_MODULE_6__["User"](this.loginForm.get('username').value, this.loginForm.get('password').value);
+        this.user = new _shared_User_class__WEBPACK_IMPORTED_MODULE_7__["User"](this.loginForm.get('username').value, this.loginForm.get('password').value);
         this.useDb.loginUser(this.user).subscribe((data) => tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             let t1;
             console.log(data);
             if (data.result) {
-                this.route.navigateByUrl('/dashboard');
                 t1 = yield this.toast.create({
                     message: "Successfull Login!",
                     duration: 1000,
@@ -127,6 +132,7 @@ let HomePage = class HomePage {
                 });
                 localStorage.setItem('UserId', data.UserId);
                 localStorage.setItem('UserName', data.UserName);
+                this.route.navigateByUrl('/dashboard');
             }
             else {
                 t1 = yield this.toast.create({
@@ -144,18 +150,18 @@ let HomePage = class HomePage {
     }
 };
 HomePage.ctorParameters = () => [
-    { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__["UserDbService"] },
-    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"] }
+    { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _services_user_db_service__WEBPACK_IMPORTED_MODULE_4__["UserDbService"] },
+    { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"] }
 ];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
         selector: 'app-home',
         template: __webpack_require__(/*! raw-loader!./home.page.html */ "./node_modules/raw-loader/index.js!./src/app/home/home.page.html"),
         styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
     }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_user_db_service__WEBPACK_IMPORTED_MODULE_3__["UserDbService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["ToastController"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormBuilder"]])
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _services_user_db_service__WEBPACK_IMPORTED_MODULE_4__["UserDbService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ToastController"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]])
 ], HomePage);
 
 

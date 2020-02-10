@@ -118,7 +118,8 @@ var DashboardPage = /** @class */ (function () {
     };
     DashboardPage.prototype.onLogout = function () {
         localStorage.clear();
-        this.route.navigateByUrl('');
+        //navigator['app'].exitApp();
+        this.route.navigateByUrl('/home');
     };
     DashboardPage.ctorParameters = function () { return [
         { type: _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },

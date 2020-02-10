@@ -1,3 +1,4 @@
+import { isNull } from 'util';
 import { Component, ViewChild } from '@angular/core';
 
 import { Router } from '../../../node_modules/@angular/router';
@@ -22,6 +23,9 @@ export class HomePage {
         Validators.required
       ]))
     });
+    if(!isNull(localStorage.getItem("UserId"))){
+      this.route.navigateByUrl('/dashboard');
+    }
    }
   onClick() {
     // this.route.navigateByUrl('/dashboard');
@@ -30,7 +34,6 @@ export class HomePage {
       let t1:HTMLIonToastElement;
       console.log(data);
       if(data.result) {
-        this.route.navigateByUrl('/dashboard');
         t1 = await this.toast.create({
           message: "Successfull Login!",
           duration: 1000,
@@ -40,6 +43,7 @@ export class HomePage {
         });
         localStorage.setItem('UserId',data.UserId);
         localStorage.setItem('UserName',data.UserName);
+        this.route.navigateByUrl('/dashboard');
       }
       else {
         t1 = await this.toast.create({
@@ -50,6 +54,7 @@ export class HomePage {
           color: 'success'
         });
       }
+      this.loginForm.reset();
       t1.present();
     },err=>{
       console.log(err);

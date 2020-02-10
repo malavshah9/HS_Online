@@ -48,12 +48,8 @@ export class ProgramPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController
   ) {
+    this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
   }
-  ionViewDidLoad(){
-    this.getBalance();
-    this.userName = localStorage.getItem('UserName');
-  }
-
   ngOnInit() {
     this.setTime();
     setInterval(()=>{
@@ -144,6 +140,8 @@ export class ProgramPage implements OnInit {
   }
   ionViewWillEnter(){
     this.statusBar.hide();
+    this.userName = localStorage.getItem('UserName');
+    this.getBalance();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   onLogout() {
@@ -152,55 +150,21 @@ export class ProgramPage implements OnInit {
   onDoubleJackpot() {
     this.route.navigateByUrl('/double-jackpot');
   }
-  checkNullAndZero(){
-    let result:Boolean=false;
-    if(!isNull(this.txt1) && this.txt1!=0 && isUndefined(this.txt1)){
-      result=true;
-      return result;
+  isNullOrZero(){
+    if(isNull(this.txt1) && isNull(this.txt2) && isNull(this.txt3) && isNull(this.txt4) && isNull(this.txt5) && isNull(this.txt6) && isNull(this.txt7) && isNull(this.txt8) && isNull(this.txt9) && isNull(this.txt0) ){
+      return true;
     }
-    if(!isNull(this.txt2) && this.txt2!=0 && isUndefined(this.txt2)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt3) && this.txt3!=0 && isUndefined(this.txt3)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt4) && this.txt4!=0 && isUndefined(this.txt4)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt5) && this.txt5!=0 && isUndefined(this.txt5)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt6) && this.txt6!=0 && isUndefined(this.txt6)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt7) && this.txt7!=0 && isUndefined(this.txt7)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt8) && this.txt8!=0 && isUndefined(this.txt8)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt9) && this.txt9!=0 && isUndefined(this.txt9)){
-      result=true;
-      return result;
-    }
-    if(!isNull(this.txt0) && this.txt0!=0 && isUndefined(this.txt0)){
-      result=true;
-      return result;
-    }
-    return result;
+    else if(this.txt0===0 || this.txt1===0 || this.txt2===0  || this.txt3===0  || this.txt4===0 
+         || this.txt8===0  || this.txt7===0  || this.txt6===0  || this.txt5===0  || this.txt9===0 ){
+        return true;
+      }
+      return false;
   }
   async onSubmit() {
     const battingAlert = await this.alertController.create({
       buttons: ['OK']
     });
-    if(!this.checkNullAndZero()){
+    if(this.isNullOrZero()){
       battingAlert.message="Enter Proper Ticket Quantity!";
       battingAlert.present();
     }
@@ -271,7 +235,7 @@ export class ProgramPage implements OnInit {
             const battingAlert = await this.alertController.create({
               buttons: ['OK']
             });
-            if(!isNull(ticket) && ticket!=0){
+            if(!isNull(ticket) && ticket!==0){
               this.txt1 = ticket;
               this.txt2 = ticket;
               this.txt3 = ticket;

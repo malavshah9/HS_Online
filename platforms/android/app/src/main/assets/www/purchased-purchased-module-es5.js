@@ -103,14 +103,16 @@ var PurchasedPage = /** @class */ (function () {
         this.userDb = userDb;
     }
     PurchasedPage.prototype.ngOnInit = function () {
+    };
+    PurchasedPage.prototype.loadData = function () {
         var _this = this;
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
         this.userDb.getHistory().subscribe(function (data) {
             _this.histories = data;
         });
     };
     PurchasedPage.prototype.ionViewWillEnter = function () {
         this.statusBar.hide();
+        this.loadData();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     };
     PurchasedPage.prototype.doRefresh = function (event) {

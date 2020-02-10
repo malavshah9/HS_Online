@@ -10,7 +10,7 @@ import { UserDbService } from '../services/user-db.service';
   styleUrls: ['./purchased.page.scss'],
 })
 export class PurchasedPage implements OnInit {
-  private histories:HistoryCustom[];
+  histories:HistoryCustom[];
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { }
 
   ngOnInit() {

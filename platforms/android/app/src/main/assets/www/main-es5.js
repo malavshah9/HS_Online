@@ -505,6 +505,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/auth-guard.service */ "./src/app/services/auth-guard.service.ts");
+
 
 
 
@@ -522,12 +524,12 @@ var routes = [
         path: 'home',
         loadChildren: function () { return Promise.all(/*! import() | home-home-module */[__webpack_require__.e("common"), __webpack_require__.e("home-home-module")]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(function (m) { return m.HomePageModule; }); }
     },
-    { path: 'purchased', loadChildren: './purchased/purchased.module#PurchasedPageModule' },
-    { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
-    { path: 'program', loadChildren: './program/program.module#ProgramPageModule' },
-    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule' },
-    { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule' },
-    { path: 'double-jackpot', loadChildren: './double-jackpot/double-jackpot.module#DoubleJackpotPageModule' }
+    { path: 'purchased', loadChildren: './purchased/purchased.module#PurchasedPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] },
+    { path: 'history', loadChildren: './history/history.module#HistoryPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] },
+    { path: 'program', loadChildren: './program/program.module#ProgramPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] },
+    { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] },
+    { path: 'changepass', loadChildren: './changepass/changepass.module#ChangepassPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] },
+    { path: 'double-jackpot', loadChildren: './double-jackpot/double-jackpot.module#DoubleJackpotPageModule', canActivate: [_services_auth_guard_service__WEBPACK_IMPORTED_MODULE_3__["AuthGuardService"]] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -582,12 +584,14 @@ __webpack_require__.r(__webpack_exports__);
 // import { SplashPage } from './splash/splash.page';
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(platform, splashScreen, statusBar, 
+    function AppComponent(platform, splashScreen, statusBar, navCtrl, alertController, 
     // public modalCtrl: ModalController,
     route) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
+        this.navCtrl = navCtrl;
+        this.alertController = alertController;
         this.route = route;
         this.splashScreen.show();
         this.initializeApp();
@@ -599,16 +603,30 @@ var AppComponent = /** @class */ (function () {
             // this.splashScreen.hide();
             _this.statusBar.hide();
             setTimeout(function () {
+                console.log('inside splash');
                 _this.splashScreen.hide();
             }, 5000);
         });
+        if (localStorage.getItem('UserId') != null) {
+            //console.log(localStorage.getItem('UserId'));
+            this.route.navigate(['dashboard']);
+        }
+        else {
+            this.route.navigate(['home']);
+        }
     };
     AppComponent.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"] },
         { type: _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"] },
         { type: _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
     ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonRouterOutlet"]),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+    ], AppComponent.prototype, "routerOutlets", void 0);
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
@@ -618,6 +636,8 @@ var AppComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"],
             _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_3__["SplashScreen"],
             _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_4__["StatusBar"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["AlertController"],
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], AppComponent);
     return AppComponent;
@@ -682,6 +702,52 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth-guard.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/auth-guard.service.ts ***!
+  \************************************************/
+/*! exports provided: AuthGuardService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthGuardService", function() { return AuthGuardService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! util */ "./node_modules/util/util.js");
+/* harmony import */ var util__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(util__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+var AuthGuardService = /** @class */ (function () {
+    function AuthGuardService(router) {
+        this.router = router;
+    }
+    AuthGuardService.prototype.canActivate = function (route) {
+        if (Object(util__WEBPACK_IMPORTED_MODULE_1__["isNull"])(localStorage.getItem("UserId"))) {
+            this.router.navigate(["home"]);
+            return false;
+        }
+        return true;
+    };
+    AuthGuardService.ctorParameters = function () { return [
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    ]; };
+    AuthGuardService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], AuthGuardService);
+    return AuthGuardService;
 }());
 
 

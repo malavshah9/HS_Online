@@ -115,7 +115,8 @@ let DashboardPage = class DashboardPage {
     }
     onLogout() {
         localStorage.clear();
-        this.route.navigateByUrl('');
+        //navigator['app'].exitApp();
+        this.route.navigateByUrl('/home');
     }
 };
 DashboardPage.ctorParameters = () => [

@@ -43,24 +43,24 @@
     </edit-config>
     <resource-file src="resources/android/xml/network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
     <allow-intent href="market:*" />
-    <icon density="ldpi" src="resources/android/icon/ldpi.png" />
-    <icon density="mdpi" src="resources/android/icon/mdpi.png" />
-    <icon density="hdpi" src="resources/android/icon/hdpi.png" />
-    <icon density="xhdpi" src="resources/android/icon/xhdpi.png" />
-    <icon density="xxhdpi" src="resources/android/icon/xxhdpi.png" />
-    <icon density="xxxhdpi" src="resources/android/icon/xxxhdpi.png" />
-    <splash density="land-ldpi" src="resources/android/splash/splash-land-ldpi.png" />
-    <splash density="land-mdpi" src="resources/android/splash/splash-land-mdpi.png" />
-    <splash density="land-hdpi" src="resources/android/splash/splash-land-hdpi.png" />
-    <splash density="land-xhdpi" src="resources/android/splash/splash-land-xhdpi.png" />
-    <splash density="land-xxhdpi" src="resources/android/splash/splash-land-xxhdpi.png" />
-    <splash density="land-xxxhdpi" src="resources/android/splash/splash-land-xxxhdpi.png" />
-    <splash density="port-ldpi" src="resources/android/splash/splash-port-ldpi.png" />
-    <splash density="port-mdpi" src="resources/android/splash/splash-port-mdpi.png" />
-    <splash density="port-hdpi" src="resources/android/splash/splash-port-hdpi.png" />
-    <splash density="port-xhdpi" src="resources/android/splash/splash-port-xhdpi.png" />
-    <splash density="port-xxhdpi" src="resources/android/splash/splash-port-xxhdpi.png" />
-    <splash density="port-xxxhdpi" src="resources/android/splash/splash-port-xxxhdpi.png" />
+    <icon density="ldpi" src="res/icon/android/ldpi.png" />
+    <icon density="mdpi" src="res/icon/android/mdpi.png" />
+    <icon density="hdpi" src="res/icon/android/hdpi.png" />
+    <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+    <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
+    <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+    <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
+    <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
+    <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
+    <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+    <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+    <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
+    <splash density="land-ldpi" src="res/screen/android/splash-land-ldpi.png" />
+    <splash density="land-mdpi" src="res/screen/android/splash-land-mdpi.png" />
+    <splash density="land-hdpi" src="res/screen/android/splash-land-hdpi.png" />
+    <splash density="land-xhdpi" src="res/screen/android/splash-land-xhdpi.png" />
+    <splash density="land-xxhdpi" src="res/screen/android/splash-land-xxhdpi.png" />
+    <splash density="land-xxxhdpi" src="res/screen/android/splash-land-xxxhdpi.png" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="webView" value="com.ionicframework.cordova.webview.IonicWebViewEngine" />
     <preference name="ScrollEnabled" value="false" />

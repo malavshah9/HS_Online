@@ -100,13 +100,15 @@ let PurchasedPage = class PurchasedPage {
         this.userDb = userDb;
     }
     ngOnInit() {
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
+    loadData() {
         this.userDb.getHistory().subscribe((data) => {
             this.histories = data;
         });
     }
     ionViewWillEnter() {
         this.statusBar.hide();
+        this.loadData();
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     }
     doRefresh(event) {

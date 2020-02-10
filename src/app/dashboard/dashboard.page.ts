@@ -41,7 +41,7 @@ onLogout()
 {
   localStorage.clear();
   //navigator['app'].exitApp();
-  this.route.navigateByUrl('/login');
+  this.route.navigateByUrl('/home');
 }
 
 
