@@ -136,7 +136,7 @@ var ProgramPage = /** @class */ (function () {
         setInterval(function () {
             _this.setTime();
         }, 1000);
-        this.getBalance();
+        // this.getBalance();
     };
     ProgramPage.prototype.getBalance = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
@@ -147,6 +147,7 @@ var ProgramPage = /** @class */ (function () {
                     console.log(data);
                     _this.myObj = data;
                     console.log(" myObj ", _this.myObj);
+                    _this.ngOnInit();
                     // this.userBalance  = data.UserBalance;
                 });
                 console.log(" myObj ", this.myObj);

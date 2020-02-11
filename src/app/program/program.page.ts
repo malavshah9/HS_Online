@@ -62,7 +62,7 @@ export class ProgramPage implements OnInit {
     setInterval(()=>{
       this.setTime();
     },1000);
-    this.getBalance();
+    // this.getBalance();
     
   }
   async getBalance(){
@@ -71,9 +71,11 @@ export class ProgramPage implements OnInit {
       console.log(data);
       this.myObj=data;
       console.log(" myObj ",this.myObj);
+      this.ngOnInit();
       // this.userBalance  = data.UserBalance;
     });
     console.log(" myObj ",this.myObj);
+    
   }
   setTime(){
     this.setDrawTimer();
