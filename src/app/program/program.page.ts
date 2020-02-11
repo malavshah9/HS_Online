@@ -1,6 +1,6 @@
 import { Balance } from './../shared/Balance_class';
 import { async } from '@angular/core/testing';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -50,7 +50,8 @@ export class ProgramPage implements OnInit {
     private userDb: UserDbService,
     private programDb: ProgramDbService,
     private alertController: AlertController,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private zone:NgZone
   ) {
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
     this.userId=localStorage.getItem('UserId');
@@ -66,14 +67,16 @@ export class ProgramPage implements OnInit {
     
   }
   async getBalance(){
-    console.log(" getBalance() called");
-    this.userDb.getBalance(this.userId).subscribe((data: Balance) => {
-      console.log(data);
-      this.myObj=data;
+    this.zone.run(()=>{
+      console.log(" getBalance() called");
+      this.userDb.getBalance(this.userId).subscribe((data: Balance) => {
+        console.log(data);
+        this.myObj=data;
+        console.log(" myObj ",this.myObj);
+        // this.userBalance  = data.UserBalance;
+      });
       console.log(" myObj ",this.myObj);
-      // this.userBalance  = data.UserBalance;
     });
-    console.log(" myObj ",this.myObj);
   }
   setTime(){
     this.setDrawTimer();
@@ -155,12 +158,7 @@ export class ProgramPage implements OnInit {
     this.getBalance();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.batting_type="Normal";
-    // setInterval(()=>{
-    //   this.getBalance();
-    // },2000);
-  }
-  
-  ionViewDidLoad(){
+    this.getBalance();
     // setInterval(()=>{
     //   this.getBalance();
     // },2000);
@@ -217,7 +215,7 @@ export class ProgramPage implements OnInit {
               battingAlert.message="Batting Unsuccessfully!!!"
             }
             battingAlert.present();
-            
+            this.getBalance();
           },
           (err) => {
             console.log(err);
