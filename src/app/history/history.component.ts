@@ -14,24 +14,20 @@ export class HistoryComponent implements OnInit {
 
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) {
     this.loadData(); 
-    
+    this.histories=[];
   }
   histories:PurchasedHistory[]=[];
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
   onExit(){
     this.route.navigateByUrl('/dashboard');
   }
   ionViewWillEnter(){
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
-  ionViewDidLoad(){
     this.loadData();
   }
   loadData(){
-    this.histories=[];
+    console.log(" loadData() called ");
     this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe((data:PurchasedHistory[])=>{
       this.histories=data;
     },(e)=>{},()=>{

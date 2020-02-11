@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from 'src/app/shared/User_class';
 import { Password } from '../shared/Password_class';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +23,7 @@ export class UserDbService {
     });
   }
   getHistory() {
+    console.log("getHistory() called ");
     return this.httpClient.get(this.urlHistory, {
       headers: new HttpHeaders().set("Content-type", "application/json")
     });

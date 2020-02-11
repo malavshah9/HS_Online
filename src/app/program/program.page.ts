@@ -1,3 +1,4 @@
+import { Balance } from './../shared/Balance_class';
 import { async } from '@angular/core/testing';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '../../../node_modules/@angular/router';
@@ -14,8 +15,8 @@ import { isNull, isUndefined } from 'util';
   styleUrls: ['./program.page.scss'],
 })
 export class ProgramPage implements OnInit {
-  userName:String;
-  userBalance:String;
+  userName:string;
+  userBalance:string;
   draw_hour:string="0";
   draw_minute:string="0";
   am_or_pm:string="";
@@ -27,6 +28,7 @@ export class ProgramPage implements OnInit {
   draw_time;
   remaining_minute:string="";
   remaining_second:string="";
+  batting_type:string="Normal";
 
   txt1: number;
   txt2: number;
@@ -38,7 +40,9 @@ export class ProgramPage implements OnInit {
   txt8: number;
   txt9: number;
   txt0: number;
-
+  userId:any;
+  mypromise:any;
+  myObj:Balance;
   constructor(
     public route: Router,
     private statusBar: StatusBar,
@@ -49,20 +53,27 @@ export class ProgramPage implements OnInit {
     private toastController: ToastController
   ) {
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+    this.userId=localStorage.getItem('UserId');
+    this.myObj=new Balance(true,"","");
+    this.getBalance();
   }
   ngOnInit() {
     this.setTime();
     setInterval(()=>{
       this.setTime();
-      this.getBalance();
     },1000);
+    this.getBalance();
+    
   }
-  getBalance(){
-    this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-      if (data.result) {
-        this.userBalance = data.UserBalance;
-      }
+  async getBalance(){
+    console.log(" getBalance() called");
+    this.userDb.getBalance(this.userId).subscribe((data: Balance) => {
+      console.log(data);
+      this.myObj=data;
+      console.log(" myObj ",this.myObj);
+      // this.userBalance  = data.UserBalance;
     });
+    console.log(" myObj ",this.myObj);
   }
   setTime(){
     this.setDrawTimer();
@@ -138,11 +149,21 @@ export class ProgramPage implements OnInit {
     let dateAnother:Date=new Date(anotherDay);
     return dateAnother.getHours().toString();
   }
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
     this.statusBar.hide();
     this.userName = localStorage.getItem('UserName');
     this.getBalance();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    this.batting_type="Normal";
+    // setInterval(()=>{
+    //   this.getBalance();
+    // },2000);
+  }
+  
+  ionViewDidLoad(){
+    // setInterval(()=>{
+    //   this.getBalance();
+    // },2000);
   }
   onLogout() {
     this.route.navigateByUrl('/dashboard');
@@ -182,12 +203,12 @@ export class ProgramPage implements OnInit {
           Number(this.txt9),
           Number(this.txt0),
           Number(localStorage.getItem('UserId')),
-          'Normal'
+          this.batting_type
         )).subscribe(
-          (data: any) => {
+         async (data: any) => {
             if(data.result){
               battingAlert.message="Batting Successfully!!!";
-              
+              await this.getBalance();
             }
             else if(data.reason==405){
               battingAlert.message="Low Balance!!!"
@@ -196,13 +217,13 @@ export class ProgramPage implements OnInit {
               battingAlert.message="Batting Unsuccessfully!!!"
             }
             battingAlert.present();
-            this.getBalance();
+            
           },
           (err) => {
             console.log(err);
           },
           () => {
-           
+            this.batting_type="Normal";
           }
         );
     }
@@ -247,53 +268,15 @@ export class ProgramPage implements OnInit {
               this.txt9 = ticket;
               this.txt0 = ticket;
               
+              this.batting_type="Jackpot";
               
-              this.programDb.submitDraw(
-              new DrawType(
-                Number(this.txt1),
-                Number(this.txt2),
-                Number(this.txt3),
-                Number(this.txt4),
-                Number(this.txt5),
-                Number(this.txt6),
-                Number(this.txt7),
-                Number(this.txt8),
-                Number(this.txt9),
-                Number(this.txt0),
-                Number(localStorage.getItem('UserId')),
-                'Jackpot'
-              )).subscribe(
-                (data: any) => {
-                  if(data.result){
-                    battingAlert.message="Batting Successfully!!!";
-                  }
-                  else if(data.reason==405){
-                    battingAlert.message="Low Balance!!!"
-                  }
-                  else{
-                    battingAlert.message="Batting Unsuccessfully!!!"
-                  }
-                  battingAlert.present();
-                  this.getBalance();
-                },
-                (err) => {
-                  console.log(err);
-                },
-                () => {
-                  this.userDb.getBalance(localStorage.getItem('UserId')).subscribe((data: any) => {
-                    if (data.result) {
-                      this.userBalance = data.UserBalance;
-                    }
-                  });
-                }
-              );
             }
             else{
               battingAlert.message="Enter Proper Ticket Quantity!";
               battingAlert.present();
             }
 
-            this.onClear();
+            
   }
 }]
     });
