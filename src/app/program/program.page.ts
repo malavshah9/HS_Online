@@ -68,14 +68,9 @@ export class ProgramPage implements OnInit {
   }
   async getBalance(){
     this.zone.run(()=>{
-      console.log(" getBalance() called");
       this.userDb.getBalance(this.userId).subscribe((data: Balance) => {
-        console.log(data);
         this.myObj=data;
-        console.log(" myObj ",this.myObj);
-        // this.userBalance  = data.UserBalance;
       });
-      console.log(" myObj ",this.myObj);
     });
   }
   setTime(){
@@ -152,16 +147,12 @@ export class ProgramPage implements OnInit {
     let dateAnother:Date=new Date(anotherDay);
     return dateAnother.getHours().toString();
   }
-  async ionViewWillEnter(){
+  ionViewWillEnter(){
     this.statusBar.hide();
     this.userName = localStorage.getItem('UserName');
     this.getBalance();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.batting_type="Normal";
-    this.getBalance();
-    // setInterval(()=>{
-    //   this.getBalance();
-    // },2000);
   }
   onLogout() {
     this.route.navigateByUrl('/dashboard');
@@ -206,7 +197,6 @@ export class ProgramPage implements OnInit {
          async (data: any) => {
             if(data.result){
               battingAlert.message="Batting Successfully!!!";
-              await this.getBalance();
             }
             else if(data.reason==405){
               battingAlert.message="Low Balance!!!"
@@ -215,13 +205,13 @@ export class ProgramPage implements OnInit {
               battingAlert.message="Batting Unsuccessfully!!!"
             }
             battingAlert.present();
-            this.getBalance();
           },
           (err) => {
             console.log(err);
           },
           () => {
             this.batting_type="Normal";
+            this.getBalance();
           }
         );
     }
