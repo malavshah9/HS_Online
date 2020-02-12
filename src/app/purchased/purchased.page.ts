@@ -4,6 +4,7 @@ import { Router } from '../../../node_modules/@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserDbService } from '../services/user-db.service';
+import { MyPipePipe } from '../shared/my-pipe.pipe';
 @Component({
   selector: 'app-purchased',
   templateUrl: './purchased.page.html',
@@ -11,7 +12,7 @@ import { UserDbService } from '../services/user-db.service';
 })
 export class PurchasedPage implements OnInit {
   histories:HistoryCustom[];
-  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService) { }
+  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,public MyPipe:MyPipePipe) { }
 
   ngOnInit() {
   }
@@ -23,13 +24,13 @@ export class PurchasedPage implements OnInit {
   ionViewWillEnter(){
     this.statusBar.hide();
     this.loadData();
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    }
   doRefresh(event:any){
     setTimeout(()=>{
-      this.ngOnInit();
+      this.loadData();
       event.target.complete();
-    },1000);
+    },500);
   }
   onExit(){
     this.route.navigateByUrl('/dashboard');

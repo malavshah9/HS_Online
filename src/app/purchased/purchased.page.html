@@ -10,7 +10,7 @@
     <!-- <span style="margin-left: 30%;">
       &nbsp;&nbsp;ID : Parth&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;<span>&nbsp;&nbsp;BALANCE
       : 0 Rs.&nbsp;&nbsp;</span> -->
-    <ion-button shape="round" color="tertiary" style="color:purple;height:30px; margin-left: 80%;" (click)="onExit()">
+    <ion-button shape="round" color="tertiary" style="color:rgb(236, 214, 236);height:30px; margin-left: 80%;" (click)="onExit()">
       <ion-icon name="exit"></ion-icon>Exit
     </ion-button>
     <!-- <div style="margin-right: -10px;"> -->
@@ -20,36 +20,50 @@
           <ion-col>
             <ion-card  *ngIf="i<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
                 <ion-card-subtitle>{{histories[i].DrawDate}}</ion-card-subtitle>
-                <ion-card-subtitle style="margin-top: -1px;">{{histories[i].DrawTime}} </ion-card-subtitle>
-                <img src="assets/icon/{{histories[i].YantraImage}}" style="height: 140px;" />
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i].DrawTime |myPipe}} </ion-card-subtitle>
+                <!-- <img src="assets/icon/{{histories[i].YantraImage}}" style="height: 140px;" /> -->
+                <img src="assets/icon/jp.png" *ngIf="histories[i].DrawType==='Jackpot'"  style="height: 140px;" />
+                <img src="assets/icon/3jp.png" *ngIf="histories[i].DrawType==='3Jackpot'" style="height: 140px;" />
+                <img src="assets/icon/{{histories[i].YantraImage}}"  *ngIf="histories[i].DrawType==='Normal'" style="height: 140px;" />
             </ion-card>
           </ion-col>
           <ion-col>
             <ion-card  *ngIf="i+1<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
                 <ion-card-subtitle>{{histories[i+1].DrawDate}}</ion-card-subtitle>
-                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+1].DrawTime}}</ion-card-subtitle> 
-                <img src="assets/icon/{{histories[i+1].YantraImage}}" style="height: 140px;" />
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+1].DrawTime |myPipe}}</ion-card-subtitle> 
+                <!-- <img src="assets/icon/{{histories[i+1].YantraImage}}" style="height: 140px;" /> -->
+                <img src="assets/icon/jp.png" *ngIf="histories[i+1].DrawType==='Jackpot'"  style="height: 140px;" />
+                <img src="assets/icon/3jp.png" *ngIf="histories[i+1].DrawType==='3Jackpot'" style="height: 140px;" />
+                <img src="assets/icon/{{histories[i+1].YantraImage}}"  *ngIf="histories[i+1].DrawType==='Normal'" style="height: 140px;" />
             </ion-card>
           </ion-col>
           <ion-col>
             <ion-card  *ngIf="i+2<histories.length"  style="background-color: white; border-radius: 10px; width:130px;">
                 <ion-card-subtitle>{{histories[i+2].DrawDate}}</ion-card-subtitle>
-                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+2].DrawTime}} </ion-card-subtitle>
-                <img src="assets/icon/{{histories[i+2].YantraImage}}" style="height: 140px;" />
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+2].DrawTime |myPipe}} </ion-card-subtitle>
+                <img src="assets/icon/jp.png" *ngIf="histories[i+2].DrawType==='Jackpot'"  style="height: 140px;" />
+                <img src="assets/icon/3jp.png" *ngIf="histories[i+2].DrawType==='3Jackpot'" style="height: 140px;" />
+                <img src="assets/icon/{{histories[i+2].YantraImage}}"  *ngIf="histories[i+2].DrawType==='Normal'" style="height: 140px;" />
             </ion-card>
           </ion-col>
           <ion-col>
             <ion-card *ngIf="i+3<histories.length"  style="background-color: white; border-radius: 10px; width:130px;">
                 <ion-card-subtitle>{{histories[i+3].DrawDate}}</ion-card-subtitle>
-                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+3].DrawTime}} </ion-card-subtitle>
-                <img src="assets/icon/{{histories[i+3].YantraImage}}" style="height: 140px;" />
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+3].DrawTime |myPipe}} </ion-card-subtitle>
+                <!-- <img src="assets/icon/{{histories[i+3].YantraImage}}" style="height: 140px;" /> -->
+                <img src="assets/icon/jp.png" *ngIf="histories[i+3].DrawType==='Jackpot'"  style="height: 140px;" />
+                <img src="assets/icon/3jp.png" *ngIf="histories[i+3].DrawType==='3Jackpot'" style="height: 140px;" />
+                <img src="assets/icon/{{histories[i+3].YantraImage}}"  *ngIf="histories[i+3].DrawType==='Normal'" style="height: 140px;" />
             </ion-card>
           </ion-col>
           <ion-col>
             <ion-card *ngIf="i+4<histories.length" style="background-color: white; border-radius: 10px; width:130px;">
                 <ion-card-subtitle>{{histories[i+4].DrawDate}}</ion-card-subtitle>
-                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+4].DrawTime}} </ion-card-subtitle>
-                <img src="assets/icon/{{histories[i+4].YantraImage}}" style="height: 140px;" />
+                <ion-card-subtitle style="margin-top: -1px;">{{histories[i+4].DrawTime |myPipe}} </ion-card-subtitle>
+                <!-- <img src="assets/icon/{{histories[i+4].YantraImage}}" style="height: 140px;" /> -->
+                <img src="assets/icon/jp.png" *ngIf="histories[i+4].DrawType==='Jackpot'"  style="height: 140px;" />
+                <img src="assets/icon/3jp.png" *ngIf="histories[i+4].DrawType==='3Jackpot'" style="height: 140px;" />
+                <img src="assets/icon/{{histories[i+4].YantraImage}}"  *ngIf="histories[i+4].DrawType==='Normal'" style="height: 140px;" />
             </ion-card>
           </ion-col>
         </ion-row>

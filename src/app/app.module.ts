@@ -1,3 +1,4 @@
+import { MyPipeModule } from './shared/my-pipe.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -20,6 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    MyPipeModule.forRoot()
   ],
   providers: [
     ScreenOrientation,

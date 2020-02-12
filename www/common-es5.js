@@ -607,7 +607,12 @@ var UserDbService = /** @class */ (function () {
     UserDbService.prototype.getHistory = function () {
         console.log("getHistory() called ");
         return this.httpClient.get(this.urlHistory, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set("Content-type", "application/json")
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Cache-control': 'no-cache',
+                // 'Cache-control': 'no-store',
+                'Expires': '0',
+                'Pragma': 'no-cache'
+            })
         });
     };
     UserDbService.prototype.changePassword = function (pass, userId) {
@@ -617,10 +622,24 @@ var UserDbService = /** @class */ (function () {
         });
     };
     UserDbService.prototype.getBalance = function (uid) {
-        return this.httpClient.get(this.urlBalance + uid);
+        return this.httpClient.get(this.urlBalance + uid, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Cache-control': 'no-cache',
+                // 'Cache-control': 'no-store',
+                'Expires': '0',
+                'Pragma': 'no-cache'
+            })
+        });
     };
     UserDbService.prototype.getPurchasedHistory = function (uid) {
-        return this.httpClient.get(this.urlPurchasedHistory + uid);
+        return this.httpClient.get(this.urlPurchasedHistory + uid, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Cache-control': 'no-cache',
+                // 'Cache-control': 'no-store',
+                'Expires': '0',
+                'Pragma': 'no-cache'
+            })
+        });
     };
     UserDbService.ctorParameters = function () { return [
         { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }

@@ -24,8 +24,13 @@ export class UserDbService {
   }
   getHistory() {
     console.log("getHistory() called ");
-    return this.httpClient.get(this.urlHistory, {
-      headers: new HttpHeaders().set("Content-type", "application/json")
+    return this.httpClient.get(this.urlHistory,{
+      headers:new HttpHeaders({
+        'Cache-control': 'no-cache',
+        // 'Cache-control': 'no-store',
+        'Expires':'0',
+        'Pragma':'no-cache'
+      })
     });
   }
   changePassword(pass: Password, userId) {
@@ -35,10 +40,24 @@ export class UserDbService {
     });
   }
   getBalance(uid) {
-    return this.httpClient.get(this.urlBalance + uid);
+    return this.httpClient.get(this.urlBalance+uid,{
+      headers:new HttpHeaders({
+        'Cache-control': 'no-cache',
+        // 'Cache-control': 'no-store',
+        'Expires':'0',
+        'Pragma':'no-cache'
+      })
+    });
   }
   getPurchasedHistory(uid){
-    return this.httpClient.get(this.urlPurchasedHistory + uid);
+    return this.httpClient.get(this.urlPurchasedHistory + uid,{
+      headers:new HttpHeaders({
+        'Cache-control': 'no-cache',
+        // 'Cache-control': 'no-store',
+        'Expires':'0',
+        'Pragma':'no-cache'
+      })
+    });
   }
 
 }
