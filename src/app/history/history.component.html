@@ -11,73 +11,6 @@
   </ion-button>
   <ion-card *ngFor="let item of histories" style="background-color: white;color: black;">
     <ion-card-content>
-      <!-- <ion-grid>
-        <ion-row>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Grah</ion-label>
-            <div>
-              <ion-label>{{item.Grah?item.Grah:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Love</ion-label>
-            <div>
-              <ion-label>{{item.Love?item.Love:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Matsya</ion-label>
-            <div>
-              <ion-label>{{item.Matsya?item.Matsya:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Meditation</ion-label>
-            <div>
-              <ion-label>{{item.Meditation?item.Meditation:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Planet</ion-label>
-            <div>
-              <ion-label>{{item.Planet?item.Planet:" "}}</ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Shree</ion-label>
-            <div>
-              <ion-label>{{item.Shree?item.Shree:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Sudarshan</ion-label>
-            <div>
-              <ion-label>{{item.Sudarshan?item.Sudarshan:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Tara</ion-label>
-            <div>
-              <ion-label>{{item.Tara?item.Tara:" "}}</ion-label>
-            </div>
-          </ion-col>
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label> Vashikaran</ion-label>
-            <div>
-              <ion-label>{{item.Vashikaran?item.Vashikaran:" "}}</ion-label>
-            </div>
-          </ion-col>
-          
-          <ion-col class="ion-margin" style="align-items: center; text-align: center;">
-            <ion-label>Vastu</ion-label>
-            <div>
-              <ion-label>{{item.Vastu?item.Vastu:" "}}</ion-label>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid> -->
       <ion-grid>
         <div *ngIf="item.CouponType==='Double Jackpot'; else elseBlock">
         <div *ngFor="let newitem of myIndex; index as i" >
@@ -216,6 +149,8 @@
       <div class="display">
         Total Yantra&nbsp;:&nbsp;{{item.CouponTotalNumber}}<br>
         Total Amount&nbsp;:&nbsp;{{item.CouponTotalAmount}}<br>
+        Purchased Date&nbsp;:&nbsp;{{item.CopuonCreateDate | date:'d-M-yyyy'}}<br>
+        Purchased Time&nbsp;:&nbsp;{{item.CopuonCreateTime | myPipe}} <br>
         Date&nbsp;:&nbsp;{{item.DrawDate | date:'d-M-yyyy'}}<br>
         Draw Time&nbsp;:&nbsp;{{item.DrawTime | myPipe}}<br>
         <!-- Winning Yantra:{{}}<br> -->

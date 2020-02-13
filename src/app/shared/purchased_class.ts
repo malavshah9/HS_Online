@@ -13,7 +13,9 @@ export class PurchasedHistory{
         public CouponTotalAmount?,
         public CouponTotalNumber?,
         public DrawDate?:Date,
-        public DrawTime?
+        public DrawTime?,
+        public CopuonCreateDate?,
+        public CopuonCreateTime?
     ){
 
     }

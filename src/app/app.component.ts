@@ -21,70 +21,21 @@ export class AppComponent {
     // public modalCtrl: ModalController,
      public route:Router
   ) {
-    this.splashScreen.show();
     this.initializeApp();
   }
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.statusBar.styleDefault();
-      // this.splashScreen.hide();
       this.statusBar.hide();
-      setTimeout(() => {
-        console.log('inside splash');
-        this.splashScreen.hide();
-      }, 5000);
+      this.splashScreen.hide();
+      document.addEventListener("offline", () => {
+        alert("Internet is off.Please connect to Internet.");
+      }, false);
     });
     if(localStorage.getItem('UserId')!=null){
-      //console.log(localStorage.getItem('UserId'));
-      
       this.route.navigate(['dashboard']);
     }
     else{
       this.route.navigate(['home']);
     }
   }
-
-  // backButtonEnable() {
-  //   this.platform.backButton.subscribe(
-  //     async () => {
-  //       this.routerOutlets.forEach(
-  //         async (outlet: IonRouterOutlet) => {
-  //           if (this.route.url === '/home' || this.route.url === 'dashboard') {
-  //             this.presentAlertConfirm();
-  //           }
-  //           else if (this.route.url === '/changepass' || this.route.url === '/history' || this.route.url === '/purchased' || this.route.url === '/program') {
-  //             this.navCtrl.navigateRoot(['/dashboard']);
-  //           }
-  //         }
-  //       );
-  //     }
-  //   );
-  //}
-
-
-  // async presentAlertConfirm() {
-  //   const alert = await this.alertController.create({
-  //     header: 'Confirm Exit!',
-  //     message: 'Do you want to exit???',
-  //     buttons: [
-  //       {
-  //         text: 'Cancel',
-  //         role: 'cancel',
-  //         cssClass: 'secondary',
-  //         handler: () => {
-  //           console.log('Confirm Cancel: blah');
-  //         }
-  //       }, {
-  //         text: 'Yes',
-  //         handler: () => {
-  //           console.log('Confirm Okay');
-  //           navigator['app'].exitApp();
-  //         }
-  //       }
-  //     ]
-  //   });
-
-  //   await alert.present();
-  // }
-
 }
