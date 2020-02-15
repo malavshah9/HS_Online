@@ -605,7 +605,6 @@ var UserDbService = /** @class */ (function () {
         });
     };
     UserDbService.prototype.getHistory = function () {
-        console.log("getHistory() called ");
         return this.httpClient.get(this.urlHistory, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
                 'Cache-control': 'no-cache',

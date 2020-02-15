@@ -14,6 +14,8 @@ export class UserDbService {
   private urlBalance: string = "https://honestonline.in/api/index.php/balance/";
   private urlChangePass: string = "https://honestonline.in/api/index.php/user/";
   private urlPurchasedHistory:string="https://honestonline.in/api/index.php/user/";
+  private urlCheckBalance:string="https://honestonline.in/api/index.php/winbalance/";
+  private urlTakeBalance:string="https://honestonline.in/api/index.php/takebalance/";
   constructor(private httpClient: HttpClient) { }
 
   loginUser(user: User) {
@@ -24,6 +26,26 @@ export class UserDbService {
   }
   getHistory() {
     return this.httpClient.get(this.urlHistory,{
+      headers:new HttpHeaders({
+        'Cache-control': 'no-cache',
+        // 'Cache-control': 'no-store',
+        'Expires':'0',
+        'Pragma':'no-cache'
+      })
+    });
+  }
+  takeBalance(uid) {
+    return this.httpClient.get(this.urlTakeBalance+uid,{
+      headers:new HttpHeaders({
+        'Cache-control': 'no-cache',
+        // 'Cache-control': 'no-store',
+        'Expires':'0',
+        'Pragma':'no-cache'
+      })
+    });
+  }
+  checkBalance(uid) {
+    return this.httpClient.get(this.urlCheckBalance+uid,{
       headers:new HttpHeaders({
         'Cache-control': 'no-cache',
         // 'Cache-control': 'no-store',

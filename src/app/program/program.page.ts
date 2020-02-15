@@ -9,6 +9,7 @@ import { ProgramDbService } from '../services/program-db.service';
 import { DrawType } from '../shared/draw_type_class';
 import { AlertController, ToastController } from '@ionic/angular';
 import { isNull, isUndefined } from 'util';
+import { MyPipePipe } from '../shared/my-pipe.pipe';
 @Component({
   selector: 'app-program',
   templateUrl: './program.page.html',
@@ -52,7 +53,8 @@ export class ProgramPage implements OnInit {
     private programDb: ProgramDbService,
     private alertController: AlertController,
     private toastController: ToastController,
-    private zone:NgZone
+    private zone:NgZone,
+    public MyPipe:MyPipePipe
   ) {
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
     this.userId=localStorage.getItem('UserId');
@@ -154,6 +156,16 @@ export class ProgramPage implements OnInit {
     let anotherDay=date.setTime(date.getTime()+(hour*60*60*100));
     let dateAnother:Date=new Date(anotherDay);
     return dateAnother.getHours().toString();
+  }
+  takeBalance(){
+    this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe((data)=>{
+        console.log(data);
+    });
+  }
+  checkBalance(){
+    this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe((data)=>{
+        console.log(data);
+    });
   }
   ionViewWillEnter(){
     this.statusBar.hide();
