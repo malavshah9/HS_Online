@@ -23,7 +23,6 @@ export class UserDbService {
     });
   }
   getHistory() {
-    console.log("getHistory() called ");
     return this.httpClient.get(this.urlHistory,{
       headers:new HttpHeaders({
         'Cache-control': 'no-cache',

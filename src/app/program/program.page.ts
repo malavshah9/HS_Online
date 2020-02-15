@@ -43,6 +43,7 @@ export class ProgramPage implements OnInit {
   userId:any;
   mypromise:any;
   myObj:Balance;
+  histories:History[];
   constructor(
     public route: Router,
     private statusBar: StatusBar,
@@ -57,14 +58,21 @@ export class ProgramPage implements OnInit {
     this.userId=localStorage.getItem('UserId');
     this.myObj=new Balance(true,"","");
     this.getBalance();
+    this.histories=[];
   }
   ngOnInit() {
     this.setTime();
     setInterval(()=>{
       this.setTime();
+      this.get5History();
     },1000);
     // this.getBalance();
     
+  }
+  async get5History(){
+    this.userDb.getHistory().subscribe((data:History[])=>{
+      this.histories=data.slice(0,5);
+    });
   }
   async getBalance(){
     this.zone.run(()=>{

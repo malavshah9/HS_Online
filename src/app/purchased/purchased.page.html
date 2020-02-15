@@ -24,11 +24,11 @@
                 <!-- <img src="assets/icon/{{histories[i].YantraImage}}" style="height: 140px;" /> -->
                 <div  *ngIf="histories[i].DrawType==='Jackpot'"  >
                   <img src="assets/icon/jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase }}</ion-label>
+                  <ion-label>{{histories[i].YantraName | uppercase }}</ion-label>
                 </div>
                 <div  *ngIf="histories[i].DrawType==='3Jackpot'"  >
                   <img src="assets/icon/3jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i].DrawType==='Normal'"  >
                   <img src="assets/icon/{{histories[i].YantraImage}}" style="height: 140px;" />
@@ -49,11 +49,11 @@
                 <img src="assets/icon/{{histories[i+1].YantraImage}}"  *ngIf="histories[i+1].DrawType==='Normal'" style="height: 140px;" /> -->
                 <div  *ngIf="histories[i+1].DrawType==='Jackpot'"  >
                   <img src="assets/icon/jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+1].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+1].DrawType==='3Jackpot'"  >
                   <img src="assets/icon/3jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+1].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+1].DrawType==='Normal'"  >
                   <img src="assets/icon/{{histories[i+1].YantraImage}}" style="height: 140px;" />
@@ -69,11 +69,11 @@
                 <img src="assets/icon/{{histories[i+2].YantraImage}}"  *ngIf="histories[i+2].DrawType==='Normal'" style="height: 140px;" /> -->
                 <div  *ngIf="histories[i+2].DrawType==='Jackpot'"  >
                   <img src="assets/icon/jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+2].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+2].DrawType==='3Jackpot'"  >
                   <img src="assets/icon/3jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+2].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+2].DrawType==='Normal'"  >
                   <img src="assets/icon/{{histories[i+2].YantraImage}}" style="height: 140px;" />
@@ -90,11 +90,11 @@
                 <img src="assets/icon/{{histories[i+3].YantraImage}}"  *ngIf="histories[i+3].DrawType==='Normal'" style="height: 140px;" /> -->
                 <div  *ngIf="histories[i+3].DrawType==='Jackpot'"  >
                   <img src="assets/icon/jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+3].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+3].DrawType==='3Jackpot'"  >
                   <img src="assets/icon/3jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+3].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+3].DrawType==='Normal'"  >
                   <img src="assets/icon/{{histories[i+3].YantraImage}}" style="height: 140px;" />
@@ -111,11 +111,11 @@
                 <img src="assets/icon/{{histories[i+4].YantraImage}}"  *ngIf="histories[i+4].DrawType==='Normal'" style="height: 140px;" /> -->
                 <div  *ngIf="histories[i+4].DrawType==='Jackpot'"  >
                   <img src="assets/icon/jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+4].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+4].DrawType==='3Jackpot'"  >
                   <img src="assets/icon/3jp.png"style="height: 123px;" />
-                  <ion-label>{{item.YantraName | uppercase}}</ion-label>
+                  <ion-label>{{histories[i+4].YantraName | uppercase}}</ion-label>
                 </div>
                 <div  *ngIf="histories[i+4].DrawType==='Normal'"  >
                   <img src="assets/icon/{{histories[i+4].YantraImage}}" style="height: 140px;" />
@@ -127,12 +127,12 @@
     </ion-grid>
   </div>
 </ion-content>  
-  <!-- <ion-row *ngFor="let item of histories;let i=index;">  -->
+  <!-- <ion-row *ngFor="let histories[i] of histories;let i=index;">  -->
         <!-- <ion-col> -->
           <!-- <ion-card  style="background-color: white; border-radius: 10px; width:130px;"> -->
             <!-- <ion-card-header> -->
-               <!-- <ion-card-subtitle>{{item.DrawDate}}</ion-card-subtitle> -->
-              <!-- <ion-card-subtitle style="margin-top: -1px;">{{item.DrawTime}} </ion-card-subtitle> -->
+               <!-- <ion-card-subtitle>{{histories[i].DrawDate}}</ion-card-subtitle> -->
+              <!-- <ion-card-subtitle style="margin-top: -1px;">{{histories[i].DrawTime}} </ion-card-subtitle> -->
             <!-- </ion-card-header> -->
             <!-- <ion-card-content> -->
               <!-- <img src="assets/icon/1.jpeg" style="height: 140px;" /> -->
