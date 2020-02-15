@@ -1,59 +1,70 @@
-.bottomRow
-{
+.bottomRow {
   // margin-top: -20px;
   // position: relative;
   // top: 0px;
   margin-top: -2%;
 }
-.bottomRow2
-{
+ion-col {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+ion-card {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background-color: #008000;
+}
+.sc-ion-card-md-h {
+  box-shadow: none !important;
+}
+.bottomRow2 {
   // margin-bottom: -5px;
   // float:left;
   margin-left: 10px;
 }
-h4{
+h4 {
   margin-top: 0px;
 }
-img{
+img {
   border-radius: 10px;
-  background-color: #008000;
+  //background-color: #008000;
 }
-.special-bottom-button{
+.special-bottom-button {
   // position: relative;
   // bottom:   -70px;
   // left: 5%;
-  height:30px;
+  height: 30px;
   // margin-left: -10px;
   // float:bottom;
 }
-.container {  
+.container {
   // margin-left:10px;
   font-size: 12px;
-  display: grid;  
-  grid-template-columns: 110px 125px 145px 215px 120px;  
+  display: grid;
+  grid-template-columns: 110px 125px 145px 215px 120px;
   // margin-top: -5px;
   position: fixed;
-    left: 5px;
-    bottom: 0px;
-    right: 0;
-  // grid-template-rows: 50px 50px;  
+  left: 5px;
+  bottom: 0px;
+  right: 0;
+  // grid-template-rows: 50px 50px;
 }
-.special-span{
+.special-span {
   margin-right: 40%;
 }
-.special-span2{
+.special-span2 {
   margin-left: 65%;
   // margin-top: -20px;
 }
-ion-input{
-  position: relative;
-  top:0px;
-}
-ion-grid{
+// ion-input{
+//   position: relative;
+//   top:0px;
+// }
+ion-grid {
   // margin-top:-5px;
   // position: relative;
   // bottom: 10px;
 }
-h4{
+h4 {
   // margin-top:-1px;
 }
