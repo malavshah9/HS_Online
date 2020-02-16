@@ -116,28 +116,35 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <span style="margin-left:5px; margin-top:-20%; width:20%" class="my-span">
-      <!-- <ion-label> -->
-        &nbsp;&nbsp;Win Amount: {{winBalance}}
-      <!-- </ion-label> -->
-      <br />
-      <ion-button
-        shape="round"
-        class="special-my-button"
-        click="checkBalance()"
+  <span style="margin-left:5px; margin-top:-22%; width:20%" class="my-span">
+    <!-- <ion-label> -->
+    <span class="span-win">Win Amount: {{winBalance}}</span>
+    <!-- </ion-label> -->
+    <br />
+    <ion-button shape="round" class="special-my-button" click="checkBalance()"
       >Check
-      </ion-button>
-      <br/>
-      <ion-button
-        shape="round"
-        class="special-my-button"
-        click="takeBalance()"
+    </ion-button>
+    <br />
+    <ion-button shape="round" class="special-my-button" click="takeBalance()"
       >Take
-      </ion-button>
+    </ion-button>
   </span>
-  <span style="margin-left:5px; margin-bottom:15%; width:22%; height: 35%;" class="my-span">
-    <ion-label>Last 5 Draw</ion-label><br>
-    <li *ngFor="let item of histories">
+  <span
+    style="padding-left:3px; margin-top:-4%; width:20%; max-height: 35%;font-size: 14px;"
+    class="my-span"
+  >
+    <ion-label style="color: red;font-size: 16px;font-weight: bold;"
+      >Last 5 Draw:</ion-label
+    ><br />
+
+    <!-- <ion-item *ngFor="let item of histories">
+      {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
+    </ion-item> -->
+
+    <li
+      *ngFor="let item of histories"
+      style="list-style-type: none;border-bottom: 1px solid black;"
+    >
       {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
     </li>
   </span>
