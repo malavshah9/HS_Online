@@ -45,6 +45,7 @@ export class ProgramPage implements OnInit {
   mypromise:any;
   myObj:Balance;
   histories:History[];
+  winBalance:number=0;
   constructor(
     public route: Router,
     private statusBar: StatusBar,
@@ -158,13 +159,13 @@ export class ProgramPage implements OnInit {
     return dateAnother.getHours().toString();
   }
   takeBalance(){
-    this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe((data)=>{
-        console.log(data);
+    this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe((data:number)=>{
+        this.winBalance=data;
     });
   }
   checkBalance(){
-    this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe((data)=>{
-        console.log(data);
+    this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe((data:number)=>{
+      this.winBalance=data;
     });
   }
   ionViewWillEnter(){
