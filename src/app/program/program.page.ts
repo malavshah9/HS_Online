@@ -75,12 +75,16 @@ export class ProgramPage implements OnInit {
   async get5History(){
     this.userDb.getHistory().subscribe((data:History[])=>{
       this.histories=data.slice(0,5);
+    },(err)=>{
+
     });
   }
   async getBalance(){
     this.zone.run(()=>{
       this.userDb.getBalance(this.userId).subscribe((data: Balance) => {
         this.myObj=data;
+      },(err)=>{
+        
       });
     });
   }
@@ -194,7 +198,8 @@ export class ProgramPage implements OnInit {
   }
   async onSubmit() {
     const battingAlert = await this.alertController.create({
-      buttons: ['OK']
+      buttons: [{text:'OK',cssClass:'my-alert-button'}],
+      mode:'ios'
     });
     if(this.isNullOrZero()){
       battingAlert.message="Enter Proper Ticket Quantity!";
@@ -256,17 +261,18 @@ export class ProgramPage implements OnInit {
         {
           text: 'Cancel',
           role: 'cancel',
-          cssClass: 'secondary',
+          cssClass: 'my-alert-button',
           handler: () => {
           }
         }, {
           text: 'Okay',
           handler: async (data) => {
-            const ticket = data.ticket;
+            const ticket = parseInt(data.ticket);
             const battingAlert = await this.alertController.create({
-              buttons: ['OK']
+              buttons: ['OK'],
+              mode:"ios"
             });
-            if(!isNull(ticket) && ticket!==0){
+            if(!isNull(ticket) && ticket!==0 && !isNaN(ticket)){
               this.txt1 = ticket;
               this.txt2 = ticket;
               this.txt3 = ticket;
@@ -277,9 +283,7 @@ export class ProgramPage implements OnInit {
               this.txt8 = ticket;
               this.txt9 = ticket;
               this.txt0 = ticket;
-              
               this.batting_type="Jackpot";
-              
             }
             else{
               battingAlert.message="Enter Proper Ticket Quantity!";
@@ -288,11 +292,18 @@ export class ProgramPage implements OnInit {
 
             
   }
-}]
+}],
+mode:"ios"
     });
     alert.present();
   }
   onClear(){
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
+  }
+  viewAll(){
+    this.route.navigateByUrl('/purchased');
+  }
+  lastBatting(){
+    this.route.navigateByUrl('/history');
   }
 }

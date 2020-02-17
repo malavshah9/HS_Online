@@ -38,9 +38,24 @@ img {
   // float:bottom;
 }
 .special-my-button {
-  height: 30px;
+  height: 20px;
+  width:70px;
   --background: green !important;
   color: yellow !important;
+}
+.my-alert-button{
+  background-color: unset;
+  button{
+    color: red;
+  }
+}
+.special-my-button1 {
+  height: 20px;
+  --background: #008000;
+  color: yellow;
+  // width:55px;
+  // --background: green !important;
+  // color: yellow !important;
 }
 // ion-button {
 //   --color: yellow !important;

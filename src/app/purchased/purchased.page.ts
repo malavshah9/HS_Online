@@ -5,6 +5,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserDbService } from '../services/user-db.service';
 import { MyPipePipe } from '../shared/my-pipe.pipe';
+import {Location} from '@angular/common';
+
 @Component({
   selector: 'app-purchased',
   templateUrl: './purchased.page.html',
@@ -12,13 +14,15 @@ import { MyPipePipe } from '../shared/my-pipe.pipe';
 })
 export class PurchasedPage implements OnInit {
   histories:HistoryCustom[];
-  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,public MyPipe:MyPipePipe) { }
+  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,public MyPipe:MyPipePipe,private _location: Location) { }
 
   ngOnInit() {
   }
   loadData(){
     this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
       this.histories=data;
+    },(err)=>{
+      
     });
   }
   ionViewWillEnter(){
@@ -33,6 +37,7 @@ export class PurchasedPage implements OnInit {
     },500);
   }
   onExit(){
-    this.route.navigateByUrl('/dashboard');
+    // this.route.navigateByUrl('/dashboard');
+    this._location.back();
   }
 }

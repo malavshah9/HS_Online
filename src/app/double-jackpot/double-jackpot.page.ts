@@ -47,7 +47,8 @@ export class DoubleJackpotPage implements OnInit {
   async onSubmit(){
     const battingAlert = await this.alertController.create({
       buttons: ['OK'],
-      message:"Enter Proper Ticket Quantity!"
+      message:"Enter Proper Ticket Quantity!",
+      mode:"ios"
     });
     let myObj={};
     let hasValue=false;

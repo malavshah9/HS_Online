@@ -5,6 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserDbService } from '../services/user-db.service';
 import { PurchasedHistory } from '../shared/purchased_class';
 import { MyPipePipe } from '../shared/my-pipe.pipe';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -12,7 +13,7 @@ import { MyPipePipe } from '../shared/my-pipe.pipe';
 })
 export class HistoryComponent implements OnInit {
   myIndex: String[] = [];
-  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,private MyPipe:MyPipePipe) {
+  constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,private MyPipe:MyPipePipe,private _location: Location) {
     this.loadData(); 
     this.histories=[];
     for (let i = 11; i <= 100; i++){
@@ -31,7 +32,8 @@ export class HistoryComponent implements OnInit {
   histories:PurchasedHistory[]=[];
   ngOnInit() {}
   onExit(){
-    this.route.navigateByUrl('/dashboard');
+    // this.route.navigateByUrl('/dashboard');
+    this._location.back();
   }
   ionViewWillEnter(){
     this.statusBar.hide();
