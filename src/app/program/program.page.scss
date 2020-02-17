@@ -37,11 +37,25 @@ img {
   // margin-left: -10px;
   // float:bottom;
 }
-.special-my-button{
+.special-my-button {
   height: 30px;
+  --background: green !important;
+  color: yellow !important;
 }
-.my-span{
+// ion-button {
+//   --color: yellow !important;
+// }
+.my-span {
   background-color: white !important;
+  border-radius: 5px !important;
+}
+.span-win {
+  background-color: white !important;
+  color: red;
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 3px;
 }
 .container {
   // margin-left:10px;

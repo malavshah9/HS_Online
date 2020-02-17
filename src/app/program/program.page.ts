@@ -161,6 +161,7 @@ export class ProgramPage implements OnInit {
   takeBalance(){
     this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe((data:number)=>{
         this.winBalance=data;
+        this.getBalance();
     });
   }
   checkBalance(){
