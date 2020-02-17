@@ -15,7 +15,8 @@ export class PurchasedHistory{
         public DrawDate?:Date,
         public DrawTime?,
         public CopuonCreateDate?,
-        public CopuonCreateTime?
+        public CopuonCreateTime?,
+        public YantraId?
     ){
 
     }

@@ -4,7 +4,7 @@ import { FormArray, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-double-jackpot',
   templateUrl: './double-jackpot.page.html',
@@ -14,7 +14,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 export class DoubleJackpotPage implements OnInit {
   myIndex: String[] = [];
   angForm: FormGroup;
-  constructor(    private fb: FormBuilder,private screenOrientation: ScreenOrientation,private alertController: AlertController ,public route: Router,
+  constructor( private _location: Location,private fb: FormBuilder,private screenOrientation: ScreenOrientation,private alertController: AlertController ,public route: Router,
     public programDb:ProgramDbService   ) {
     for (let i = 11; i <= 100; i++){
       if (i % 10 === 0) {
@@ -36,7 +36,8 @@ export class DoubleJackpotPage implements OnInit {
     }
   }
   onExit(){
-    this.route.navigateByUrl('/program');
+    // this.route.navigateByUrl('/program');
+    this._location.back();
   }
   get names(): FormArray {
     return this.angForm.get('names') as FormArray;

@@ -116,7 +116,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <span style="margin-left:5px; margin-top:-23%; width:20%; margin-right: 5px;" class="my-span">
+  <span style="margin-left:5px; margin-top:-23%; width:17%; margin-right: 9px;" class="my-span">
     <!-- <ion-label> -->
     <span class="span-win">Win Amount: {{winBalance}}</span>
     <!-- </ion-label> -->
@@ -130,7 +130,7 @@
     </ion-button>
   </span>
   <span
-    style="padding-left:3px; margin-top:-10%; width:20%; max-height: 40%;font-size: 130x; margin-right: 5px;"
+    style="padding-left:3px; margin-top:-10%; width:17%; max-height: 50%;font-size: 130x; margin-right: 9px;"
     class="my-span"
   >
     <ion-label style="color: red;font-size: 16px;font-weight: bold;"
@@ -143,7 +143,7 @@
 
     <li
       *ngFor="let item of histories"
-      style="list-style-type: none;border-bottom: 1px dashed black; font-size: small;"
+      style="list-style-type: none;border-bottom: 1px dashed black; font-size: small; font-weight: bold;"
     >
       {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
     </li>

@@ -4,7 +4,7 @@ import { UserDbService } from '../services/user-db.service';
 import { ToastController } from '@ionic/angular';
 import { FormGroup, FormBuilder, FormControl, Validators, FormArray } from "@angular/forms";
 import { Password } from '../shared/Password_class';
-
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-changepass',
   templateUrl: './changepass.page.html',
@@ -13,7 +13,7 @@ import { Password } from '../shared/Password_class';
 export class ChangepassPage implements OnInit {
   userName:String;
   changeForm: FormGroup;
-  constructor(public route: Router,private useDb:UserDbService,public toast: ToastController,public formBuilder: FormBuilder) { 
+  constructor(private _location:Location,public route: Router,private useDb:UserDbService,public toast: ToastController,public formBuilder: FormBuilder) { 
     this.changeForm = this.formBuilder.group({
       'oldPassword': new FormControl('', Validators.compose([
         Validators.required
@@ -76,6 +76,7 @@ export class ChangepassPage implements OnInit {
       }
     }
   onExit(){
-    this.route.navigateByUrl('/dashboard');
+    // this.route.navigateByUrl('/dashboard');
+    this._location.back();
   }
 }

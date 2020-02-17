@@ -10,6 +10,7 @@ import { DrawType } from '../shared/draw_type_class';
 import { AlertController, ToastController } from '@ionic/angular';
 import { isNull, isUndefined } from 'util';
 import { MyPipePipe } from '../shared/my-pipe.pipe';
+import {Location} from '@angular/common';
 @Component({
   selector: 'app-program',
   templateUrl: './program.page.html',
@@ -55,7 +56,8 @@ export class ProgramPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController,
     private zone:NgZone,
-    public MyPipe:MyPipePipe
+    public MyPipe:MyPipePipe,
+    private _location: Location
   ) {
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
     this.userId=localStorage.getItem('UserId');
@@ -181,7 +183,8 @@ export class ProgramPage implements OnInit {
     this.batting_type="Normal";
   }
   onLogout() {
-    this.route.navigateByUrl('/dashboard');
+    // this.route.navigateByUrl('/dashboard');
+    this._location.back();
   }
   onDoubleJackpot() {
     this.route.navigateByUrl('/double-jackpot');
