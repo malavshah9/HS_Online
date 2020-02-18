@@ -26,3 +26,9 @@ ion-col {
 .my-css{
   color: #008000;
 }
+.my-css-another{
+  color: red($color: #ff0000);
+}
+.my-css-1{
+  color: red($color: #ff0000) !important;
+}

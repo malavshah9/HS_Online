@@ -46,7 +46,7 @@ export class HistoryComponent implements OnInit {
     // this.route.navigateByUrl('/dashboard');
     this._location.back();
   }
-  ionViewWillEnter(){
+  async ionViewWillEnter(){
     this.statusBar.hide();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.loadData();
@@ -60,9 +60,9 @@ export class HistoryComponent implements OnInit {
       return false;
     }
   }
-  loadData(){
+  async loadData(){
     console.log(" loadData() called ");
-    this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe((data:PurchasedHistory[])=>{
+    this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe(async (data:PurchasedHistory[])=>{
       this.histories=data;
     },(e)=>{},()=>{
     });

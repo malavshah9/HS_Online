@@ -113,7 +113,7 @@ export class ProgramPage implements OnInit {
     let minutes = Math.floor(delta / 60) % 60;
     delta -= minutes * 60;
     let seconds = delta % 60;
-    this.remaining_minute=minutes<=9?"0"+minutes:minutes.toString();
+    this.remaining_minute=minutes<=9?"0"+minutes:minutes.toString().slice(0,2);
     this.remaining_second=seconds<=9?"0"+seconds:seconds.toString();
   }
   setDrawTimer(){

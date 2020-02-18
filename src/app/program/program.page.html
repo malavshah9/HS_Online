@@ -1,3 +1,4 @@
+<ion-content>
 <div style="background-color: #008000; width: 100%; height: 100%;">
   <h4 style="color:white;" class="bottomRow2">
     {{draw_hour}}:{{draw_minute}} {{am_or_pm}}
@@ -116,7 +117,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <span style="margin-left:5px; margin-top:-23%; width:17%; margin-right: 9px;" class="my-span">
+  <span style="margin-left:8px; margin-top: -20%; width:19%; margin-right: 9px;" class="my-span">
     <!-- <ion-label> -->
     <span class="span-win">Win Amount: {{winBalance}}</span>
     <!-- </ion-label> -->
@@ -130,7 +131,7 @@
     </ion-button>
   </span>
   <span
-    style="padding-left:3px; margin-top:-10%; width:17%; max-height: 50%;font-size: 130x; margin-right: 9px;"
+    style="padding-left:3px; margin-left: 8px; margin-top: -6%; width:19%; max-height: 50%;font-size: 130x; margin-right: 9px;"
     class="my-span"
   >
     <ion-label style="color: red;font-size: 16px;font-weight: bold;"
@@ -145,6 +146,7 @@
       *ngFor="let item of histories"
       style="list-style-type: none;border-bottom: 1px dashed black; font-size: small; font-weight: bold;"
     >
+      <ng-container *ngIf="item.DrawType==='Jackpot' || item.DrawType==='3Jackpot'">{{item.DrawType}}</ng-container>
       {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
     </li>
     <ion-button shape="round" class="special-my-button1" expand="full" (click)="viewAll()"
@@ -211,3 +213,4 @@
     </div>
   </div>
 </div>
+</ion-content>
