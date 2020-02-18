@@ -25,8 +25,11 @@ export class AppComponent {
   }
   initializeApp() {
     this.platform.ready().then(() => {
+      // this.splashScreen.show();
       this.statusBar.hide();
-      this.splashScreen.hide();
+      // setTimeout(()=>{
+      //   this.splashScreen.hide();
+      // },5000);
       document.addEventListener("offline", () => {
         alert("Internet is off.Please connect to Internet.");
       }, false);

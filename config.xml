@@ -21,9 +21,9 @@
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="0" />
     <preference name="FadeSplashScreen" value="false" />
-    <preference name="ShowSplashScreen" value="true" />
+    <preference name="ShowSplashScreen" value="false" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />

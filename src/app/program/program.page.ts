@@ -69,8 +69,10 @@ export class ProgramPage implements OnInit {
     this.setTime();
     setInterval(()=>{
       this.setTime();
-      this.get5History();
     },1000);
+    setInterval(()=>{
+      this.get5History();
+    },30000);
     // this.getBalance();
     
   }
@@ -114,7 +116,7 @@ export class ProgramPage implements OnInit {
     delta -= minutes * 60;
     let seconds = delta % 60;
     this.remaining_minute=minutes<=9?"0"+minutes:minutes.toString().slice(0,2);
-    this.remaining_second=seconds<=9?"0"+seconds:seconds.toString();
+    this.remaining_second=seconds<=9?"0"+seconds:seconds.toString().slice(0,2);
   }
   setDrawTimer(){
     let today=new Date();
@@ -181,6 +183,7 @@ export class ProgramPage implements OnInit {
     this.getBalance();
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.batting_type="Normal";
+    this.get5History();
   }
   onLogout() {
     // this.route.navigateByUrl('/dashboard');
