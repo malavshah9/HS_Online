@@ -146,8 +146,8 @@
       *ngFor="let item of histories"
       style="list-style-type: none;border-bottom: 1px dashed black; font-size: small; font-weight: bold;"
     >
-      <ng-container *ngIf="item.DrawType==='Jackpot' || item.DrawType==='3Jackpot'">{{item.DrawType}}</ng-container>
       {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
+      <ng-container *ngIf="item.DrawType==='Jackpot' || item.DrawType==='3Jackpot'">{{item.DrawType}}</ng-container>
     </li>
     <ion-button shape="round" class="special-my-button1" expand="full" (click)="viewAll()"
     >View All
