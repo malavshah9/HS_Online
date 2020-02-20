@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserDbService } from '../services/user-db.service';
 import { ProgramDbService } from '../services/program-db.service';
 import { DrawType } from '../shared/draw_type_class';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController, LoadingController } from '@ionic/angular';
 import { isNull, isUndefined } from 'util';
 import { MyPipePipe } from '../shared/my-pipe.pipe';
 import {Location} from '@angular/common';
@@ -57,7 +57,8 @@ export class ProgramPage implements OnInit {
     private toastController: ToastController,
     private zone:NgZone,
     public MyPipe:MyPipePipe,
-    private _location: Location
+    private _location: Location,
+    private loadingController:LoadingController
   ) {
     this.txt0=this.txt1=this.txt2=this.txt3=this.txt4=this.txt5=this.txt6=this.txt7=this.txt8=this.txt9=null;
     this.userId=localStorage.getItem('UserId');
@@ -115,8 +116,8 @@ export class ProgramPage implements OnInit {
     let minutes = Math.floor(delta / 60) % 60;
     delta -= minutes * 60;
     let seconds = delta % 60;
-    this.remaining_minute=minutes<=9?"0"+minutes:minutes.toString().slice(0,2);
-    this.remaining_second=seconds<=9?"0"+seconds:seconds.toString().slice(0,2);
+    this.remaining_minute=minutes<=9?"0"+minutes.toString().slice(0,2):minutes.toString().slice(0,2);
+    this.remaining_second=seconds<=9?"0"+seconds.toString().slice(0,2):seconds.toString().slice(0,2);
   }
   setDrawTimer(){
     let today=new Date();
@@ -166,15 +167,31 @@ export class ProgramPage implements OnInit {
     let dateAnother:Date=new Date(anotherDay);
     return dateAnother.getHours().toString();
   }
-  takeBalance(){
-    this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe((data:number)=>{
+  async takeBalance(){
+    const loading = await this.loadingController.create({
+      message: 'Taking Balance...'
+    });
+    await loading.present();
+    this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe(async (data:number)=>{
         this.winBalance=data;
         this.getBalance();
+    },(err)=>{
+      console.log(err);
+    },()=>{
+      loading.dismiss();
     });
   }
-  checkBalance(){
-    this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe((data:number)=>{
+  async checkBalance(){
+    const loading = await this.loadingController.create({
+      message: 'Checking Balance...'
+    });
+    await loading.present();
+    this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe(async (data:number)=>{
       this.winBalance=data;
+    },(err)=>{
+      console.log(err);
+    },()=>{
+      loading.dismiss();
     });
   }
   ionViewWillEnter(){
