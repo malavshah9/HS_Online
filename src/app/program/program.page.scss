@@ -76,7 +76,7 @@ img {
   // margin-left:10px;
   font-size: 12px;
   display: grid;
-  grid-template-columns: 110px 125px 145px 215px 120px;
+  grid-template-columns: 132px 125px 145px 210px 110px;
   // margin-top: -5px;
   position: fixed;
   left: 5px;
@@ -90,6 +90,9 @@ img {
 .special-span2 {
   margin-left: 65%;
   // margin-top: -20px;
+}
+ion-input{
+  --padding-start: 0px;
 }
 // ion-input{
 //   position: relative;

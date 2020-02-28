@@ -108,7 +108,16 @@ export class ProgramPage implements OnInit {
     this.current_date=date+"-"+month+"-"+year;
   }
   setDifferenceTime(){
-    let delta:any = Math.abs(+new Date(this.draw_time) - (+new Date(this.current_time)) )/ 1000;
+    let drawTime=new Date(this.draw_time);
+    let current_time=new Date(this.current_time);
+    
+    if(drawTime.getHours()===0){
+      console.log(" inside if ");
+      drawTime.setDate(drawTime.getDate()+1);
+    }
+    // console.log(drawTime);
+    // console.log(current_time);
+    let delta:any = Math.abs((+drawTime) - (+current_time) )/ 1000;
     let days = Math.floor(delta / 86400);
     delta -= days * 86400;
     let hours = Math.floor(delta / 3600) % 24;
@@ -121,16 +130,18 @@ export class ProgramPage implements OnInit {
   }
   setDrawTimer(){
     let today=new Date();
+    // today.setHours(24);
+    // today.setMinutes(0);
     let minute=today.getMinutes();
     if(minute>=45 && minute<=59){
-      this.draw_hour=new Date(new Date().setHours(new Date().getHours()+1)).getHours().toString();
+      // this.draw_hour=new Date(new Date().setHours(new Date().getHours()+1)).getHours().toString();
+      this.draw_hour=new Date(today.setHours(today.getHours()+1)).getHours().toString();
       // this.draw_hour=this.addHours(today,1);
     }
     else{
       this.draw_hour=today.getHours().toString();
     }
     let draw_hour_number=+this.draw_hour;
-    
     this.am_or_pm=draw_hour_number>=12?"PM":"AM";
     let number_hour=+this.draw_hour;
     number_hour=number_hour%12;
@@ -154,6 +165,8 @@ export class ProgramPage implements OnInit {
   }
   setCurrentTime(){
     let date = new Date();
+    // date.setHours(24);
+    // date.setMinutes(0);
     let hours=date.getHours();
     hours=hours%12;
     hours=hours?hours:12;

@@ -16,6 +16,7 @@ export class UserDbService {
   private urlPurchasedHistory:string="https://honestonline.in/api/index.php/user/";
   private urlCheckBalance:string="https://honestonline.in/api/index.php/winbalance/";
   private urlTakeBalance:string="https://honestonline.in/api/index.php/takebalance/";
+  private myURL:string="https://dummy-db-420.herokuapp.com/";
   constructor(private httpClient: HttpClient) { }
 
   loginUser(user: User) {
@@ -24,15 +25,18 @@ export class UserDbService {
       headers: new HttpHeaders().set("Content-type", "application/json")
     });
   }
+  getTimeOut(){
+    return this.httpClient.get(this.myURL);
+  }
   getHistory() {
-    return this.httpClient.get(this.urlHistory,{
-      headers:new HttpHeaders({
-        'Cache-control': 'no-cache',
-        // 'Cache-control': 'no-store',
-        'Expires':'0',
-        'Pragma':'no-cache'
-      })
-    });
+    
+      return this.httpClient.get(this.urlHistory,{
+        headers:new HttpHeaders({
+          'Cache-control': 'no-cache',
+          // 'Cache-control': 'no-store',
+          'Expires':'0',
+          'Pragma':'no-cache'
+        })});
   }
   takeBalance(uid) {
     return this.httpClient.get(this.urlTakeBalance+uid,{

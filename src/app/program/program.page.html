@@ -129,7 +129,7 @@
     </ion-row>
   </form>
   </ion-grid>
-  <span style="margin-left:8px; margin-top: -20%; width:19%; margin-right: 9px; border-radius: 10px;" class="my-span">
+  <span style="margin-left:8px; margin-top: -20%; width:19%; margin-right: 9px; border-radius: 10px !important;" class="my-span">
     <!-- <ion-label> -->
     <span class="span-win">Win Amount: {{winBalance}}</span>
     <!-- </ion-label> -->
@@ -143,7 +143,7 @@
     </ion-button>
   </span>
   <span
-    style="padding-left:3px; margin-left: 8px; margin-top: -8%; width:19%; max-height: 50%;font-size: 130x; margin-right: 9px;"
+    style="padding-left:3px; margin-left: 8px; margin-top: -8%; width:19%; max-height: 50%;font-size: 130x; margin-right: 9px; border-radius: 10px !important;"
     class="my-span"
   >
     <ion-label style="color: red;font-size: 16px;font-weight: bold;"
@@ -172,12 +172,13 @@
       <ion-button
         class="special-bottom-button"
         shape="round"
-        color="tertiary"
-        style="color:purple;"
-        (click)="onLogout()"
+        color="warning"
+        style="color:black;"
+        (click)="onSubmit()"
       >
-        <ion-icon name="exit"></ion-icon>Exit
+        <ion-icon name="checkbox-outline"></ion-icon>Submit
       </ion-button>
+      
     </div>
     <div>
       <ion-button
@@ -216,11 +217,11 @@
       <ion-button
         class="special-bottom-button"
         shape="round"
-        color="warning"
-        style="color:black;"
-        (click)="onSubmit()"
+        color="tertiary"
+        style="color:purple;"
+        (click)="onLogout()"
       >
-        <ion-icon name="checkbox-outline"></ion-icon>Submit
+        <ion-icon name="exit"></ion-icon>Exit
       </ion-button>
     </div>
   </div>

@@ -19,11 +19,19 @@ export class PurchasedPage implements OnInit {
   ngOnInit() {
   }
   loadData(){
-    this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
-      this.histories=data;
-    },(err)=>{
-      
-    });
+    let timeout;
+    this.userDb.getTimeOut().subscribe((data)=>{
+      timeout=data[0].timeout;
+    },()=>{},()=>{
+      setTimeout(()=>{
+        this.userDb.getHistory().subscribe((data:HistoryCustom[])=>{
+          this.histories=data;
+        },(err)=>{
+          
+        });
+      },timeout);
+    })
+    
   }
   ionViewWillEnter(){
     this.statusBar.hide();
