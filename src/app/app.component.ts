@@ -4,6 +4,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 // import { SplashPage } from './splash/splash.page';
 import { Router } from '@angular/router';
+import { UserDbService } from './services/user-db.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
+  appVersion="";
+  
   @ViewChildren(IonRouterOutlet) routerOutlets: QueryList<IonRouterOutlet>;
   constructor(
     private platform: Platform,
@@ -18,21 +21,32 @@ export class AppComponent {
     private statusBar: StatusBar,
     private navCtrl: NavController,
     private alertController: AlertController,
+    private userDb:UserDbService,
     // public modalCtrl: ModalController,
-     public route:Router
-  ) {
+     public route:Router ) {
     this.initializeApp();
+    
   }
   initializeApp() {
     this.platform.ready().then(() => {
-      // this.splashScreen.show();
       this.statusBar.hide();
-      // setTimeout(()=>{
-      //   this.splashScreen.hide();
-      // },5000);
-      document.addEventListener("offline", () => {
-        alert("Internet is off.Please connect to Internet.");
-      }, false);
+    });
+    
+    this.userDb.getVersion().subscribe(async (data)=>{
+      this.appVersion=data[0].AppVersionId;
+    },(err)=>{
+      console.log(err);
+    },async ()=>{
+      if(this.appVersion!=="1"){
+        const battingAlert = await this.alertController.create({
+          buttons: [{text:'OK',cssClass:'my-alert-button',handler:()=>{
+            navigator['app'].exitApp();
+          }}],
+          mode:'ios',
+          message:"Your app is outdated.Please ask for new app."
+        });
+        battingAlert.present();
+      }
     });
     if(localStorage.getItem('UserId')!=null){
       this.route.navigate(['dashboard']);

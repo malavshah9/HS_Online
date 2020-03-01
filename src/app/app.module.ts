@@ -21,7 +21,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    MyPipeModule.forRoot()
+    MyPipeModule.forRoot(),
   ],
   providers: [
     ScreenOrientation,

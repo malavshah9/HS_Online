@@ -56,7 +56,7 @@ export class ChangepassPage implements OnInit {
             duration: 1000,
             showCloseButton: true,
             closeButtonText: 'Okay',
-            color: 'success'
+            cssClass:'myClass'
           });
           t3.present();
         }
@@ -70,7 +70,7 @@ export class ChangepassPage implements OnInit {
         duration: 1000,
         showCloseButton: true,
         closeButtonText: 'Okay',
-        color: 'success'
+        cssClass:'myClass'
       });
       t1.present();
       }

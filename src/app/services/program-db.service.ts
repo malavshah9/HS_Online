@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProgramDbService {
 
-  private programUlr: string = "https://honestonline.in/api/index.php/program";
-  private doubleJackpotUrl: string = 'https://honestonline.in/api/index.php/doublejackpot';
+  private programUlr: string = "http://honestonline.in/api/index.php/program";
+  private doubleJackpotUrl: string = 'http://honestonline.in/api/index.php/doublejackpot';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +20,7 @@ export class ProgramDbService {
   }
   submitDoubleJackpot(obj:any){
     const body = JSON.stringify(obj);
+    console.log(body);
     return this.http.post(this.doubleJackpotUrl, body, {
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     });

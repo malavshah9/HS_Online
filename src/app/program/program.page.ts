@@ -73,9 +73,7 @@ export class ProgramPage implements OnInit {
     },1000);
     setInterval(()=>{
       this.get5History();
-    },30000);
-    // this.getBalance();
-    
+    },30000); 
   }
   async get5History(){
     this.userDb.getHistory().subscribe((data:History[])=>{
@@ -115,8 +113,6 @@ export class ProgramPage implements OnInit {
       console.log(" inside if ");
       drawTime.setDate(drawTime.getDate()+1);
     }
-    // console.log(drawTime);
-    // console.log(current_time);
     let delta:any = Math.abs((+drawTime) - (+current_time) )/ 1000;
     let days = Math.floor(delta / 86400);
     delta -= days * 86400;
@@ -181,8 +177,13 @@ export class ProgramPage implements OnInit {
     return dateAnother.getHours().toString();
   }
   async takeBalance(){
+    let showAlert=true;
+    if(parseInt(this.winBalance+"")===0 || parseInt(this.winBalance+"")===NaN){
+        showAlert=false;
+    }
     const loading = await this.loadingController.create({
-      message: 'Taking Balance...'
+      message: 'Taking Balance...',
+      duration:10000
     });
     await loading.present();
     this.userDb.takeBalance(localStorage.getItem("UserId")).subscribe(async (data:number)=>{
@@ -190,13 +191,25 @@ export class ProgramPage implements OnInit {
         this.getBalance();
     },(err)=>{
       console.log(err);
-    },()=>{
+    },async ()=>{
+      const battingAlert = await this.alertController.create({
+        buttons: [{text:'OK',cssClass:'my-alert-button'}],
+        mode:'ios'
+      });
       loading.dismiss();
+      if(showAlert){
+        battingAlert.message="Win Amount Taken Successfully!!!";
+      }
+      else{
+        battingAlert.message="No Win Amount to Take";
+      }
+      battingAlert.present();
     });
   }
   async checkBalance(){
     const loading = await this.loadingController.create({
-      message: 'Checking Balance...'
+      message: 'Checking Balance...',
+      duration:10000
     });
     await loading.present();
     this.userDb.checkBalance(localStorage.getItem("UserId")).subscribe(async (data:number)=>{
@@ -204,7 +217,9 @@ export class ProgramPage implements OnInit {
     },(err)=>{
       console.log(err);
     },()=>{
+      
       loading.dismiss();
+      
     });
   }
   ionViewWillEnter(){

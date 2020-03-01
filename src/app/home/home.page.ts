@@ -3,7 +3,7 @@ import { Component, ViewChild } from '@angular/core';
 
 import { Router } from '../../../node_modules/@angular/router';
 import { UserDbService } from '../services/user-db.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController, LoadingController } from '@ionic/angular';
 import { FormGroup, FormBuilder, FormControl, Validators } from "@angular/forms";
 import { User } from '../shared/User_class';
 @Component({
@@ -14,7 +14,8 @@ import { User } from '../shared/User_class';
 export class HomePage {
   loginForm: FormGroup;
   user:User;
-  constructor(public route: Router,private useDb:UserDbService,public toast: ToastController,public formBuilder: FormBuilder) {
+  constructor(public route: Router,private useDb:UserDbService,public toast: ToastController,public formBuilder: FormBuilder,
+    private loadingController:LoadingController) {
     this.loginForm = this.formBuilder.group({
       'username': new FormControl('', Validators.compose([
         Validators.required
@@ -27,8 +28,13 @@ export class HomePage {
       this.route.navigateByUrl('/dashboard');
     }
    }
-  onClick() {
+  async onClick() {
     // this.route.navigateByUrl('/dashboard');
+    const loading = await this.loadingController.create({
+      message: 'Logging in...',
+      duration:5000
+    });
+    await loading.present();
     this.user=new User(this.loginForm.get('username').value,this.loginForm.get('password').value);
     this.useDb.loginUser(this.user).subscribe(async (data:any)=>{
       let t1:HTMLIonToastElement;
@@ -57,7 +63,10 @@ export class HomePage {
       this.loginForm.reset();
       t1.present();
     },err=>{
+      alert(err.message);
       console.log(err);
+    },()=>{
+        loading.dismiss();
     });
   }
  
