@@ -45,7 +45,7 @@ export class HomePage {
           duration: 1000,
           showCloseButton: true,
           closeButtonText: 'Okay',
-          color: 'success'
+          cssClass: 'myClass'
         });
         localStorage.setItem('UserId',data.UserId);
         localStorage.setItem('UserName',data.UserName);
@@ -57,7 +57,7 @@ export class HomePage {
           duration: 1000,
           showCloseButton: true,
           closeButtonText: 'Okay',
-          color: 'success'
+          cssClass: 'myClass'
         });
       }
       this.loginForm.reset();
