@@ -45,7 +45,9 @@ export class AppComponent {
           mode:'ios',
           message:"Your app is outdated.Please ask for new app."
         });
-        battingAlert.present();
+        battingAlert.present().then(()=>{
+          navigator['app'].exitApp();
+        })
       }
     });
     if(localStorage.getItem('UserId')!=null){

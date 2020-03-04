@@ -14,6 +14,7 @@ import {Location} from '@angular/common';
 export class HistoryComponent implements OnInit {
   myIndex: String[] = [];
   YantraArray=[];
+  myTxt="";
   constructor(public route: Router,private screenOrientation: ScreenOrientation,private statusBar:StatusBar,private userDb:UserDbService,private MyPipe:MyPipePipe,private _location: Location) {
     this.loadData();
     this.YantraArray["1"]="Shree";
@@ -65,6 +66,7 @@ export class HistoryComponent implements OnInit {
     this.userDb.getPurchasedHistory(localStorage.getItem("UserId")).subscribe(async (data:PurchasedHistory[])=>{
       this.histories=data;
     },(e)=>{},()=>{
+      this.myTxt="There is no data available.";
     });
   }
   doRefresh(event:any){

@@ -10,7 +10,7 @@
     <ion-icon name="exit"></ion-icon>Exit
   </ion-button>
   <div *ngIf="histories.length===0" style="color: #ff0000;">
-    <h3>There is no data available.</h3>
+    <h3>{{myTxt}}</h3>
   </div>
   <ion-card *ngFor="let item of histories" style="background-color: white;color: black;">
     <ion-card-content>

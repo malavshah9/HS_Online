@@ -7,8 +7,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ProgramDbService {
 
-  private programUlr: string = "http://honestonline.in/api/index.php/program";
-  private doubleJackpotUrl: string = 'http://honestonline.in/api/index.php/doublejackpot';
+  private programUlr: string = "https://api.honestonline.in/index.php/program";
+  private doubleJackpotUrl: string = 'https://api.honestonline.in/index.php/doublejackpot';
 
   constructor(private http: HttpClient) { }
 

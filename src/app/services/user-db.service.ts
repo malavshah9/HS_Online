@@ -8,14 +8,14 @@ import { Password } from '../shared/Password_class';
   providedIn: 'root'
 })
 export class UserDbService {
-  private urllogin: string = "http://honestonline.in/api/index.php/login";
-  private urlHistory: string = "http://honestonline.in/api/index.php/history";
-  private urlBalance: string = "http://honestonline.in/api/index.php/balance/";
-  private urlChangePass: string = "http://honestonline.in/api/index.php/user/";
-  private urlPurchasedHistory:string="http://honestonline.in/api/index.php/user/";
-  private urlCheckBalance:string="http://honestonline.in/api/index.php/winbalance/";
-  private urlTakeBalance:string="http://honestonline.in/api/index.php/takebalance/";
-  private urlVersion:string="http://honestonline.in/api/index.php/version";
+  private urllogin: string = "https://api.honestonline.in/index.php/login";
+  private urlHistory: string = "https://api.honestonline.in/index.php/history";
+  private urlBalance: string = "https://api.honestonline.in/index.php/balance/";
+  private urlChangePass: string = "https://api.honestonline.in/index.php/user/";
+  private urlPurchasedHistory:string="https://api.honestonline.in/index.php/user/";
+  private urlCheckBalance:string="https://api.honestonline.in/index.php/winbalance/";
+  private urlTakeBalance:string="https://api.honestonline.in/index.php/takebalance/";
+  private urlVersion:string="https://api.honestonline.in/index.php/version";
   constructor(private httpClient: HttpClient) { }
   getVersion(){
     return this.httpClient.get(this.urlVersion,{

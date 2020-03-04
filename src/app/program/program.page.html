@@ -159,7 +159,8 @@
       style="list-style-type: none;border-bottom: 1px dashed black; font-size: small; font-weight: bold;"
     >
       {{item.DrawTime | myPipe }} &nbsp; {{item.YantraName}}
-      <ng-container *ngIf="item.DrawType==='Jackpot' || item.DrawType==='3Jackpot'">{{item.DrawType}}</ng-container>
+      <ng-container *ngIf="item.DrawType==='Jackpot'"><ion-label style="color: #ff0000 !important;">2x Jackpot</ion-label></ng-container>
+      <ng-container *ngIf="item.DrawType==='3Jackpot'"><ion-label style="color: #ff0000 !important;">3x Jackpot</ion-label></ng-container>
     </li>
     <ion-button shape="round" class="special-my-button1" expand="full" (click)="viewAll()"
     >View All
